@@ -66,9 +66,9 @@ spec:
               key: PING_IDENTITY_DEVOPS_USER
               name: devops
         - name: SERVER_PROFILE_PATH
-          value: Customer360/pingdatasync
+          value: pingdatasync
         - name: SERVER_PROFILE_URL
-          value: https://github.com/pingidentity/pingidentity-solution-stacks.git
+          value: https://github.com/pingidentity/Customer360.git
         - name: USER_BASE_DN
           valueFrom:
             configMapKeyRef:
