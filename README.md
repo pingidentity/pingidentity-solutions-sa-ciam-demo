@@ -82,14 +82,16 @@ To enabled LDAPS, follow these steps:
 ## Solution Configuration
 
 ### Administrator Consoles
-* PingFederate -- https://{{PF_HOSTNAME}}:9999/pingfederate
-* PingDirectory -- https://{{PD_HOSTNAME}}:8443/console
-* PingID SDK -- https://admin.pingone.com
+| Product | Console URL |
+| ----- | ----- |
+| PingFederate | https://{{PF_HOSTNAME}}:9999/pingfederate |
+| PingDirectory | https://{{PD_HOSTNAME}}:8443/console |
+| PingID | https://admin.pingone.com |
 
 ### PingFederate
 ---
 To access the Admin UI for PF go to:  
-https://{{PF_HOSTNAME}}:9999/pingfederate
+`https://{{PF_HOSTNAME}}:9999/pingfederate`
 
 Credentials (LDAP):  
 `Administrator` / `2FederateM0re`
@@ -100,6 +102,14 @@ This configuration includes:
 * HTML Form with LIP
 * Identifier-First (Passwordless)
 * PingID SDK
+
+**Social Logon**
+* Apple (not configured)
+* Facebook (not configured)
+* Google (not configured)
+* LinkedIn (not configured)
+
+**Risk \ ID Proofing**
 * iOvation IK (not configured)
 * ID Data Web IK (not configured)
 
