@@ -29,11 +29,15 @@ https://documenter.getpostman.com/view/1239082/SzRw2Axv
 | `pdAdminUrl` | PingDir Administration URL | https://pingdirectory:443 |
 | `pfAdmin` | PingFed API Admin Account | api-admin |
 | `pfAdminPwd` | PingFed API Admin Password| {{globalPwd}} |
-| `pdAdmin` | PingFed Admin Account | cn=dmanager |
+| `pdAdmin` | PingDir Admin Account | cn=administrator |
 | `pdAdminPwd` | PingDir Admin Password| {{globalPwd}} |
 | `oauthSecret` | PingLogon Client Secret | {{globalPwd}} |
 | `pfAuthnApiUrl` | PF AuthN App URL | {{pfBaseURL}}/pf-ws/authn/explorer |
 | `globalPwd` | Global Password | 2FederateM0re |
+| `googleAppId` | Google Adapter | YourGoogleAppID |
+| `googleAppSecret` | Google Adapter | YourGoogleAppSecret |
+| `fbAppId` | Facebook Adapter | YourFacebookAppID |
+| `fbAppSecret` | Facebook Adapter | YourFacebookAppSecret |
 
 **Compose - `postman_vars.json`** or **K8s - `pingconfig-cm0-configmap.yaml`**
 | Variable | Description | Customer Values |
@@ -129,7 +133,7 @@ The PingID SDK Connector is also configured to automatically enroll any User wit
 
 ### AuthN Policy - Default AuthN Experiences
 Extended Property Selector
-* `Basic` (HTML Form with LIP)
+* `Basic` (HTML Form with LIP & Social [`Google` | `Facebook`] & QR Code [PID SDK Mobile App])
 * `MFA` (HTML Form with LIP --> PingID SDK)
 * `Passwordless` (ID-First --> PingID SDK)
 
@@ -139,7 +143,7 @@ Extended Property Selector
 
 ### AuthN Policy - Failback
 Used for anything without an Ext Prop -- i.e. LIP Profile Management
-* HTML Form with LIP
+* HTML Form with LIP & Social [`Google` | `Facebook`] & QR Code [PID SDK Mobile App]
 
 ### AuthN Policy - Forgot Password
 Used to allow PID SDK for SSPR
@@ -148,7 +152,7 @@ Used to allow PID SDK for SSPR
 The Authentication Experience is controlled by setting the `Extended Properties` on the Application.   
 
 ### Extended Properties
-* `Enhanced` (HTML Form with LIP --  Facebook [not configured] & QR Code buttons) *default*
+* `Basic` (HTML Form with LIP & Social [`Google` | `Facebook`] & QR Code [PID SDK Mobile App]) *default*
 * `MFA` (HTML Form with LIP --> PingID SDK adapter)
 * `Passwordless` (ID-First --> PingID SDK)
 
