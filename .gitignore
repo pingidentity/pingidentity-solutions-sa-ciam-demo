@@ -1,2 +1,3 @@
 
 .DS_Store
+deployment/Kubernetes/devops-secret-secret.yaml

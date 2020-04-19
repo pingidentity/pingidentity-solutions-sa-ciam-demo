@@ -88,6 +88,7 @@ To enabled LDAPS, follow these steps:
 ### Administrator Consoles
 | Product | Console URL |
 | ----- | ----- |
+| PingCentral | https://{{PC_HOSTNAME}}:9022
 | PingFederate | https://{{PF_HOSTNAME}}:9999/pingfederate |
 | PingDirectory | https://{{PD_HOSTNAME}}:8443/console |
 | PingID | https://admin.pingone.com |
@@ -103,14 +104,15 @@ Credentials (LDAP):
 This configuration includes:
 
 ### Adapters
+* HTML Form
 * HTML Form with LIP
 * Identifier-First (Passwordless)
 * PingID SDK
 
 **Social Logon**
 * Apple (not configured)
-* Facebook (not configured)
-* Google (not configured)
+* Facebook (can be configured in Environment)
+* Google (can be configured in Environment)
 * LinkedIn (not configured)
 
 **Risk \ ID Proofing**
@@ -136,6 +138,7 @@ Extended Property Selector
 * `Basic` (HTML Form with LIP & Social [`Google` | `Facebook`] & QR Code [PID SDK Mobile App])
 * `MFA` (HTML Form with LIP --> PingID SDK)
 * `Passwordless` (ID-First --> PingID SDK)
+* `Internal` (HTML Form)
 
 ### AuthN Policy - Default AuthN API
 Extended Property Selector
@@ -155,6 +158,7 @@ The Authentication Experience is controlled by setting the `Extended Properties`
 * `Basic` (HTML Form with LIP & Social [`Google` | `Facebook`] & QR Code [PID SDK Mobile App]) *default*
 * `MFA` (HTML Form with LIP --> PingID SDK adapter)
 * `Passwordless` (ID-First --> PingID SDK)
+* `Internal` (HTML Form)
 
 ### Authentication API
 The AuthN API is enabled -- a value in the Extended Property of `API` will trigger it.
@@ -184,6 +188,25 @@ https://`${PF_BASE_URL}`/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 
 ### Users
 `user.[0-4]` / `2FederateM0re`
+
+---
+### PingCentral
+To access the Admin Console for PC go to:  
+https://{{PC_HOSTNAME}}:9022
+
+User Credentials:
+* `Administrator` / `2FederateM0re`
+* `appowner.0` / `2FederateM0re`
+* `appowner.1` / `2FederateM0re`
+
+Access to PingCentral is controlled on the `employeeType` of the PS User - it's pulled with the OIDC Policy used by the PingCentral OIDC client.
+
+PingCentral is not wired to any environment to begin with - but it will pull in the apps that are wired up in Customer360:
+
+PingFed Environment:
+`PingFederate Admin`: `pingfederate:9999`
+`PingFederate Admin Username`: `api-admin`
+`PingFederate Admin Password`: `2FederateM0re`
 
 ---
 ### PingDirectory

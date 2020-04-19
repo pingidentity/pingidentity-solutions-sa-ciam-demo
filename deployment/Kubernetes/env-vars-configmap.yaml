@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  PF_LOG_LEVEL: DEBUG
+  PF_USER_PWD: 2FederateM0re
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  USER_BASE_DN: dc=customer360.com
+  MYSQL_PASSWORD: 2Federate
+  MYSQL_ROOT_PASSWORD: 2Federate
+  MYSQL_USER: root
+  PF_ISSUER: https://pingfed.ping-demos.com
+  PF_USER_PWD: 2FederateM0re
+  PING_CENTRAL_BLIND_TRUST: "true"
+  PING_CENTRAL_CLIENT_ID: PingCentral
+  PING_CENTRAL_CLIENT_SECRET: 2FederateM0re
+  PING_CENTRAL_OIDC_ENABLED: "true"
+  PING_CENTRAL_VERIFY_HOSTNAME: "false"
+  PING_CENTRAL_LOG_LEVEL: DEBUG
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: env-vars
+  name: env-vars
