@@ -46,6 +46,11 @@ The API Collections used to configure the solution components contain a set of d
 | `pdAdminPwd` | PingDir Admin Password| {{globalPwd}} |
 | `pfAuthnApiUrl` | PF AuthN App URL | {{pfBaseURL}}/pf-ws/authn/explorer |
 | `globalPwd` | Common Password | 2FederateM0re |
+| `googleAppID` | Used in PF Google CIC | {{YourGoogleAppID}} |
+| `googleAppSecret` | Used in PF Google CIC | {{YourGoogleAppSecret}} |
+| `fbAppID` | Used in PF Facebook CIC | {{YourFBAppID}} |
+| `fbAppSecret` | Used in PF Facebook CIC | {{YourFBAppSecret}} |
+| `pingCentralHost` | Used for PF OAuthAS CORS | {{Your PingCentral Host}} |
 
 Any of the above variables can be overwritten by placing them in the appropriate deployment file below.
 
