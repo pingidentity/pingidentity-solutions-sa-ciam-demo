@@ -46,11 +46,11 @@ The API Collections used to configure the solution components contain a set of d
 | `pdAdminPwd` | PingDir Admin Password| {{globalPwd}} |
 | `pfAuthnApiUrl` | PF AuthN App URL | {{pfBaseURL}}/pf-ws/authn/explorer |
 | `globalPwd` | Common Password | 2FederateM0re |
-| `googleAppID` | Used in PF Google CIC | {{YourGoogleAppID}} |
-| `googleAppSecret` | Used in PF Google CIC | {{YourGoogleAppSecret}} |
-| `fbAppID` | Used in PF Facebook CIC | {{YourFBAppID}} |
-| `fbAppSecret` | Used in PF Facebook CIC | {{YourFBAppSecret}} |
-| `pingCentralHost` | Used for PF OAuthAS CORS | {{Your PingCentral Host}} |
+| `googleAppID` | Used in PF Google CIC | YourGoogleAppID |
+| `googleAppSecret` | Used in PF Google CIC | YourGoogleAppSecret |
+| `fbAppID` | Used in PF Facebook CIC | YourFBAppID |
+| `fbAppSecret` | Used in PF Facebook CIC | YourFBAppSecret |
+| `pingCentralHost` | Used for PF OAuthAS CORS | https://pingcentral:9022 |
 
 Any of the above variables can be overwritten by placing them in the appropriate deployment file below.
 
@@ -58,6 +58,6 @@ Any of the above variables can be overwritten by placing them in the appropriate
 
 | Variable | Description | Customer Values |
 | -------- | ----------- | ------- |
-| `pfBaseURL` | PingFed Runtime URL | https://{{your PF public FQDN}}:9031 |
+| `pfBaseURL` | PingFed Runtime URL | https://{{Your PF public FQDN}}:9031 |
 | `pingIdSdk` | PingID SDK Properties  | Your SDK Properties file |
 | `sdkAppId` | PID SDK Application ID | Your SDK App ID |
