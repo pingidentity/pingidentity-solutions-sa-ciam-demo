@@ -27,7 +27,7 @@
 
 ### Ingress Controllers
 In order to get access into the Kubernetes services, Ingress Controllers need to be defined.  
-![Kubernetes - Ingress Controllers](https://github.com/cprice-ping/Convert-Compose-to-K8s/PingSolutions-K8s-Deployments.png)
+![Kubernetes - Ingress Controllers](PingSolutions-K8s-Deployments.png)
 
 A standard Ingress Controller is used to grant access to the Ping Admin consoles:
 
