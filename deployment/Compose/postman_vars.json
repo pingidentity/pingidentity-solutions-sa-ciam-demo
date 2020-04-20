@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "pfBaseURL",
-			"value": " https://YourPingFedHost:9031",
+			"value": " https://{{YourPingFedHost}}:9031",
 			"enabled": true
 		},
 		{
@@ -14,6 +14,11 @@
 		},
 		{	"key": "sdkAppId",
 			"value": "YourPIDSDKAppID",
+			"enabled": true
+		},
+		{
+			"key": "pingCentralHost",
+			"value": "https://{{YourPingCentralHost}}",
 			"enabled": true
 		}
 	],

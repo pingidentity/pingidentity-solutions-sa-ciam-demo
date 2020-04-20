@@ -10,3 +10,14 @@ USER_BASE_DN=dc=customer360.com
 # PF Admin Password
 # Note - this should match `pfAdminPwd` in postman_vars.json
 PF_USER_PWD=2FederateM0re
+
+# PingCentral Variables
+PING_CENTRAL_BLIND_TRUST=true
+PING_CENTRAL_VERIFY_HOSTNAME=false
+MYSQL_USER=root
+MYSQL_PASSWORD=2Federate
+MYSQL_ROOT_PASSWORD=2Federate
+PING_CENTRAL_OIDC_ENABLED=true
+PING_CENTRAL_CLIENT_ID=PingCentral
+PING_CENTRAL_CLIENT_SECRET=2FederateM0re
+PF_ISSUER={{Your PF Issuer}}
