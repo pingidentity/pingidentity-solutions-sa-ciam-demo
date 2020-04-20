@@ -1,12 +1,25 @@
+Version 1.2 - 4/20/2020
+=
+* Repo updated to include PingCentral services
+* API Collection updated:
+  * PingFed
+    *  PingCentral OIDC Client \ Policy
+    * HTML Form Adapter
+    * `Internal` AuthN Policy flow - for non-Customer facing AuthN
+    * `PingServices` OAuth Client_Credentials client
+    * Client Credentials Access Token Mapping
+  * PingDir
+    * Users for PingCentral
+
 Version 1.1 - 4/10/2020
 =
-* Server Profile updated to include:
+* PingFed Server Profile updated to include:
   * Google Adapter
   * Facebook Adapter
   * Apple Adapter
   * LinkedIn Adapter
   * Reference Adapter (1.5.1 --> 1.5.4)
-* Collection updated to include:
+* API Collection updated to include:
   * Enabled QR-Code in PID SDK Adapter
   * Added Google Adapter (`googleAppId` \ `googleAppSecret` in Variables)
   * Added FB Adapter (`fbAppID` \ `fbAppSecret` in Variables)
