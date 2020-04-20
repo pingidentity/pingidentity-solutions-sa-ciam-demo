@@ -12,7 +12,7 @@
 
 ### Configuration
 **Modify Environment Variables**
-* Copy the `yaml` files to a folder
+* Copy the `yaml` files to a folder (including the `devops-secret-secret.yaml`)
 * Modify the [env-vars-configmap.yaml](env-vars-configmap.yaml) file to match your environment
 * Modify the [pingconfig-cm0-config.map.yaml](pingconfig-cm0-config.map.yaml) file to match your environment
 
