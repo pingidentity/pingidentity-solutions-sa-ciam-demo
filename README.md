@@ -13,38 +13,14 @@ The Ping **Customer360** Solution provides a CIAM package for PingDirectory \ Pi
 ## Deployment
 This repo contains 2 configuration sets for deployment:
 * [Docker Compose](deployment/Compose)
-* [Kubernetes](deployment/K8s)
+* [Kubernetes](deployment/Kubernetes)
 
 ## Deployment Configuration
 
 The bulk of the configuration is performed by a Postman API Collection:  
 https://documenter.getpostman.com/view/1239082/SzRw2Axv
 
-**Note:** The collection has a set of default variables defined - to override them, place them in the `postman_vars.json` file.
-
-**Collection Defaults**
-| Variable | Description | Default |
-| -------- | ----------- | ------- |
-| `pfAdminURL` | PingFed Administration URL | https://pingfederate:9999 |
-| `pdAdminUrl` | PingDir Administration URL | https://pingdirectory:443 |
-| `pfAdmin` | PingFed API Admin Account | api-admin |
-| `pfAdminPwd` | PingFed API Admin Password| {{globalPwd}} |
-| `pdAdmin` | PingDir Admin Account | cn=administrator |
-| `pdAdminPwd` | PingDir Admin Password| {{globalPwd}} |
-| `oauthSecret` | PingLogon Client Secret | {{globalPwd}} |
-| `pfAuthnApiUrl` | PF AuthN App URL | {{pfBaseURL}}/pf-ws/authn/explorer |
-| `globalPwd` | Global Password | 2FederateM0re |
-| `googleAppId` | Google Adapter | YourGoogleAppID |
-| `googleAppSecret` | Google Adapter | YourGoogleAppSecret |
-| `fbAppId` | Facebook Adapter | YourFacebookAppID |
-| `fbAppSecret` | Facebook Adapter | YourFacebookAppSecret |
-
-**Compose - `postman_vars.json`** or **K8s - `pingconfig-cm0-configmap.yaml`**
-| Variable | Description | Customer Values |
-| -------- | ----------- | ------- |
-| `pfBaseURL` | PingFed Runtime URL | https://{{your PF public FQDN}}:9031 |
-| `pingIdSdk` | PingID SDK Properties  | Your SDK Properties file |
-| `sdkAppId` | PID SDK Application ID | Your SDK App ID |
+[Environment Variables](deployment)
 
 ## Post-Deployment Considerations
 This Solution leverages **unsecured** LDAP between PingFederate and PingDirectory as it launches.  
@@ -204,9 +180,9 @@ Access to PingCentral is controlled on the `employeeType` of the PS User - it's 
 PingCentral is not wired to any environment to begin with - but it will pull in the apps that are wired up in Customer360:
 
 PingFed Environment:
-`PingFederate Admin`: `pingfederate:9999`
-`PingFederate Admin Username`: `api-admin`
-`PingFederate Admin Password`: `2FederateM0re`
+* `PingFederate Admin`: `pingfederate:9999`
+* `PingFederate Admin Username`: `api-admin`
+* `PingFederate Admin Password`: `2FederateM0re`
 
 ---
 ### PingDirectory
