@@ -58,6 +58,6 @@ Any of the above variables can be overwritten by placing them in the appropriate
 
 | Variable | Description | Customer Values |
 | -------- | ----------- | ------- |
-| `pfBaseURL` | PingFed Runtime URL | https://{{Your PF public FQDN}}:9031 |
-| `pingIdSdk` | PingID SDK Properties  | Your SDK Properties file |
-| `sdkAppId` | PID SDK Application ID | Your SDK App ID |
+| `pfBaseURL` | PingFed Runtime URL | *https://{{Your PF public FQDN}}:9031* |
+| `pingIdSdk` | PingID SDK Properties  | *Your SDK Properties file* |
+| `sdkAppId` | PID SDK Application ID | *Your SDK App ID* |
