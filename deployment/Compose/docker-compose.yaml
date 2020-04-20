@@ -1,12 +1,13 @@
-version: "3"
+version: "3.5"
 
 services:
   pingfederate:
     image: pingidentity/pingfederate:latest
-    command: wait-for pingdirectory:389 -t 300 -- entrypoint.sh start-server
+    command: wait-for pingdirectory:389 -t 600 -- entrypoint.sh start-server
     env_file:
-      - ~/.pingidentity/devops
-      - ./env_vars
+      - ./env-vars
+    secrets:
+      - devops-secret
     environment:
     - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
     - SERVER_PROFILE_PATH=pingfederate
@@ -20,8 +21,9 @@ services:
   pingdirectory:
     image: pingidentity/pingdirectory:latest
     env_file:
-      - ~/.pingidentity/devops
-      - ./env_vars
+      - ./env-vars
+    secrets:
+      - devops-secret
     environment:
     - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
     - SERVER_PROFILE_PATH=pingdirectory
@@ -31,7 +33,6 @@ services:
     ports:
       - 389:389
       - 1636:636
-      - 1443:443
       - 2443:2443
 
   pingdatasync:
@@ -40,8 +41,9 @@ services:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
       - SERVER_PROFILE_PATH=pingdatasync
     env_file:
-      - ~/.pingidentity/devops
-      - ./env_vars
+      - ./env-vars   
+    secrets:
+      - devops-secret
     #volumes:
     #   - ${HOME}/projects/devops/volumes/simple-sync.pingdatasync:/opt/out
     ulimits:
@@ -68,17 +70,18 @@ services:
       - COLLECTIONS=https://www.getpostman.com/collections/344bbc13f4ccd4ebc5f5
     volumes: 
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
-      - ./postman_vars.json:/usr/src/app/postman_vars.json
+      - ./postman_vars.json:/usr/src/app/postman_vars.json  
 
   pingcentral:
     image: pingidentity/pingcentral:latest
     command: wait-for pingfederate:9031 -t 7200 -- entrypoint.sh start-server
     environment:
-      - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
-      - SERVER_PROFILE_PATH=pingcentral/external-mysql-db
+      - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-solution-stacks.git
+      - SERVER_PROFILE_PATH=Workforce360/pingcentral/external-mysql-db
     env_file:
-      - ~/.pingidentity/devops
-      - ./env_vars
+      - ./env-vars
+    secrets:
+      - devops-secret
     ports:
       - "9022:9022"
     depends_on:
@@ -91,3 +94,7 @@ services:
       MYSQL_ROOT_PASSWORD: 2Federate
     ports:
       - "3306:3306"
+
+secrets:
+  devops-secret:
+    file: ${HOME}/.pingidentity/devops
