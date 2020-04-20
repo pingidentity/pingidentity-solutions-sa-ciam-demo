@@ -1,4 +1,6 @@
-This solution is designed to be deployed in either [Docker Compose](deployment/Compose) or [Kubenetes](deployment/Kubernetes).
+This solution is designed to be deployed in either:
+* [Docker Compose](./Compose)
+* [Kubenetes](./Kubernetes).
 
 ### Configuration Variables
 The API Collections used to configure the solution components contain a set of defaults - these can be overwritten byt using any appropriate environment file:
