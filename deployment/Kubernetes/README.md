@@ -29,6 +29,8 @@
 In order to get access into the Kubernetes services, Ingress Controllers need to be defined.  
 ![Kubernetes - Ingress Controllers](PingSolutions-K8s-Deployments.png)
 
+**Note:** You will need to edit the Ingress `yaml` files to reflect your Namespace \ DNS records
+
 A standard Ingress Controller is used to grant access to the Ping Admin consoles:
 
 | Ping Product | Admin Console URL |
