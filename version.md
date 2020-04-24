@@ -1,3 +1,14 @@
+Version 1.3 - 4/24/2020
+=
+* Repo Additions:
+  * Added GitHub Connector
+  * Added PingOne for Customer IK
+  * Added OAuth Playground v4.2
+
+* API Collection updated:
+  * Account Registration pre-populates with Social data (FB or Google)
+
+
 Version 1.2 - 4/20/2020
 =
 * Repo updated to include PingCentral services
