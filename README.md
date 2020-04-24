@@ -165,6 +165,17 @@ https://`${PF_BASE_URL}`/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 ### Users
 `user.[0-4]` / `2FederateM0re`
 
+### OAuth Playground
+The PingFed OAuth Playground is also deployed in the Solution - it can be started with this URL:  
+https://{{PF_HOSTNAME}}:9031/OAuthPlayground
+
+To configure PingFed with the necessary components, use the `Setup` button:
+
+* Admin Host: `{{PF_HOSTNAME}}:9999`
+* Cert Errors: `Ignore`
+* Admin User: `api-admin`
+* Admin Pwd: `2FederateM0re`
+
 ---
 ### PingCentral
 To access the Admin Console for PC go to:  
