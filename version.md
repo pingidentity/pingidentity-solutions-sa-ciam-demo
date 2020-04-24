@@ -7,6 +7,7 @@ Version 1.3 - 4/24/2020
 
 * API Collection updated:
   * Account Registration pre-populates with Social data (FB or Google)
+  * `payload` added to Tracked HTTP Parameters (for PingID SDK Mobile Apps)
 
 
 Version 1.2 - 4/20/2020
