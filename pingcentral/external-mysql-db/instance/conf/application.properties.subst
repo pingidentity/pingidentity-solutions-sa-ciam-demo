@@ -52,4 +52,4 @@ pingcentral.sso.oidc.role-claim-value-app-owner=Application-Owner
 pingcentral.sso.oidc.oauth-username-claim-name=sub
 
 logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
-# logging.level.org.springframework.security=${PING_CENTRAL_LOG_LEVEL}
+logging.level.org.springframework.security=${PING_CENTRAL_LOG_LEVEL}
