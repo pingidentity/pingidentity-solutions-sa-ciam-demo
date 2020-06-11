@@ -6230,6 +6230,7 @@
                       "const $ = cheerio.load(responseBody);",
                       "",
                       "pm.test(\"SAML Assertion created: \\n\", function () {",
+                      "    pm.response.to.be.ok;",
                       "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty;",
                       "    console.log(\"SAML Assertion was created\", atob($(\"input[name='SAMLResponse']\").val()));",
                       "});"
@@ -7398,103 +7399,103 @@
   ],
   "variable": [
     {
-      "id": "d1639309-a836-4856-8425-0a3963d554c0",
+      "id": "2abef467-b962-41a6-852b-dbffba3f4fe1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "22da30ce-bdfd-4eaa-9c55-028c6593860e",
+      "id": "c39992c9-e5c2-4264-800d-a5736958255b",
       "key": "pdAdminUrl",
       "value": "https://pingdirectory:443",
       "type": "string"
     },
     {
-      "id": "2594e952-3929-4ccf-904e-71911a0379f9",
+      "id": "3bbcb320-50f0-4797-8061-aa0b4561117f",
       "key": "pdsAdminURL",
       "value": "https://pingdatasync:443",
       "type": "string"
     },
     {
-      "id": "a7ffe2a4-c278-4635-8646-9dcef3ef7094",
+      "id": "8dd877b1-ac39-4c10-b236-69060c0af04c",
       "key": "pfAdmin",
       "value": "api-admin",
       "type": "string"
     },
     {
-      "id": "adcfdffc-81be-495b-a522-29490a115af7",
+      "id": "b2c18d94-f899-4067-9e43-9768f92c8553",
       "key": "pfAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "5c51ac45-2e45-49dc-88e3-d5fec9928ef5",
+      "id": "efbef39f-3fa4-4ef0-be16-234115b760a0",
       "key": "pdAdmin",
       "value": "cn=dmanager",
       "type": "string"
     },
     {
-      "id": "fbf7d9e4-75d8-4669-8bc1-36892ef5b1fd",
+      "id": "f675c18a-80f8-4bfd-9739-1de58f14297f",
       "key": "pdAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "999321cd-cd18-4d5d-add0-e3988db81e8d",
+      "id": "86d24d3a-cb0d-4223-8f9d-8a81cf227d9f",
       "key": "oauthSecret",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "ec160b34-7b97-48d1-a7ba-3dbf64f2b138",
+      "id": "fb623a5c-52f0-4104-9925-056ec7b24396",
       "key": "pfAuthnApiUrl",
       "value": "{{pfBaseURL}}/pf-ws/authn/explorer",
       "type": "string"
     },
     {
-      "id": "a073efd4-a31f-427e-a339-a73052a35081",
+      "id": "173ce6e0-688c-45c9-9f95-5e7e427a34ec",
       "key": "globalPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "726c2c17-0a05-47c2-8dc6-77925296c300",
+      "id": "a775a2cd-128b-4a5a-abff-e2dca1e74c78",
       "key": "googleAppID",
       "value": "YourGoogleAppID",
       "type": "string"
     },
     {
-      "id": "8e4124e6-587a-4e62-b772-93158e0811e1",
+      "id": "d206d103-f325-4f3e-ab8e-9712eab98615",
       "key": "googleAppSecret",
       "value": "YourGoogleAppSecret",
       "type": "string"
     },
     {
-      "id": "fbf165d7-2f7c-4909-8f33-3a9543120a7b",
+      "id": "9ce36d05-82f2-4a66-b954-2410a0a464d8",
       "key": "fbAppId",
       "value": "YourFBAppID",
       "type": "string"
     },
     {
-      "id": "14347d21-7f55-492d-9bbf-f2da8fa346ef",
+      "id": "b2c32a34-3a23-4ab3-94f2-249eb370cd99",
       "key": "fbAppSecret",
       "value": "YourFBAppSecret",
       "type": "string"
     },
     {
-      "id": "66f11c81-d118-4a1a-844d-03a975bf35cd",
+      "id": "c8337a43-5745-43d8-9dfe-8c681dc4ad49",
       "key": "pingCentralHost",
       "value": "https://pingcentral:9022",
       "type": "string"
     },
     {
-      "id": "330f18ea-3bc5-420c-abac-12da135e7811",
+      "id": "ff889caf-0406-4725-a894-f854675ef17d",
       "key": "pdsAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "0e03444a-87dc-4049-98b5-418f3d4a38ca",
+      "id": "efc487de-33aa-451f-a8bb-fba3ccc42e31",
       "key": "pdsAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
