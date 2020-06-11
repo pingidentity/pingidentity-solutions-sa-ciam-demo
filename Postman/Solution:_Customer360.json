@@ -6857,7 +6857,7 @@
                       "var asSettings = pm.environment.get(\"asSettings\");",
                       "var pingCentralHost = pm.environment.get(\"pingCentralHost\");",
                       "",
-                      "asSettings.allowedOrigins.push(\"http://\"+pingCentralHost);",
+                      "//asSettings.allowedOrigins.push(\"http://\"+pingCentralHost);",
                       "asSettings.allowedOrigins.push(\"https://\"+pingCentralHost);",
                       "",
                       "pm.environment.set(\"asSettings\",JSON.stringify(asSettings));"
@@ -7398,103 +7398,103 @@
   ],
   "variable": [
     {
-      "id": "d157e3fc-5c47-4f8e-a9df-b5016bef45ed",
+      "id": "d1639309-a836-4856-8425-0a3963d554c0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "c7ec78a6-f49f-45ec-862f-2fd2e8ea188e",
+      "id": "22da30ce-bdfd-4eaa-9c55-028c6593860e",
       "key": "pdAdminUrl",
       "value": "https://pingdirectory:443",
       "type": "string"
     },
     {
-      "id": "a0fea3a7-f1a4-4f1b-a362-c6d5560b82aa",
+      "id": "2594e952-3929-4ccf-904e-71911a0379f9",
       "key": "pdsAdminURL",
       "value": "https://pingdatasync:443",
       "type": "string"
     },
     {
-      "id": "00b5bc06-1911-424c-a738-eff92b2e6b11",
+      "id": "a7ffe2a4-c278-4635-8646-9dcef3ef7094",
       "key": "pfAdmin",
       "value": "api-admin",
       "type": "string"
     },
     {
-      "id": "bb205660-0857-4796-9584-81b1665e30e1",
+      "id": "adcfdffc-81be-495b-a522-29490a115af7",
       "key": "pfAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "7515ed26-6d84-46c7-af9a-33e37ae68aee",
+      "id": "5c51ac45-2e45-49dc-88e3-d5fec9928ef5",
       "key": "pdAdmin",
       "value": "cn=dmanager",
       "type": "string"
     },
     {
-      "id": "27dbbb97-56d5-41cb-80f8-0974435493cf",
+      "id": "fbf7d9e4-75d8-4669-8bc1-36892ef5b1fd",
       "key": "pdAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "faeaa2f1-b39e-46ce-9c03-d41182a71227",
+      "id": "999321cd-cd18-4d5d-add0-e3988db81e8d",
       "key": "oauthSecret",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "95af0de9-5c1e-4cbe-a536-473c387cd53d",
+      "id": "ec160b34-7b97-48d1-a7ba-3dbf64f2b138",
       "key": "pfAuthnApiUrl",
       "value": "{{pfBaseURL}}/pf-ws/authn/explorer",
       "type": "string"
     },
     {
-      "id": "e46418ee-3be7-495c-ae21-845bdae8ed55",
+      "id": "a073efd4-a31f-427e-a339-a73052a35081",
       "key": "globalPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "e74bd8a0-1837-40d7-972c-28ce609e7b4a",
+      "id": "726c2c17-0a05-47c2-8dc6-77925296c300",
       "key": "googleAppID",
       "value": "YourGoogleAppID",
       "type": "string"
     },
     {
-      "id": "84d93436-ebe1-4a4e-bb9b-39f6894cfff5",
+      "id": "8e4124e6-587a-4e62-b772-93158e0811e1",
       "key": "googleAppSecret",
       "value": "YourGoogleAppSecret",
       "type": "string"
     },
     {
-      "id": "f472b8fb-1413-4851-a0ea-9f02525a0584",
+      "id": "fbf165d7-2f7c-4909-8f33-3a9543120a7b",
       "key": "fbAppId",
       "value": "YourFBAppID",
       "type": "string"
     },
     {
-      "id": "6c3e6adc-e742-4a99-95dd-6b7c4319218b",
+      "id": "14347d21-7f55-492d-9bbf-f2da8fa346ef",
       "key": "fbAppSecret",
       "value": "YourFBAppSecret",
       "type": "string"
     },
     {
-      "id": "796c4b84-b0b4-4e09-b2c4-47a45a78541c",
+      "id": "66f11c81-d118-4a1a-844d-03a975bf35cd",
       "key": "pingCentralHost",
       "value": "https://pingcentral:9022",
       "type": "string"
     },
     {
-      "id": "c8752a41-5f47-46ce-9ca7-81ab0b3b65cd",
+      "id": "330f18ea-3bc5-420c-abac-12da135e7811",
       "key": "pdsAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "0a6c5f12-216c-47ea-93f4-abe9179defe2",
+      "id": "0e03444a-87dc-4049-98b5-418f3d4a38ca",
       "key": "pdsAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
