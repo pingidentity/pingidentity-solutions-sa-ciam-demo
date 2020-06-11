@@ -7399,103 +7399,103 @@
   ],
   "variable": [
     {
-      "id": "2abef467-b962-41a6-852b-dbffba3f4fe1",
+      "id": "54dac890-66de-4281-b2a7-922751dea93a",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "c39992c9-e5c2-4264-800d-a5736958255b",
+      "id": "16b0affb-fde0-4ae1-a954-e3738668c451",
       "key": "pdAdminUrl",
       "value": "https://pingdirectory:443",
       "type": "string"
     },
     {
-      "id": "3bbcb320-50f0-4797-8061-aa0b4561117f",
+      "id": "823682c0-309c-48ba-856b-181bf01f8adc",
       "key": "pdsAdminURL",
       "value": "https://pingdatasync:443",
       "type": "string"
     },
     {
-      "id": "8dd877b1-ac39-4c10-b236-69060c0af04c",
+      "id": "d07c4623-6ce2-45f3-98f4-2c83bf4cc0e3",
       "key": "pfAdmin",
       "value": "api-admin",
       "type": "string"
     },
     {
-      "id": "b2c18d94-f899-4067-9e43-9768f92c8553",
+      "id": "5403873c-56b5-492e-a303-83b31ed543c8",
       "key": "pfAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "efbef39f-3fa4-4ef0-be16-234115b760a0",
+      "id": "f133b092-e6f1-4a7d-8bc3-ce24a4c662ea",
       "key": "pdAdmin",
       "value": "cn=dmanager",
       "type": "string"
     },
     {
-      "id": "f675c18a-80f8-4bfd-9739-1de58f14297f",
+      "id": "041e272d-22dc-43eb-bfb3-4733e8ee253c",
       "key": "pdAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "86d24d3a-cb0d-4223-8f9d-8a81cf227d9f",
+      "id": "8af32e31-e000-475f-96f0-a49f1483a996",
       "key": "oauthSecret",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "fb623a5c-52f0-4104-9925-056ec7b24396",
+      "id": "935a2b18-feb2-41f0-b9db-5618da09f929",
       "key": "pfAuthnApiUrl",
       "value": "{{pfBaseURL}}/pf-ws/authn/explorer",
       "type": "string"
     },
     {
-      "id": "173ce6e0-688c-45c9-9f95-5e7e427a34ec",
+      "id": "440cb20f-0947-4567-b7f5-bb7fa11e2d25",
       "key": "globalPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "a775a2cd-128b-4a5a-abff-e2dca1e74c78",
+      "id": "eff538e0-2148-4e0e-951a-2867269b8507",
       "key": "googleAppID",
       "value": "YourGoogleAppID",
       "type": "string"
     },
     {
-      "id": "d206d103-f325-4f3e-ab8e-9712eab98615",
+      "id": "548e7bfc-0497-4369-9ca3-1e70351bc293",
       "key": "googleAppSecret",
       "value": "YourGoogleAppSecret",
       "type": "string"
     },
     {
-      "id": "9ce36d05-82f2-4a66-b954-2410a0a464d8",
+      "id": "07221a27-af2c-4e27-82ad-f1814e5a4da1",
       "key": "fbAppId",
       "value": "YourFBAppID",
       "type": "string"
     },
     {
-      "id": "b2c32a34-3a23-4ab3-94f2-249eb370cd99",
+      "id": "d8308fbd-c969-42d6-9535-0ebbaa92e3b6",
       "key": "fbAppSecret",
       "value": "YourFBAppSecret",
       "type": "string"
     },
     {
-      "id": "c8337a43-5745-43d8-9dfe-8c681dc4ad49",
+      "id": "fd98868a-0a73-45a7-b033-ec8c6a231bc3",
       "key": "pingCentralHost",
       "value": "https://pingcentral:9022",
       "type": "string"
     },
     {
-      "id": "ff889caf-0406-4725-a894-f854675ef17d",
+      "id": "83567a32-e9a7-40f4-8f0a-d96d78d3dafa",
       "key": "pdsAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "efc487de-33aa-451f-a8bb-fba3ccc42e31",
+      "id": "1edc7831-e0e3-41dd-95d6-0d5b9c35dd2c",
       "key": "pdsAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
