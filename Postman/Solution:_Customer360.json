@@ -2953,7 +2953,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pfBaseURL}}\",\n    \"saml2EntityId\": \"{{pfBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pfBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pfBaseURL}}\",\n    \"saml1xSourceId\": \"{{pfBaseURL}}\",\n    \"wsfedRealm\": \"{{pfBaseURL}}\"\n  }\n}",
+                      "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pfBaseURL}}\",\n    \"saml2EntityId\": \"{{pfBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pfBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pfBaseURL}}\",\n    \"wsfedRealm\": \"{{pfBaseURL}}\"\n  }\n}",
                       "options": {
                         "raw": {}
                       }
@@ -7398,103 +7398,103 @@
   ],
   "variable": [
     {
-      "id": "362d73ff-cc28-4a33-adfd-15e5c45edba8",
+      "id": "d157e3fc-5c47-4f8e-a9df-b5016bef45ed",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "4645e995-76d3-4b40-9db8-6d9ec698ffd1",
+      "id": "c7ec78a6-f49f-45ec-862f-2fd2e8ea188e",
       "key": "pdAdminUrl",
       "value": "https://pingdirectory:443",
       "type": "string"
     },
     {
-      "id": "82b47a00-a3fb-44f2-a46a-e2b3d1a511bd",
+      "id": "a0fea3a7-f1a4-4f1b-a362-c6d5560b82aa",
       "key": "pdsAdminURL",
       "value": "https://pingdatasync:443",
       "type": "string"
     },
     {
-      "id": "0a3bc56a-a2f8-40ce-b168-940be196d3f5",
+      "id": "00b5bc06-1911-424c-a738-eff92b2e6b11",
       "key": "pfAdmin",
       "value": "api-admin",
       "type": "string"
     },
     {
-      "id": "c63d1666-cc2d-4e12-addb-4352b39f6326",
+      "id": "bb205660-0857-4796-9584-81b1665e30e1",
       "key": "pfAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "249ab848-4ea7-495b-b936-9cf2691399b4",
+      "id": "7515ed26-6d84-46c7-af9a-33e37ae68aee",
       "key": "pdAdmin",
       "value": "cn=dmanager",
       "type": "string"
     },
     {
-      "id": "6e21a626-3547-472d-83f4-deca9ee29aa4",
+      "id": "27dbbb97-56d5-41cb-80f8-0974435493cf",
       "key": "pdAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "54097634-4a08-41d4-b3ab-68d6dfb56328",
+      "id": "faeaa2f1-b39e-46ce-9c03-d41182a71227",
       "key": "oauthSecret",
       "value": "{{globalPwd}}",
       "type": "string"
     },
     {
-      "id": "8a763fc0-27fb-4978-997a-e9e325f60ab8",
+      "id": "95af0de9-5c1e-4cbe-a536-473c387cd53d",
       "key": "pfAuthnApiUrl",
       "value": "{{pfBaseURL}}/pf-ws/authn/explorer",
       "type": "string"
     },
     {
-      "id": "5a7a0d32-0f2f-4f9a-a735-4fbdeb513ba8",
+      "id": "e46418ee-3be7-495c-ae21-845bdae8ed55",
       "key": "globalPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "f44366f6-0c01-4f64-89e9-e36d63569f78",
+      "id": "e74bd8a0-1837-40d7-972c-28ce609e7b4a",
       "key": "googleAppID",
       "value": "YourGoogleAppID",
       "type": "string"
     },
     {
-      "id": "5f66c9c3-070a-4c27-937c-d985913b759d",
+      "id": "84d93436-ebe1-4a4e-bb9b-39f6894cfff5",
       "key": "googleAppSecret",
       "value": "YourGoogleAppSecret",
       "type": "string"
     },
     {
-      "id": "6edf6490-85f6-4289-97d3-813ef2273c07",
+      "id": "f472b8fb-1413-4851-a0ea-9f02525a0584",
       "key": "fbAppId",
       "value": "YourFBAppID",
       "type": "string"
     },
     {
-      "id": "c0aab08f-9de1-4b26-befd-a11efb1d084b",
+      "id": "6c3e6adc-e742-4a99-95dd-6b7c4319218b",
       "key": "fbAppSecret",
       "value": "YourFBAppSecret",
       "type": "string"
     },
     {
-      "id": "87591c9b-c05e-4a20-b98d-1d6dfda80fe8",
+      "id": "796c4b84-b0b4-4e09-b2c4-47a45a78541c",
       "key": "pingCentralHost",
       "value": "https://pingcentral:9022",
       "type": "string"
     },
     {
-      "id": "1bbcc26a-22b7-4854-b685-87668f11b33d",
+      "id": "c8752a41-5f47-46ce-9ca7-81ab0b3b65cd",
       "key": "pdsAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "f4c9cce0-1df2-462c-a816-3532799de0f7",
+      "id": "0a6c5f12-216c-47ea-93f4-abe9179defe2",
       "key": "pdsAdminPwd",
       "value": "{{globalPwd}}",
       "type": "string"
