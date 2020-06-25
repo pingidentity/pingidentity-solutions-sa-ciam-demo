@@ -7,6 +7,7 @@ Version 2.0 -
 
 * Repo Changes
   * OIDC SSO for PingFed Admin UI
+  * Added PingCentral Startup Hook to delay start until PingFed is actually ready
 
 * API Collection
   * `EXPRESSIONS_ADMIN` role added to API Admin account
