@@ -78,7 +78,7 @@ pf.console.login.mode=multiple
 #     RADIUS - External RADIUS authentication.
 #     OIDC   - External or Internal OIDC authentication.
 # Default is native.
-pf.console.authentication=LDAP
+pf.console.authentication=OIDC
 
 # Authentication methods for the Admin API.
 #   Valid values are:
