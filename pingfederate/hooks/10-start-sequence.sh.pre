@@ -6,6 +6,7 @@ if ! test -z "$PF_DYNAMIC_PASSWORD"; then
     export PF_DYNAMIC_PASSWORD_CODE=$(sh /opt/out/instance/bin/obfuscate.sh $PF_DYNAMIC_PASSWORD | tr -d ' \t\n\r')
     echo "====> PF_DYNAMIC_PASSWORD_CODE=[${PF_DYNAMIC_PASSWORD_CODE}]"
     cleanregex=$(echo "${PF_DYNAMIC_PASSWORD_CODE}" | sed -e 's/[]$.*[\^]/\\&/g' )
+    
     sed -e "s#client.secret=#client.secret=${cleanregex}#" \
         "/opt/out/instance/bin/oidc.properties" > "/opt/out/instance/bin/oidc.properties-modified"
     mv /opt/out/instance/bin/oidc.properties-modified /opt/out/instance/bin/oidc.properties

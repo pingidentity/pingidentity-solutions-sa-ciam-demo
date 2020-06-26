@@ -87,7 +87,7 @@ token.endpoint=${PF_ISSUER}/as/token.oauth2
 #   UserInfo Endpoint (OPTIONAL)
 #   -----------------------------
 #   The full URL of UserInfo endpoint. This endpoint will be accessed when the required claims are not present in the ID tokens.
-user.info.endpoint=
+user.info.endpoint=${PF_ISSUER}/idp/userinfo.openid
 
 #   -----------------------------
 #   End Session Endpoint (OPTIONAL)
