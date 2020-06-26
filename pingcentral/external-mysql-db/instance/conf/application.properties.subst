@@ -36,7 +36,7 @@ pingcentral.sso.oidc.client-secret=${PING_CENTRAL_CLIENT_SECRET}
 # Optional OIDC properties. The default values are indicated below.
 #
 # The name of the claim which identifies the PingCentral role associated with the user.
-pingcentral.sso.oidc.role-claim-name=PingCentral-Role
+pingcentral.sso.oidc.role-claim-name=pc_admin_roles
 # The expected value of the role claim which indicates the user is a PingCentral administrator.
 pingcentral.sso.oidc.role-claim-value-admin=IAM-Admin
 # The expected value of the role claim which indicates the user is a PingCentral application owner (non-administrator).
