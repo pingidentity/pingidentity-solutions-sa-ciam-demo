@@ -74,13 +74,13 @@ client.secret=2FederateM0re
 #   Authorization Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of authorization endpoint at the OP.
-authorization.endpoint=
+authorization.endpoint=${PF_ISSUER}/as/authorization.oauth2
 
 #   -----------------------------
 #   Token Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of token endpoint at the OP. This is required as PingFederate OIDC login only supports the authorization code flow.
-token.endpoint=
+token.endpoint=${PF_ISSUER}/as/token.oauth2
 
 
 #   -----------------------------
@@ -101,7 +101,7 @@ end.session.endpoint=
 #   Issuer (REQUIRED)
 #   -----------------------------
 #   The Issuer Identifier of the OP. The value provided here will be matched with the iss claims in the obtained ID token.
-issuer=https://demo.cpricelab.com
+issuer=${PF_ISSUER}
 
 #   -----------------------------
 #   Authentication Context Class Reference Values (OPTIONAL)
@@ -132,7 +132,7 @@ username.attribute.name=sub
 #   Example:
 #     role.attribute.name=admin_role
 #
-role.attribute.name=
+role.attribute.name=pf_admin_roles
 
 #   -------------------------------------
 #   Administrator Role Mapping (REQUIRED)
@@ -149,7 +149,7 @@ role.attribute.name=
 #   role.admin=admin
 #   role.cryptoManager=cryptoadmin
 #   role.userAdmin=useradmin
-#   role.expressionAdmin=expressionadmin
+#   role.expressionAdmin=useradmin
 #
 #   When admin_role claim has a single value:
 #   admin_role : "admin"
@@ -165,10 +165,10 @@ role.attribute.name=
 #     role.map.admin.2=
 #     role.map.admin.3=
 #
-role.admin=
-role.cryptoManager=
-role.userAdmin=
-role.expressionAdmin=
+role.admin=admin
+role.cryptoManager=cryptoadmin
+role.userAdmin=useradmin
+role.expressionAdmin=expressionadmin
 
 #   -----------------------------------------------
 #   Auditor Role Attribute Value Mapping (OPTIONAL)
