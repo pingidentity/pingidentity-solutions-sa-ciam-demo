@@ -165,10 +165,14 @@ role.attribute.name=pf_admin_roles
 #     role.map.admin.2=
 #     role.map.admin.3=
 #
-role.admin=admin
-role.cryptoManager=cryptoadmin
-role.userAdmin=useradmin
-role.expressionAdmin=expressionadmin
+role.admin.1=fullAdmin
+role.admin.2=admin
+role.cryptoManager.1=fullAdmin
+role.cryptoManager.2=cryptoAdmin
+role.userAdmin.1=fullAdmin
+role.userAdmin.1=userAdmin
+role.expressionAdmin.1=fullAdmin
+role.expressionAdmin.2=expressionAdmin
 
 #   -----------------------------------------------
 #   Auditor Role Attribute Value Mapping (OPTIONAL)
