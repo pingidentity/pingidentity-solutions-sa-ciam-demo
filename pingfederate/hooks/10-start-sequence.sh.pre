@@ -1,16 +1,16 @@
 #!/usr/bin/env
 echo Hello from the baseline server profile 05-expand-templates.sh.pre hook!
-echo "====> PF_DYNAMIC_PASSWORD=[${PF_DYNAMIC_PASSWORD}]"
+echo "====> SECRET=[${ADMIN_CLIENT_SECRET}]"
 
-if ! test -z "$PF_DYNAMIC_PASSWORD"; then
-    export PF_DYNAMIC_PASSWORD_CODE=$(sh /opt/out/instance/bin/obfuscate.sh $PF_DYNAMIC_PASSWORD | tr -d ' \t\n\r')
-    echo "====> PF_DYNAMIC_PASSWORD_CODE=[${PF_DYNAMIC_PASSWORD_CODE}]"
-    cleanregex=$(echo "${PF_DYNAMIC_PASSWORD_CODE}" | sed -e 's/[]$.*[\^]/\\&/g' )
+if ! test -z "$ADMIN_CLIENT_SECRET"; then
+    export ADMIN_CLIENT_SECRET_CODE=$(sh /opt/out/instance/bin/obfuscate.sh $ADMIN_CLIENT_SECRET | tr -d ' \t\n\r')
+    echo "====> ADMIN_CLIENT_SECRET_CODE=[${ADMIN_CLIENT_SECRET_CODE}]"
+    cleanregex=$(echo "${ADMIN_CLIENT_SECRET_CODE}" | sed -e 's/[]$.*[\^]/\\&/g' )
     
     sed -e "s#client.secret=#client.secret=${cleanregex}#" \
         "/opt/out/instance/bin/oidc.properties" > "/opt/out/instance/bin/oidc.properties-modified"
     mv /opt/out/instance/bin/oidc.properties-modified /opt/out/instance/bin/oidc.properties
 else
-    echo_red "ERROR: No PF_DYNAMIC_PASSWORD"
+    echo_red "ERROR: No ADMIN_CLIENT_SECRET"
     exit 183
 fi

@@ -34,7 +34,7 @@
 #
 #   This client represents the PingFederate administrative console and is created and managed at the OP.
 #
-client.id=0291e533-efa3-48f1-983a-47d409e01ed2
+client.id=${ADMIN_CLIENT_ID}
 
 #   -----------------------------
 #   Client Authentication Type (REQUIRED)
@@ -74,20 +74,20 @@ client.secret=
 #   Authorization Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of authorization endpoint at the OP.
-authorization.endpoint=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c/as/authorize
+authorization.endpoint=${ADMIN_CLIENT_ISSUER}/authorize
 
 #   -----------------------------
 #   Token Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of token endpoint at the OP. This is required as PingFederate OIDC login only supports the authorization code flow.
-token.endpoint=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c/as/token
+token.endpoint=${ADMIN_CLIENT_ISSUER}/token
 
 
 #   -----------------------------
 #   UserInfo Endpoint (OPTIONAL)
 #   -----------------------------
 #   The full URL of UserInfo endpoint. This endpoint will be accessed when the required claims are not present in the ID tokens.
-user.info.endpoint=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c/as/userinfo
+user.info.endpoint=${ADMIN_CLIENT_ISSUER}/userinfo
 
 #   -----------------------------
 #   End Session Endpoint (OPTIONAL)
@@ -95,13 +95,13 @@ user.info.endpoint=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c
 #   The full URL of end session endpoint at the OP. When this property does not have a value,
 #   the administrator shall be shown the default PingFederate administrative console logout page.
 #
-end.session.endpoint=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c/as/signoff
+end.session.endpoint=${ADMIN_CLIENT_ISSUER}/signoff
 
 #   -----------------------------
 #   Issuer (REQUIRED)
 #   -----------------------------
 #   The Issuer Identifier of the OP. The value provided here will be matched with the iss claims in the obtained ID token.
-issuer=https://auth.pingone.com/2087f9ab-c416-45c4-92f1-22bbc894407c/as
+issuer=${ADMIN_CLIENT_ISSUER}
 
 #   -----------------------------
 #   Authentication Context Class Reference Values (OPTIONAL)
@@ -122,7 +122,7 @@ scopes=openid profile
 #   The name of the claim in the ID token or UserInfo response that contains the username of the administrator. The value of the
 #   username claim is used in administrative audit logs.
 #
-username.attribute.name=sub
+username.attribute.name=name
 
 #   ------------------------------
 #   Role Attribute Name (REQUIRED)
