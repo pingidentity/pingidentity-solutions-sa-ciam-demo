@@ -74,20 +74,20 @@ client.secret=
 #   Authorization Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of authorization endpoint at the OP.
-authorization.endpoint=${ADMIN_CLIENT_ISSUER}/authorize
+authorization.endpoint=${ADMIN_CLIENT_AUTHZ}
 
 #   -----------------------------
 #   Token Endpoint (REQUIRED)
 #   -----------------------------
 #   The full URL of token endpoint at the OP. This is required as PingFederate OIDC login only supports the authorization code flow.
-token.endpoint=${ADMIN_CLIENT_ISSUER}/token
+token.endpoint=${ADMIN_CLIENT_TOKEN}
 
 
 #   -----------------------------
 #   UserInfo Endpoint (OPTIONAL)
 #   -----------------------------
 #   The full URL of UserInfo endpoint. This endpoint will be accessed when the required claims are not present in the ID tokens.
-user.info.endpoint=${ADMIN_CLIENT_ISSUER}/userinfo
+user.info.endpoint=${ADMIN_CLIENT_USERINFO}
 
 #   -----------------------------
 #   End Session Endpoint (OPTIONAL)
@@ -95,7 +95,7 @@ user.info.endpoint=${ADMIN_CLIENT_ISSUER}/userinfo
 #   The full URL of end session endpoint at the OP. When this property does not have a value,
 #   the administrator shall be shown the default PingFederate administrative console logout page.
 #
-end.session.endpoint=${ADMIN_CLIENT_ISSUER}/signoff
+end.session.endpoint=${ADMIN_CLIENT_LOGOFF}
 
 #   -----------------------------
 #   Issuer (REQUIRED)
