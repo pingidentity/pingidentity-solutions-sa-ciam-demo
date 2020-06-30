@@ -1,6 +1,11 @@
-Instructions for OIDC Config
+# Instructions for Admin SSO via Compass
 
-Token Authentication: `client_secret_basic`
+Compass is the Ping Deployment Console that gives you a single place to Manage and Access all of your Ping Environments - Software and Services. SSO into your Administration Console is achieved by OIDC - using P14C as the token provider.
+
+## PingOne for Customer configuration
+
+
+Token Authentication: `client_secret_basic` (PingCentral requirement)
 
 ## Redirect URIs
 | Product | Redirect_URI |
