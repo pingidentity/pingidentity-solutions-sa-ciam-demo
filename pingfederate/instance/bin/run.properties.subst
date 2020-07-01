@@ -31,7 +31,7 @@ pf.console.bind.address=0.0.0.0
 #   ---------------
 # This property defines the browser window or tab title for the administrative 
 # console, used to make separate instances identifiable.
-pf.console.title=PingFederate
+pf.console.title=PingFederate (Customer360)
 
 #
 # This property defines the name of the PingFederate environment that will be
