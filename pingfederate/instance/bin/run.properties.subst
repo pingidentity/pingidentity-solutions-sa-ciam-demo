@@ -37,7 +37,7 @@ pf.console.title=PingFederate (Customer360)
 # This property defines the name of the PingFederate environment that will be
 # displayed in the administrative console, used to make separate environments
 # easily identifiable.
-pf.console.environment=
+pf.console.environment=C360 Reference
 
 #   HTML page background image
 #   ---------------
