@@ -1,5 +1,5 @@
 #!/usr/bin/env
-echo Hello from the baseline server profile 05-expand-templates.sh.pre hook!
+echo Hello from the server profile 10-start-sequence.sh.pre hook!
 echo "====> SECRET=[${ADMIN_CLIENT_SECRET}]"
 
 if ! test -z "$ADMIN_CLIENT_SECRET"; then
