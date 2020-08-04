@@ -4,21 +4,21 @@
 	"values": [
 		{
 			"key": "pfBaseURL",
-			"value": " https://{{YourPingFedHost}}:9031",
+			"value": "https://poc-hines.ping-eng.com:9031",
 			"enabled": true
 		},
 		{
 			"key": "pingIdSdk",
-			"value": "#Auto-Generated from PingOne, downloaded by id=[000000] email=[bogus@pingidentity.com]\n#Thu Jan 09 11:17:59 MST 2020\napi_key=YourAPIKey\ntoken=YourToken\npingidsdk_url=https://sdk.pingid.com/pingid\naccount_id=YourAccountID",
+			"value": "#Auto-Generated from PingOne, downloaded by id=[929572] email=[patrickhines+365@pingidentity.com]\n#Mon Aug 03 12:42:57 MDT 2020\napi_key=ZmNiMTg1OWUtODBjZi00YTA2LTg4ZTItNGMxZjEwZTBmMjJl\ntoken=4321628f23af4bdfa1d0eb0a5db2d13f\npingidsdk_url=https://sdk.pingid.com/pingid\naccount_id=1454018c-4903-4291-a52b-68de8cce2aac",
 			"enabled": true
 		},
 		{	"key": "sdkAppId",
-			"value": "YourPIDSDKAppID",
+			"value": "e0f38195-8f32-4ba9-b59b-03dcab1b791e",
 			"enabled": true
 		},
 		{
 			"key": "pingCentralHost",
-			"value": "https://{{YourPingCentralHost}}",
+			"value": "https://poc-hines.ping-eng.com:9022",
 			"enabled": true
 		}
 	],
