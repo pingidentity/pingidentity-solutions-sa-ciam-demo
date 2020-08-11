@@ -11,6 +11,6 @@ if ! test -z "$ADMIN_CLIENT_SECRET"; then
         "/opt/out/instance/bin/oidc.properties" > "/opt/out/instance/bin/oidc.properties-modified"
     mv /opt/out/instance/bin/oidc.properties-modified /opt/out/instance/bin/oidc.properties
 else
-    echo "ERROR: No ADMIN_CLIENT_SECRET"
-    exit 183
+    echo "No ADMIN_CLIENT_SECRET"
+    # exit 183
 fi
