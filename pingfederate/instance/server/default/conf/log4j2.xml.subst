@@ -1095,6 +1095,7 @@
         org.sourceid.websso.profiles.idp.AsAuditLogger (when PingFederate is acting as an OAuth Authorization Server)
         -->
         
+        <!--
         <Socket name="SecurityAuditToCEFSyslog" host="logstash" port="20514" protocol="TCP" ignoreExceptions="false">
             <PingSyslogLayout>
                 <PatternLayout>
@@ -1116,7 +1117,7 @@
                 <AppenderRef ref="SecurityAuditToCEFSyslog-FILE" />
             </Failovers>
         </PingFailover>
-        
+        -->
 
         <!-- Security Audit log : CEF Formatted file appender
 
@@ -1265,7 +1266,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.sp.SpAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
+            <appender-ref ref="SecurityAudit2File"/>
             <!--
                 <appender-ref ref="SecurityAuditToSQLServerDB-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToOracleDB-FAILOVER"/>
@@ -1294,7 +1295,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.idp.IdpAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
+            <appender-ref ref="SecurityAudit2File"/>
             <!--
                 <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToCEFFile"/>
@@ -1323,7 +1324,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.idp.AsAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
+            <appender-ref ref="SecurityAudit2File"/>
             <!--
                 <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToCEFFile"/>
