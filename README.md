@@ -1,6 +1,6 @@
 # Solution - Customer360
 
-The Ping **Customer360** Solution provides a CIAM package for PingDirectory \ PingFederate \ PingDataSync
+The Ping **Customer360** Solution provides a sample CIAM configuration for PingDirectory \ PingFederate \ PingDataSync
 
 ![Solution - Customer360](Customer360.png)
 
