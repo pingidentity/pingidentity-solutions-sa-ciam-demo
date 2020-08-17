@@ -6,8 +6,8 @@ Environment variables are used to configure the solution components.
 | --- | --- | --- |
 | **Docker Compose** | `env-vars` | Used by the DevOps Server Profiles |
 | | `postman_vars` | Used by the Postman API calls |
-| **Kubernetes** | `env-vars-configmap.yaml` | Used by the DevOps Server Profiles |
-| | `pingconfig-cm0-configmap.yaml` | Used by the Postman API calls |
+| **Kubernetes** | `environment.yaml` (env-vars) | Used by the DevOps Server Profiles |
+| | `environment.yaml` (postman_vars.json) | Used by the Postman API calls |
 
 ---
 
