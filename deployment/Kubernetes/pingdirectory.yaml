@@ -38,14 +38,24 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingdirectory
         - name: SERVER_PROFILE_URL
-          value: https://github.com/pingidentity/Customer360.git
+          value: https://github.com/cprice-ping/Customer360.git
+        - name: PF_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: PF_BASE_URL
+              name: env-vars
         - name: USER_BASE_DN
           valueFrom:
             configMapKeyRef:
               key: USER_BASE_DN
               name: env-vars
+        - name: MAX_HEAP_SIZE
+          valueFrom:
+            configMapKeyRef:
+              key: MAX_HEAP_SIZE
+              name: env-vars
         image: pingidentity/pingdirectory:latest
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         name: pingdirectory
         ports:
         - containerPort: 389
@@ -59,3 +69,32 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
+    kompose.version: 1.21.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pingdirectory
+  name: pingdirectory
+spec:
+  ports:
+  - name: "389"
+    port: 389
+    targetPort: 389
+  - name: "1636"
+    port: 1636
+    targetPort: 636
+  - name: "443"
+    port: 443
+    targetPort: 443
+  - name: "2443"
+    port: 2443
+    targetPort: 2443
+  selector:
+    io.kompose.service: pingdirectory
+status:
+  loadBalancer: {}

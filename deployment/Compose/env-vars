@@ -1,23 +1,41 @@
-PING_IDENTITY_ACCEPT_EULA=YES
-
-# PF Logging Level
+PING_IDENTITY_ACCEPT_EULA="YES"
+PING_IDENTITY_PASSWORD="2FederateM0re"
+#
+# PingFederate
+#
 PF_LOG_LEVEL=DEBUG
-
-# PD User BASE DN
-# Used when PD starts up to create the User Store
-USER_BASE_DN=dc=customer360.com
-
-# PF Admin Password
-# Note - this should match `pfAdminPwd` in postman_vars.json
 PF_USER_PWD=2FederateM0re
-
-# PingCentral Variables
-PING_CENTRAL_BLIND_TRUST=true
-PING_CENTRAL_VERIFY_HOSTNAME=false
-MYSQL_USER=root
+PF_ADMIN_HOSTNAME=pingfederate-{{your eks namespace}}.ping-devops.com
+PF_ADMIN_PORT="443"
+PF_ADMIN_MODE="OIDC"
+# Used by PD DelAdmin Template
+PF_BASE_URL={{your PF BaseURL}}
+#
+# PD User Base DN
+#
+USER_BASE_DN=dc=customer360.com
+MAX_HEAP_SIZE=768m
+#
+# PingCentral
+#
 MYSQL_PASSWORD=2Federate
 MYSQL_ROOT_PASSWORD=2Federate
-PING_CENTRAL_OIDC_ENABLED=true
-PING_CENTRAL_CLIENT_ID=PingCentral
-PING_CENTRAL_CLIENT_SECRET=2FederateM0re
-PF_ISSUER={{Your PF Issuer}}
+MYSQL_USER=root
+PING_CENTRAL_BLIND_TRUST="true"
+PING_CENTRAL_OIDC_ENABLED="true"
+PING_CENTRAL_VERIFY_HOSTNAME="false"
+PING_CENTRAL_LOG_LEVEL=DEBUG
+#
+# Admin Console OIDC
+#
+# P14C \ Compass
+ADMIN_CLIENT_ID={{your OIDC Client ID}}
+ADMIN_CLIENT_SECRET={{your OIDC Client Secret}}
+ADMIN_CLIENT_ISSUER={{your OIDC Client Issuer}}
+#
+# PF OIDC doesn't use .well-known to configure...
+#
+ADMIN_CLIENT_AUTHZ={{your OIDC AuthZ Endpoint}}
+ADMIN_CLIENT_TOKEN={{your OIDC Token Endpoint}}
+ADMIN_CLIENT_USERINFO={{your OIDC UserInfo Endpoint}}
+ADMIN_CLIENT_LOGOFF={{your OIDC Logoff Endpoint}}
