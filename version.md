@@ -1,3 +1,19 @@
+Version 2.0 - 
+=
+* Software Images
+  * PingFederate v10.1
+  * PingDirectory v8.1
+  * PingCentral v1.4
+
+* Repo Changes
+  * OIDC SSO for PingFed Admin UI
+  * Added PingCentral Startup Hook to delay start until PingFed is actually ready
+
+* API Collection
+  * `EXPRESSIONS_ADMIN` role added to API Admin account
+  * OIDC Client for PF Admin Console - `PingAdmin`
+  * Redirectless AuthN API enabled on `PingLogon` OIDC client
+
 Version 1.3 - 4/24/2020
 =
 * Repo Additions:

@@ -1,0 +1,16 @@
+#!/usr/bin/env
+echo Hello from the server profile 10-start-sequence.sh.pre hook!
+echo "====> SECRET=[${ADMIN_CLIENT_SECRET}]"
+
+if ! test -z "$ADMIN_CLIENT_SECRET"; then
+    export ADMIN_CLIENT_SECRET_CODE=$(sh /opt/out/instance/bin/obfuscate.sh $ADMIN_CLIENT_SECRET | tr -d ' \t\n\r')
+    echo "====> ADMIN_CLIENT_SECRET_CODE=[${ADMIN_CLIENT_SECRET_CODE}]"
+    cleanregex=$(echo "${ADMIN_CLIENT_SECRET_CODE}" | sed -e 's/[]$.*[\^]/\\&/g' )
+    
+    sed -e "s#client.secret=#client.secret=${cleanregex}#" \
+        "/opt/out/instance/bin/oidc.properties" > "/opt/out/instance/bin/oidc.properties-modified"
+    mv /opt/out/instance/bin/oidc.properties-modified /opt/out/instance/bin/oidc.properties
+else
+    echo "No ADMIN_CLIENT_SECRET"
+    # exit 183
+fi

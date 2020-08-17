@@ -27,16 +27,16 @@ pingcentral.sso.oidc.enabled=${PING_CENTRAL_OIDC_ENABLED}
 # The issuer URI indicating the base of the OIDC Provider.
 # By appending "/.well-known/openid-configuration", endpoint discovery is performed.
 # This value is expected as the value of the "iss" claim present in the ID token.
-pingcentral.sso.oidc.issuer-uri=${PF_ISSUER}
+pingcentral.sso.oidc.issuer-uri=${ADMIN_CLIENT_ISSUER}
 # Configure the OAuth 2 client ID and secret to be utilized by PingCentral.
 # The secret may be secured by utilizing bin/obfuscate.sh and placing that value here rather than the cleartext secret.
-pingcentral.sso.oidc.client-id=${PING_CENTRAL_CLIENT_ID}
-pingcentral.sso.oidc.client-secret=${PING_CENTRAL_CLIENT_SECRET}
+pingcentral.sso.oidc.client-id=${ADMIN_CLIENT_ID}
+pingcentral.sso.oidc.client-secret=${ADMIN_CLIENT_SECRET}
 #
 # Optional OIDC properties. The default values are indicated below.
 #
 # The name of the claim which identifies the PingCentral role associated with the user.
-pingcentral.sso.oidc.role-claim-name=PingCentral-Role
+pingcentral.sso.oidc.role-claim-name=pc_admin_roles
 # The expected value of the role claim which indicates the user is a PingCentral administrator.
 pingcentral.sso.oidc.role-claim-value-admin=IAM-Admin
 # The expected value of the role claim which indicates the user is a PingCentral application owner (non-administrator).
@@ -49,7 +49,7 @@ pingcentral.sso.oidc.role-claim-value-app-owner=Application-Owner
 # below to be used for verification of bearer tokens.
 #pingcentral.sso.oidc.oauth-jwk-set-uri=<JWKS_ENDPOINT_URI>
 # The name of the claim which identifies the username as determined by the Authorization Server
-pingcentral.sso.oidc.oauth-username-claim-name=sub
+pingcentral.sso.oidc.oauth-username-claim-name=name
 
 logging.level.com.pingidentity=${PING_CENTRAL_LOG_LEVEL}
-# logging.level.org.springframework.security=${PING_CENTRAL_LOG_LEVEL}
+logging.level.org.springframework.security=${PING_CENTRAL_LOG_LEVEL}
