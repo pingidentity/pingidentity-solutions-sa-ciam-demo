@@ -1,0 +1,36 @@
+## Make sure that the account has a 'mail' attribute that will specify the
+## email addresses of the recipient.
+#getHasAttribute($account_entry, "mail", "has_email_address")
+#if($has_email_address == "true")
+ENABLED: true
+
+## Include each of the account email addresses as a primary recipient.
+#getAttributeValues($account_entry, "mail", "account_email_addresses")
+#foreach($account_email_address in $account_email_addresses)
+TO: $account_email_address
+#end
+
+## If you want any carbon-copied (CC) recipients, which will be visible to the
+## primary recipients, uncomment the next line and set the appropriate
+## value(s).
+## CC: ccRecipient@example.com
+
+## If you want any blind-carbon-copied (BCC) recipients, which will not be
+## visible to other recipients, uncomment the next line and set the appropriate
+## value(s).
+## BCC: bccRecipient@example.com
+
+## Set the sender address for the email message.  This must be specified.
+FROM: DelegatedAdmin@ping-demos.com
+
+## If you want replies to default to a different address than the one used as
+## the sender address, then uncomment the next line and set the appropriate
+## value.
+REPLY-TO: support@ping-demos.com
+
+#else
+
+## The account doesn't have any email addresses, so make the template disabled.
+ENABLED: false
+
+#end

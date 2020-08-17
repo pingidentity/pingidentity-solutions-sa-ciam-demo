@@ -1,0 +1,93 @@
+apiVersion: v1
+data:
+  PING_IDENTITY_ACCEPT_EULA: "YES"
+  PING_IDENTITY_PASSWORD: "2FederateM0re"
+  #
+  # PingFederate
+  #
+  PF_LOG_LEVEL: DEBUG
+  PF_USER_PWD: 2FederateM0re
+  PF_ADMIN_HOSTNAME: pingfederate-{{your eks namespace}}.ping-devops.com
+  PF_ADMIN_PORT: "443"
+  PF_ADMIN_MODE: "OIDC"
+  # Used by PD DelAdmin Template
+  PF_BASE_URL: {{your PF BaseURL}}
+  #
+  # PD User Base DN
+  #
+  USER_BASE_DN: dc=customer360.com
+  MAX_HEAP_SIZE: 768m
+  #
+  # PingCentral
+  #
+  MYSQL_PASSWORD: 2Federate
+  MYSQL_ROOT_PASSWORD: 2Federate
+  MYSQL_USER: root
+  PING_CENTRAL_BLIND_TRUST: "true"
+  PING_CENTRAL_OIDC_ENABLED: "true"
+  PING_CENTRAL_VERIFY_HOSTNAME: "false"
+  PING_CENTRAL_LOG_LEVEL: DEBUG
+  #
+  # Admin Console OIDC
+  #
+  # P14C \ Compass
+  ADMIN_CLIENT_ID: {{your OIDC Client ID}}
+  ADMIN_CLIENT_SECRET: {{your OIDC Client Secret}}
+  ADMIN_CLIENT_ISSUER: {{your OIDC Client Issuer}}
+  #
+  # PF OIDC doesn't use .well-known to configure...
+  #
+  ADMIN_CLIENT_AUTHZ: {{your OIDC AuthZ Endpoint}}
+  ADMIN_CLIENT_TOKEN: {{your OIDC Token Endpoint}}
+  ADMIN_CLIENT_USERINFO: {{your OIDC UserInfo Endpoint}}
+  ADMIN_CLIENT_LOGOFF: {{your OIDC Logoff Endpoint}}
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pingaccess-env-vars
+  name: env-vars
+---
+apiVersion: v1
+data:
+  postman_vars.json: |
+    {
+        "id": "40199d03-d15c-47e4-b502-8b62f98479d1",
+        "name": "Solution-Customer360",
+        "values": [
+            {
+                "key": "pfBaseURL",
+                "value": "{{your PF BaseURL}}",
+                "enabled": true
+            },
+            {
+                "key": "pingIdSdk",
+                "value": "#Auto-Generated from PingOne, downloaded by id=[000000] email=[bogus@pingidentity.com]\n#Thu Jan 09 11:17:59 MST 2020\napi_key=YourAPIKey\ntoken=YourToken\npingidsdk_url=https://sdk.pingid.com/pingid\naccount_id=YourAccountID",
+                "enabled": true
+            },
+            {
+                "key": "sdkAppId",
+                "value": "{{your PID SDK AppID}}",
+                "enabled": true
+            },
+    	    {
+    	        "key": "paVirtualHost",
+    	        "value": "{{your PA Virtual Host}}",
+    	        "enabled": true
+    	    },
+            {
+    	        "key": "pingCentralHost",
+    	        "value": "pingcentral-{{your eks namespace}}.ping-devops.com",
+    	        "enabled": true
+            }
+        ],
+        "_postman_variable_scope": "environment"
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    use-subpath: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pingconfig
+  name: pingconfig-cm0

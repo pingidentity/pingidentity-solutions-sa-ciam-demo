@@ -1,0 +1,120 @@
+## This template may be used to generate an email message that can be sent to
+## a user (and optionally a predefined set of server administrators) when their
+## account is created in the server by a Delegated Administrator.
+##
+## Copy this file to the config/account-status-notification-email-templates
+## directory of PingDirectory. See the README.txt file in that directory for
+## a thorough description of the template file format and the variables and
+## directives that can be used to customize its content.
+
+
+## IMPORTANT: Uncomment the following line and change the URL to the
+## Profile Management Endpoint of your PingFederate Local Identity Profile.
+##
+#set(${_DOLLAR_}profile_management_url = "${PF_BASE_URL}/pf/idprofile.ping?LocalIdentityProfileID=defaultIdentityProfile")
+
+
+## Populate the values of any other variables that will appear in the body of
+## the email message.
+#getAttributeValue(${_DOLLAR_}account_entry, "uid", "username")
+#getNotificationPropertyValue("new-generated-password", "generated_password")
+#getNotificationPropertyValue("new-password", "new_password")
+#getNotificationPropertyValue("must-change-password", "must_change_password")
+#getNotificationPropertyValue("maximum-password-reset-age", "maximum_password_reset_age")
+
+#if(${_DOLLAR_}generated_password)
+  #set (${_DOLLAR_}password = ${_DOLLAR_}generated_password)
+#elseif(${_DOLLAR_}new_password)
+  #set (${_DOLLAR_}password = ${_DOLLAR_}new_password)
+#end
+
+
+----- BEGIN HEADERS -----
+
+## Pull in a template file that will set the value of a number of header fields
+## that will be shared across all types of account status notifications.
+#parse("common-header-fields.vm")
+
+## The subject for the generated email message.
+#set(${_DOLLAR_}subject = "Your account has been created")
+SUBJECT: ${_DOLLAR_}subject
+
+
+
+----- BEGIN PLAIN-TEXT BODY -----
+
+## Pull in a template file that can provide text at the top of the plain-text
+## body for all types of account status notifications.
+#parse("common-plain-text-body-header.vm")
+
+#if(${_DOLLAR_}password)
+Your account has been created with a username of ${_DOLLAR_}username and a password of: ${_DOLLAR_}password.
+#else
+Your account has been created with a username of ${_DOLLAR_}username.
+#end
+
+#if(${_DOLLAR_}profile_management_url)
+Manage your profile:
+${_DOLLAR_}profile_management_url
+#end
+
+#if(${_DOLLAR_}must_change_password == "true")
+
+#if(${_DOLLAR_}maximum_password_reset_age)
+You will be required to choose a new password the first time you log in. You must do so within the next ${_DOLLAR_}maximum_password_reset_age or your account will be locked again.
+#else
+You will be required to choose a new password the first time you log in.
+#end
+#end
+
+## Pull in a template file that can provide text at the bottom of the
+## plain-text body for all types of account status notifications.
+#parse("common-plain-text-body-footer.vm")
+
+
+----- BEGIN HTML BODY -----
+
+<html>
+  <head>
+    <title>${_DOLLAR_}subject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+## Pull in a template file that can provide styling and text at the top of the
+## HTML-formatted body for all types of account status notifications.
+#parse("common-html-body-header.vm")
+
+    <p>
+#if(${_DOLLAR_}password)
+      Your account has been created with a username of <b>${_DOLLAR_}username</b> and a password of: <b>${_DOLLAR_}password</b>.
+#else
+      Your account has been created with a username of <b>${_DOLLAR_}username</b>.
+#end
+    </p>
+
+#if(${_DOLLAR_}profile_management_url)
+    <p>
+      <a href="${_DOLLAR_}profile_management_url">Manage your profile</a>
+    </p>
+#end
+
+#if(${_DOLLAR_}must_change_password == "true")
+    <p>
+#if(${_DOLLAR_}maximum_password_reset_age)
+      You will be required to choose a new password the first time you log in. You must do so within the next ${_DOLLAR_}maximum_password_reset_age or your account will be locked again.
+#else
+      You will be required to choose a new password the first time you log in.
+#end
+    </p>
+#end
+
+## Pull in a template file that can provide styling and text at the bottom of
+## the HTML-formatted body for all types of account status notifications.
+#parse("common-html-body-footer.vm")
+  </body>
+</html>
+
+## Pull in a template file that can provide any attachments that be used for
+## all types of account status notifications.
+#parse("common-attachments.vm")
