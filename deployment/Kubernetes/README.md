@@ -18,7 +18,7 @@ You'll use this file in all your deployments
 ### **Modify [Environment Variables](../environment.md)**
 
 * Copy the `yaml` files to a folder (include your `devops-secret-secret.yaml`)
-* Modify the [environment.yaml](env-vars-configmap.yaml) file to match your environment (`env-vars` and `postman_vars.json` are combined in this file)
+* Modify the [environment.yaml](environment.yaml) file to match your environment (`env-vars` and `postman_vars.json` are combined in this file)
 
 ### **Modify Ingress Controllers**
 
