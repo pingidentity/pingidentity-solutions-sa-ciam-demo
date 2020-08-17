@@ -26,8 +26,6 @@ This repo contains 2 configuration sets for deployment:
 The bulk of the configuration is performed by a Postman API Collection:  
 [Customer360 - Postman Collection](https://documenter.getpostman.com/view/1239082/SzRw2Axv)
 
-[Environment Variables](deployment)
-
 [Post Deployment Considerations](docs/post-deployment.md)
 
 ## Solution Configuration
