@@ -30,8 +30,19 @@ spec:
             configMapKeyRef:
               key: PING_IDENTITY_ACCEPT_EULA
               name: env-vars
-        image: pingidentity/pingaccess:edge
-        imagePullPolicy: "Always"
+        - name: PING_IDENTITY_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              key: PING_IDENTITY_PASSWORD
+              name: env-vars
+        # - name: SERVER_PROFILE_URL
+        #   value: https://github.com/cprice-ping/Profile-PA-Base
+        # - name: SERVER_PROFILE_PATH
+        #   value: pingaccess 
+        - name: PA_LOG_LEVEL
+          value: DEBUG
+        image: pingidentity/pingaccess:latest
+        imagePullPolicy: "IfNotPresent"
         name: pingaccess
         ports:
         - containerPort: 8080
@@ -44,3 +55,29 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
+    kompose.version: 1.21.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pingaccess
+  name: pingaccess
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 8080
+  - name: "443"
+    port: 443
+    targetPort: 3000
+  - name: "9000"
+    port: 9000
+    targetPort: 9000
+  selector:
+    io.kompose.service: pingaccess
+status:
+  loadBalancer: {}

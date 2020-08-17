@@ -21,7 +21,9 @@ spec:
       containers:
       - env:
         - name: COLLECTIONS
-          value: https://www.getpostman.com/collections/344bbc13f4ccd4ebc5f5
+          # Customer360 v2.0.0 --> PA as Proxy
+          value: https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/eaa397bd3a35ef3095c1
+        image: pricecs/pingconfigurator:1.1
         imagePullPolicy: "Always"
         name: pingconfig
         resources: {}
