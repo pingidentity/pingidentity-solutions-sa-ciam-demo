@@ -3,3 +3,4 @@
 **/devops-secret-secret.yaml
 .vscode/settings.json
 pingfederate/instance/server/default/.DS_Store
+pingfederate/instance/.DS_Store
