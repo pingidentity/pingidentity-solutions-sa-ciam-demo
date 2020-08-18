@@ -5,7 +5,9 @@ The Ping **Customer360** Solution provides a sample CIAM configuration for PingD
 ![Solution - Customer360](Customer360.png)
 
 Prior Versions:
+
 * 1.3.4 - [Branch v1.3.4](https://github.com/cprice-ping/Customer360/tree/v1.3.4)
+
 ---
 
 ## Pre-Requisites
