@@ -38,7 +38,7 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingdirectory
         - name: SERVER_PROFILE_URL
-          value: https://github.com/cprice-ping/Customer360.git
+          value: https://github.com/pingidentity/Customer360.git
         - name: PF_BASE_URL
           valueFrom:
             configMapKeyRef:
