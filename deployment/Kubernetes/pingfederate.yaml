@@ -56,7 +56,7 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingfederate
         - name: SERVER_PROFILE_URL
-          value: https://github.com/cprice-ping/Customer360.git
+          value: https://github.com/pingidentity/Customer360.git
         - name: PF_ADMIN_MODE
           valueFrom:
             configMapKeyRef:

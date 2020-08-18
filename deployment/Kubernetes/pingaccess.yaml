@@ -35,10 +35,6 @@ spec:
             configMapKeyRef:
               key: PING_IDENTITY_PASSWORD
               name: env-vars
-        # - name: SERVER_PROFILE_URL
-        #   value: https://github.com/cprice-ping/Profile-PA-Base
-        # - name: SERVER_PROFILE_PATH
-        #   value: pingaccess 
         - name: PA_LOG_LEVEL
           value: DEBUG
         image: pingidentity/pingaccess:latest
