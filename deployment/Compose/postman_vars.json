@@ -21,11 +21,6 @@
 			"key": "paVirtualHost",
 			"value": "{{your PA Virtual Host}}",
 			"enabled": true
-		},
-		{
-			"key": "pingCentralHost",
-			"value": "pingcentral-{{your eks namespace}}.ping-devops.com",
-			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment"

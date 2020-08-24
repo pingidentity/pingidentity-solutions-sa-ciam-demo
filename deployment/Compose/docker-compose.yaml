@@ -66,8 +66,8 @@ services:
   pingconfig:
     image: pricecs/pingconfigurator
     environment:
-      # Collections: Solution - Customer360
-      - COLLECTIONS=https://www.getpostman.com/collections/344bbc13f4ccd4ebc5f5
+      # Collections: Solution - Customer360 v2.0.0
+      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d
     volumes: 
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
       - ./postman_vars.json:/usr/src/app/postman_vars.json  
