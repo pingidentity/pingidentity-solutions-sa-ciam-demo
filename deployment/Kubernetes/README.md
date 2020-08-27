@@ -22,8 +22,8 @@ You'll use this file in all your deployments
 
 ### **Modify Ingress Controllers**
 
-* Modify the [ingress.yaml](ingress.yaml --> Admin Consoles) to point your Namespace records
-* Modify the [ingress.yaml](ingress.yaml --> PingAccess) to point your Client FQDN
+* Modify the [ingress.yaml](ingress.yaml) --> Admin Consoles to point your Namespace records
+* Modify the [ingress.yaml](ingress.yaml) --> PingAccess to point your Client FQDN
 
 ### **Deploy Services**
 
@@ -52,8 +52,8 @@ A standard Ingress Controller is used to grant access to the Ping Admin consoles
 | PingDataGov | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com` |
 | PingDataGov-PAP | `https://pingdatagov-pap-{{your eks namespace}}.ping-devops.com` |
 
-[Ingress Controller - Ping Admin Consoles](pingadminconsoles-ingress.yaml)
+[Ingress Controller - Ping Admin Consoles](ingress.yaml)
 
 Another Ingress Controller is used to send all **client** traffic to the PingAccess Service:  
 
-[Ingress Controller - Ping Access](pingaccess-ingress.yaml)
+[Ingress Controller - Ping Access](ingress.yaml)
