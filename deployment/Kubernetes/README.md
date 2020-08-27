@@ -22,8 +22,8 @@ You'll use this file in all your deployments
 
 ### **Modify Ingress Controllers**
 
-* Modify the [pingadminconsoles-ingress.yaml](pingadminconsoles-ingress.yaml) to point your Namespace records
-* Modify the [pingaccess-ingress.yaml](pingaccess-ingress.yaml) to point your Client FQDN
+* Modify the [ingress.yaml](ingress.yaml --> Admin Consoles) to point your Namespace records
+* Modify the [ingress.yaml](ingress.yaml --> PingAccess) to point your Client FQDN
 
 ### **Deploy Services**
 
