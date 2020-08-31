@@ -9,6 +9,8 @@
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
+echo Hello from the server profile 50-before-post-start.sh hook!
+
 # Do some text replacements to enable LDAP for:
 # - OAuth Clients
 # - OAuth Grants
@@ -23,8 +25,10 @@ sed -e "s#<construct class=\"org.sourceid.oauth20.domain.ClientManagerXmlFileImp
 mv /opt/out/instance/server/default/conf/META-INF/hivemodule.xml-modified /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
 
 # Delete bundled files so that Server Profile can apply newer ones
-echo "#### Removing bundled file - /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar"
+echo #### Removing bundled file - /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar
 rm /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar
+
+ls /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar
 
 # echo "##########
 # "
