@@ -22,6 +22,10 @@ sed -e "s#<construct class=\"org.sourceid.oauth20.domain.ClientManagerXmlFileImp
 
 mv /opt/out/instance/server/default/conf/META-INF/hivemodule.xml-modified /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
 
+# Delete bundled files so that Server Profile can apply newer ones
+echo "#### Removing bundled file - /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar"
+rm /opt/out/instance/server/lib/pf-authn-api-sdk-1.0.0.48.jar
+
 # echo "##########
 # "
 # cat /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
