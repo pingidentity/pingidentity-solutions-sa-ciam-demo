@@ -139,6 +139,9 @@ spec:
   - name: "443"
     port: 443
     targetPort: 443
+  - name: "9999"
+    port: 9999
+    targetPort: 9999
   selector:
     io.kompose.service: pingfederate
 status:
