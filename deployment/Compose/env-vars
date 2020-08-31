@@ -5,9 +5,11 @@ PING_IDENTITY_PASSWORD="2FederateM0re"
 #
 PF_LOG_LEVEL=DEBUG
 PF_USER_PWD=2FederateM0re
-PF_ADMIN_HOSTNAME=pingfederate-{{your eks namespace}}.ping-devops.com
-PF_ADMIN_PORT="443"
+# Configure PF for OIDC Admin SSO
 PF_ADMIN_MODE="OIDC"
+# Used in OIDC `redirect_uri`
+PF_ADMIN_HOSTNAME={{Your PF Admin Hostname}}
+# PF_ADMIN_PORT="443"
 # Used by PD DelAdmin Template
 PF_BASE_URL={{your PF BaseURL}}
 #

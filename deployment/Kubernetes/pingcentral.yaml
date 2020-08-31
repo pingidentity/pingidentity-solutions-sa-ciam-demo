@@ -150,7 +150,7 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingcentral/external-mysql-db
         - name: SERVER_PROFILE_URL
-          value: https://github.com/cprice-ping/Customer360.git
+          value: https://github.com/pingidentity/Customer360.git
         - name: USER_BASE_DN
           valueFrom:
             configMapKeyRef:
