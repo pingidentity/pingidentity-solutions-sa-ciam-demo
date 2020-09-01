@@ -28,12 +28,12 @@ mv /opt/out/instance/server/default/conf/META-INF/hivemodule.xml-modified /opt/o
 echo Removing bundled files
 # AuthN API
 echo PF AuthN API
-rm /opt/out/instance/server/default/lib/pf-authn-api-sdk-1.0.0.48.jar
+rm -f /opt/out/instance/server/default/lib/pf-authn-api-sdk-1.0.0.48.jar
 echo PingID IK
 # PingID IK
-rm /opt/out/instance/server/default/deploy/pf-pingid-idp-adapter-2.6.jar
-rm /opt/out/instance/server/default/deploy/pf-pingid-quickconnection-1.0.1.jar
-rm /opt/out/instance/server/default/deploy/PingIDRadiusPCV-2.5.0.jar
+rm -f /opt/out/instance/server/default/deploy/pf-pingid-idp-adapter-2.6.jar
+rm -f /opt/out/instance/server/default/deploy/pf-pingid-quickconnection-1.0.1.jar
+rm -f /opt/out/instance/server/default/deploy/PingIDRadiusPCV-2.5.0.jar
 # echo "##########
 # "
 # cat /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
