@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+#*
+The server renders this HTML page in an end-user's browser when
+a user has successfully performed multi-factor authentication
+via an OTP.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it may interfere with expected server behavior.
+*#
+
+<!-- template name: pingone-mfa-push-confirmation-waiting.html -->
+
+#set( $messageKeyPrefix = "pingone.mfa.push.confirmation.waiting." )
+
+<html lang="$locale.getLanguage()" dir="ltr">
+<head>
+    <title>$languagePackMessages.getMessage($messageKeyPrefix, "title")</title>
+    <base href="$CurrentPingFedBaseURL"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="assets/css/pingone-mfa.css">
+    <style>
+        .page__content:before {
+            content: none;
+        }
+
+        .page__content {
+            margin-top: 50px;
+        }
+
+        @media (max-width: 480px) {
+            .page__content {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="page brand-background" data-id="page">
+    <div class="page__content">
+        <div class="card card--no-padding">
+            <div class="card__content">
+                #if($allowChangeDevice == true)
+                <div class="step-link step-link--back" style="margin: 0; text-align: left;">
+                    <div style="margin: 0; text-align: left;">
+                        <button class="button pf-back-button" onclick="unselectDevice()"><span
+                                class="pingicon-left"></span></button>
+                    </div>
+                </div>
+                #end
+                <div class="org-logo"><img class="org-logo__image"
+                                           src="assets/images/ping-logo.svg"
+                                           alt="Company Logo"/></div>
+                <div class="ping-body-container" style="min-height: auto;">
+                    <div class="spinner">
+                        <div class="spinner__icon" data-id="spinner"></div>
+                    </div>
+                </div>
+                <div class="icon-feedback icon-feedback--success" style="margin-bottom: 20px;">
+                    <p class="icon-feedback__label">$languagePackMessages.getMessage($messageKeyPrefix, "header")</p>
+                </div>
+                <div class="form-aside">
+                    <p class="text-block text-block--small"  style="margin-bottom: 5px;">
+                        <span class="text-block__text">$languagePackMessages.getMessage($messageKeyPrefix, "request.sent.title")</span>
+                    </p>
+                    <p class="text-block text-block--large">
+                        <span class="text-block__text">$selectedDevice.name</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page__footer">
+        <div class="ping-footer">
+            <div class="ping-credits"></div>
+            <div class="ping-copyright">$templateMessages.getMessage("global.footerMessage")</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var pollingFlag = 'true';
+    function pollAuthenticationStatus() {
+        if(pollingFlag === 'true')
+        {
+            document.forms[0]['$pollAuthenticationStatus'].value = 'true';
+            document.forms[0].submit();
+        }
+    }
+
+    function unselectDevice() {
+        pollingFlag = 'false';
+        document.forms[0]['$pollAuthenticationStatus'].value = 'false';
+        document.forms[0].submit();
+    }
+
+    onload = function () {
+        setTimeout(pollAuthenticationStatus, 2000);
+    }
+</script>
+
+<form method="post" action="$resumePath" autocomplete="off">
+    <input type="hidden" name="$pollAuthenticationStatus" value="">
+    <input type="hidden" name="$selectedDeviceId" value=""/>
+</form>
+
+</body>
