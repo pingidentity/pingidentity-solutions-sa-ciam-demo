@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+#*
+The server renders this HTML page in an end-user's browser when
+template redirection method is configured in adapter.
+This page automatically opens the Facebook login form in a popup,
+or allows the user to open it manually if the popup is blocked.
+
+Velocity variables (identified by the $ character) are generated
+at runtime by the server.
+
+Change text or formatting as needed. Modifying Velocity statements
+is not recommended as it can interfere with expected server behavior.
+*#
+
+<!-- template name: facebook-pop-up-template.html -->
+#set( $messageKeyPrefix = "facebook.pop.up.template." )
+
+<html lang="$locale.getLanguage()" dir="ltr">
+<head>
+    <title>$languagePackMessages.getMessage($messageKeyPrefix, "title")</title>
+    <base href="$CurrentPingFedBaseURL"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,
+    user-scalable=no"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="assets/css/facebook.css">
+</head>
+<body onload="setup()">
+<div class="page brand-background" data-id="page">
+    <div class="page__content">
+        <div class="card card--no-padding">
+            <div class="card__content">
+                <div class="org-logo"><img class="org-logo__image"
+                                           src="assets/images/ping-logo.svg"
+                                           alt="Company Logo"/>
+                </div>
+                <div class="text-block" data-id="textblock">
+                    <div class="text-block--overflow-wrap">
+                        <div class="stack" data-id="stack">
+                            <div>
+                                <p id="messageToUser"></p>
+                                <button id="facebookButton" class="button file-input--button button--primary brand-primary-bg"
+                                        data-id="button" type="button" onclick="signInThroughFB()">
+                                </button>
+                                <form id="postToPF" method="POST" action='$resume_url'>
+                                    <input type="hidden" name='$postAuthFlag' value="true" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page__footer">
+        <div class="ping-footer">
+            <div class="ping-credits"></div>
+            <div class="ping-copyright">$templateMessages.getMessage("global.footerMessage")</div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    let windowSize;
+    let popUpWindow;
+    function successfulPopup()
+    {
+        document.getElementById('messageToUser').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "success.message")';
+        document.getElementById('facebookButton').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "success.button")';
+    }
+    function failurePopup()
+    {
+        document.getElementById('messageToUser').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "failure.message")';
+        document.getElementById('facebookButton').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "failure.button")';
+    }
+    function receivePostMessage(event)
+    {
+        popUpWindow.close();
+
+        document.getElementById("postToPF").submit();
+    }
+    function closedPopup()
+    {
+        document.getElementById('messageToUser').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "closed.message")';
+        document.getElementById('facebookButton').innerHTML = '$languagePackMessages.getMessage($messageKeyPrefix, "success.button")';
+    }
+    function setup()
+    {
+        let isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile)
+        {
+            windowSize = "width=" + screen.width + ",height=" + screen.height;
+        }
+        else
+        {
+            windowSize = "width=550,height=550";
+        }
+        popUpWindow = window.open('${redirect_url}', '$languagePackMessages.getMessage($messageKeyPrefix, "title")', windowSize);
+        if(!popUpWindow || popUpWindow.closed || typeof popUpWindow.closed=='undefined')
+        {
+            failurePopup();
+        }
+        else
+        {
+            popUpWindow.focus();
+            checkPopUpStatus(popUpWindow);
+            successfulPopup();
+        }
+    }
+    function signInThroughFB()
+    {
+        popUpWindow = window.open('${redirect_url}', '$languagePackMessages.getMessage($messageKeyPrefix, "title")', windowSize);
+        popUpWindow.focus();
+        successfulPopup();
+        checkPopUpStatus(popUpWindow);
+        return false;
+    }
+    let checkPopupStatusTimeout;
+    function checkPopUpStatus(popUpWindow)
+    {
+        if(!popUpWindow || popUpWindow.closed || typeof popUpWindow.closed=='undefined')
+        {
+            closedPopup();
+            clearTimeout(checkPopupStatusTimeout)
+        }
+        else
+        {
+            checkPopupStatusTimeout = setTimeout(function() {checkPopUpStatus(popUpWindow)}, 100);
+        }
+    }
+    window.addEventListener("message", receivePostMessage, false);
+</script>
+</body>
+</html>

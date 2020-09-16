@@ -1,0 +1,501 @@
+@import url(https://use.typekit.net/nxh5mrb...);
+
+@charset "UTF-8";
+@font-face {
+    font-weight: 200;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Light.otf)
+}
+
+@font-face {
+    font-weight: 400;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Regular.otf)
+}
+
+@font-face {
+    font-weight: 600;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Semibold.otf)
+}
+
+@font-face {
+    font-weight: 700;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Bold.otf)
+}
+
+@font-face {
+    font-weight: 900;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Extrabold.otf)
+}
+
+@font-face {
+    font-weight: 200;
+    font-style: italic;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-LightItalic.otf)
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: italic;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-RegularItalic.otf)
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-SemiboldItalic.otf)
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: italic;
+    font-family: proxima-nova;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-BoldIt.otf)
+}
+
+@font-face {
+    font-weight: 200;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-Light.otf)
+}
+
+@font-face {
+    font-weight: 400;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-Regular.otf)
+}
+
+@font-face {
+    font-weight: 600;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-Semibold.otf)
+}
+
+@font-face {
+    font-weight: 200;
+    font-style: italic;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-LightIt.otf)
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: italic;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-RegularIt.otf)
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: proxima-nova-cond;
+    src: url(../fonts/end-user/proxima-nova/ProximaNovaCond-SemiboldIt.otf)
+}
+
+@font-face {
+    font-family: proxima-nova-black;
+    src: url(../fonts/end-user/proxima-nova/ProximaNova-Black.otf)
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(../fonts/end-user/icons/iconfont.woff2) format("woff2"), url(../fonts/end-user/icons/iconfont.ttf) format("truetype"), url(../fonts/end-user/icons/iconfont.woff) format("woff"), url(../fonts/end-user/icons/iconfont.svg#iconfont) format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block
+}
+
+[class*=" pingicon-"], [class^=pingicon-] {
+    font-family: iconfont !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+body {
+    margin: 0
+}
+
+body, input {
+    font-family: proxima-nova, sans-serif;
+    -webkit-font-smoothing: antialiased
+}
+
+:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 6px 0 tint(#2996cc, 10%);
+    box-shadow: 0 0 6px 0 tint(#2996cc, 10%)
+}
+
+body, html {
+    height: 100%
+}
+
+.button {
+    background: #fff;
+    border: 1px solid #afb4b8;
+    display: block;
+    padding: 9px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-height: 40px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    border-radius: 2px
+}
+
+.button, .button-text {
+    font-family: proxima-nova, sans-serif;
+    font-size: 15px;
+    color: #686f77
+}
+
+.button--primary {
+    color: #fff;
+    background: #2996cc;
+    border-color: #2996cc
+}
+
+.card {
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px 1px rgba(121, 128, 135, .35);
+    box-shadow: 0 1px 4px 1px rgba(121, 128, 135, .35);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 400px;
+    min-height: 200px;
+    position: relative;
+    width: 100%;
+    padding: 40px
+}
+
+.card--no-padding {
+    padding: 0
+}
+
+.card__content {
+    padding: 40px;
+    position: relative
+}
+
+.org-logo {
+    text-align: center;
+    margin: 0 auto 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.org-logo__image {
+    max-width: 100%;
+    max-height: 80px
+}
+
+.page {
+    background: #798087;
+    min-height: 100%
+}
+
+.page {
+    background-color: #3d454d;
+    background-image: -webkit-radial-gradient(40% 40%, circle cover, rgba(61, 69, 77, .9) 30%, #3d454d 80%);
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+
+.page, .page__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.page__content {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin: 25px
+}
+
+.page__content:after, .page__content:before {
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.page__content:before {
+    max-height: 225px
+}
+
+.page__footer {
+    color: #9da2a8;
+    font-size: 12px;
+    text-align: center;
+    margin: 25px
+}
+
+.ping-credits {
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    width: 140px;
+    font-size: 0;
+    background: transparent url("../images/powered-by-ping-identity.svg") no-repeat;
+    background-size: contain;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.ping-footer {
+    display: block;
+    font-size: 11px;
+    color: #929aa1;
+}
+
+@media (max-width: 480px) {
+    .page__content {
+        margin: 0
+    }
+
+    .page__content:before {
+        display: none
+    }
+}
+
+.feedback, .normal-text, .text-block {
+    font-size: 15px
+}
+
+.feedback, .heading, .heading-text, .normal-text, .text-block {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: #686f77;
+    font-family: proxima-nova, sans-serif
+}
+
+.page-title {
+    margin: 0 0 30px;
+    word-wrap: break-word
+}
+
+.page-title.underlined {
+    border-bottom: 1px solid #c2c6ca;
+    padding: 0 0 15px
+}
+
+.page-title .page-subtitle {
+    margin: 5px 0 0;
+    font-size: 14px;
+    display: block;
+    color: #93999f
+}
+
+.page-section-group-title, .page-section-title {
+    margin: 0 0 25px;
+    padding: 0 0 5px;
+    border-bottom: 1px solid #c2c6ca;
+    line-height: 1em;
+    color: #3d454d;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.page-section-group-title.page-section-title-nounderline, .page-section-title.page-section-title-nounderline {
+    border-bottom: 0;
+    padding: 0
+}
+
+.page-section__title-accessories {
+    color: #93999f;
+    text-transform: none
+}
+
+.page-section-group-title {
+    font-size: 18px
+}
+
+.page-section-title {
+    font-size: 15px
+}
+
+.page-section {
+    margin: 0 0 40px
+}
+
+.page-section-title-desc, .page-section__description {
+    margin: -10px 0 25px
+}
+
+.page-section-title-desc.only, .page-section__description.only {
+    margin-bottom: 40px
+}
+
+.page-group-content {
+    padding: 0 0 10px 10px
+}
+
+.page-section-content {
+    margin: 0 0 40px
+}
+
+.page-section-data-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #93999f;
+    margin: 0 0 5px
+}
+
+.page-section-data {
+    display: table;
+    margin: 0 0 30px
+}
+
+.page-section-data .data-item {
+    display: table-row
+}
+
+.page-section-data .data-item .data-item-label, .page-section-data .data-item .data-item-value {
+    display: table-cell;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 1em
+}
+
+.page-section-data .data-item .data-item-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-right: 20px;
+    color: #93999f;
+    vertical-align: top
+}
+
+.page-section-data .data-item .data-item-label:after {
+    content: ":"
+}
+
+.page-section-data .data-item .data-item-value {
+    font-size: 14px;
+    color: #4b637c
+}
+
+.page-section-data-divider {
+    background: none;
+    border: dotted #c2c6ca;
+    border-width: 1px 0 0;
+    margin: -25px 0 5px
+}
+
+.text-block {
+    margin: 0 0 25px;
+    text-align: center
+}
+
+.text-block:last-child {
+    margin-bottom: 0
+}
+
+.text-block__text {
+    display: inline-block;
+    text-align: left
+}
+
+.text-block--overflow-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word
+}
+
+.text-block--overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.text-block--full-width, .text-block--full-width .text-block__text {
+    width: 100%
+}
+
+.text-block--small {
+    font-size: 13px
+}
+
+.text-block--large {
+    font-size: 22px
+}
+
+.text-block--small-right {
+    font-size: 13px;
+    text-align: right;
+    margin-bottom: 15px
+}
+
+.text-block--margin-sm {
+    margin-bottom: 5px
+}
+
+.text-block--margin-xx, .text-block--xxlarge {
+    margin-bottom: 65px
+}
+
+.text-block--left {
+    text-align: left
+}
+
+.text-block--right {
+    text-align: right
+}
+
+.stack > * {
+    margin-bottom: 15px
+}
+
+.stack > :last-child {
+    margin-bottom: 0
+}
+
+.text-block {
+    margin: 0 0 25px;
+    text-align: center
+}
+
+.text-block--overflow-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word
+}
