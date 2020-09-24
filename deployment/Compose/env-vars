@@ -3,10 +3,11 @@ PING_IDENTITY_PASSWORD="2FederateM0re"
 #
 # PingFederate
 #
-PF_LOG_LEVEL=DEBUG
-PF_USER_PWD=2FederateM0re
+PF_LOG_LEVEL=INFO
+PD_LDAP_SERVICE=pingdirectory:389
+##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
-PF_ADMIN_MODE="OIDC"
+PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
 # Used in OIDC `redirect_uri`
 PF_ADMIN_HOSTNAME={{Your PF Admin Hostname}}
 # PF_ADMIN_PORT="443"
