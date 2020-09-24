@@ -5,5 +5,5 @@
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
 echo "Delaying Start - 1 mins"
-sleep 2m
+sleep 1m
 echo "Starting Install"
