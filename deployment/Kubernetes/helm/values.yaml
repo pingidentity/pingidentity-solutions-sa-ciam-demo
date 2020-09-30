@@ -1,0 +1,57 @@
+# helm upgrade --install {{release-name}} -f ./values.yaml
+
+# Default values for Customer360.
+global:
+  # Variables used to determine licensing for the stack
+  license:
+    # If set to false, licenses must be mounted as secrets for each Product
+    useDevOpsKey: true
+    ## If set to true - supply your Ping DevOps information
+    devOpsKey:
+      user: "YourDevOpsUser"
+      key: "YourDevOpsKey"
+    ## Accept the Ping EULA -- "YES" (default) | "NO" (Note: this will not allow Products to launch)
+    acceptEULA: "YES"
+  
+  # Client Connection settings 
+  clientConnection:
+    ## Set TRUSTED_CERT to `true` if you want a Let's Encrypt Cert
+    ## (Leave to `false` while testing - so you don't trip LE rate limits)
+    useTrustedCert: false
+    # Deployment External Hostname (Used by Ingress-Client and PA)
+    externalHostname: "your.deployment.com"
+
+  # PingOne Service Details
+  pingOne:
+    # Set to `true` if you are supplying your PingOne details 
+    usePingOneServices: true
+    envRegion: "NA"
+    adminConsole:
+      # If `false` Admin SSO will not be configured - local Product authentication will be enabled
+      useCompass: false
+      envId: "YourAdminAuthNEnvId"
+      adminAppId: "YourAdminAuthNApp"
+      adminAppSecret: "YourAdminAuthNSecret"
+    environment:
+      # PingOne Environment that PF will be connected to
+      envId: "YourP1EnvId"
+      # PF Worker App (Configured in Connections --> Ping Platform)
+      pfWorkerId: "YourPFWorkerAppID"
+      pfWorkerSecret: "YourPFWorkerAppSecret"
+      # Native App used by MFA IK to do User MFA flows
+      mfaAppId: "YourMfaAppID"
+      mfaAppSecret: "YourMfaAppSecret"
+      mfaPopId: "YourMFAUserPopulationID"
+
+  # Your specific environment variables - values are injected into Server Profiles
+  envs:
+    # Ping Global Values
+    # PING_IDENTITY_PASSWORD: "YourGlobalPingPassword"
+
+    # PD Variables
+    ## BaseDN of the datastore
+    # USER_BASE_DN: "dc=customer360.com"
+
+  api:
+    # Set to `DEBUG` if you want the `pingconfig` job to output all the API responses
+    logLevel: "INFO"

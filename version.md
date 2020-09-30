@@ -1,43 +1,76 @@
-Version 2.0 - 
-=
-* Software Images
-  * PingFederate v10.1
-  * PingDirectory v8.1
-  * PingCentral v1.4
+# Version History
 
-* Repo Changes
-  * OIDC SSO for PingFed Admin UI
-  * Added PingCentral Startup Hook to delay start until PingFed is actually ready
+## Version 2.1.0 - 9/30/2020
 
-* API Collection
-  * `EXPRESSIONS_ADMIN` role added to API Admin account
-  * OIDC Client for PF Admin Console - `PingAdmin`
-  * Redirectless AuthN API enabled on `PingLogon` OIDC client
+**Repo Changes**
 
-Version 1.3 - 4/24/2020
-=
-* Repo Additions:
-  * Added GitHub Connector
-  * Added PingOne for Customer IK
-  * Added OAuth Playground v4.2
+* Added PF Integration Kits
+  * PingOne MFA v 1.0
+  * PingOne IK v 2.0
+  * Reference Adapter v 2.0.1
+* Helm chart \ instructions added
+* Updated K8s yamls
+* My Ping integration in PingFed \ PingCentral
 
-* API Collection updated:
-  * Account Registration pre-populates with Social data (FB or Google)
-  * `payload` added to Tracked HTTP Parameters (for PingID SDK Mobile Apps)
+**API Collection**
 
+* PingID SDK config replaced with PingOne MFA
+* SCIM v2 added to PingDir
 
-Version 1.2 - 4/20/2020
-=
+---
+
+## Version 2.0 - 7/1/2020
+
+**Software Images**
+
+* PingFederate v10.1
+* PingDirectory v8.1
+* PingCentral v1.4
+
+**Repo Changes**
+
+* OIDC SSO for PingFed Admin UI
+* Added PingCentral Startup Hook to delay start until PingFed is actually ready
+
+**API Collection**
+
+* `EXPRESSIONS_ADMIN` role added to API Admin account
+* OIDC Client for PF Admin Console - `PingAdmin`
+* Redirectless AuthN API enabled on `PingLogon` OIDC client
+
+---
+
+## Version 1.3 - 4/24/2020
+
+**Repo Changes**
+
+* Added GitHub Connector
+* Added PingOne for Customer IK
+* Added OAuth Playground v4.2
+
+**API Collection**
+
+* Account Registration pre-populates with Social data (FB or Google)
+* `payload` added to Tracked HTTP Parameters (for PingID SDK Mobile Apps)
+
+---
+
+## Version 1.2 - 4/20/2020
+
+**Repo Changes**
+
 * Repo updated to include PingCentral services
-* API Collection updated:
-  * PingFed
-    *  PingCentral OIDC Client \ Policy
-    * HTML Form Adapter
-    * `Internal` AuthN Policy flow - for non-Customer facing AuthN
-    * `PingServices` OAuth Client_Credentials client
-    * Client Credentials Access Token Mapping
-  * PingDir
-    * Users for PingCentral
+
+**API Collection**
+
+* PingFed
+  * PingCentral OIDC Client \ Policy
+  * HTML Form Adapter
+  * `Internal` AuthN Policy flow - for non-Customer facing AuthN
+  * `PingServices` OAuth Client_Credentials client
+  * Client Credentials Access Token Mapping
+* PingDir
+  * Users for PingCentral
 
 Version 1.1 - 4/10/2020
 =

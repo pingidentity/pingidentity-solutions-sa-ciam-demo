@@ -47,7 +47,7 @@ is not recommended as it may interfere with expected server behavior.
     <div class="page__content">
         <div class="card card--no-padding">
             <div class="card__content">
-                #if($allowChangeDevice == true)
+                #if($allowChangeDevice == true && $devices.size() > 1)
                 <div class="step-link step-link--back" style="margin: 0; text-align: left;">
                     <div style="margin: 0; text-align: left;">
                         <button class="button pf-back-button" onclick="unselectDevice()"><span

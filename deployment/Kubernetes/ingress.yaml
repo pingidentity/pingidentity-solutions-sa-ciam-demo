@@ -8,7 +8,7 @@ metadata:
   name: pingaccess-ingress
 spec:
   rules:
-  - host: {{your PA virtual host}}
+  - host: yourPAvirtualhost.ping-devops.com
     http:
       paths:
       - path: /.well-known/acme-challenge/

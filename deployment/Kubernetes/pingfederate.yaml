@@ -4,7 +4,6 @@ metadata:
   annotations:
     kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
     kompose.version: 1.21.0 ()
-  creationTimestamp: null
   labels:
     io.kompose.service: pingfederate
   name: pingfederate
@@ -19,7 +18,7 @@ spec:
       annotations:
         kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
         kompose.version: 1.21.0 ()
-      creationTimestamp: null
+  
       labels:
         io.kompose.service: pingfederate
     spec:
@@ -119,7 +118,6 @@ spec:
               name: devops-secret
       restartPolicy: Always
       serviceAccountName: ""
-status: {}
 ---
 apiVersion: v1
 kind: Service
@@ -127,7 +125,6 @@ metadata:
   annotations:
     kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
     kompose.version: 1.21.0 ()
-  creationTimestamp: null
   labels:
     io.kompose.service: pingfederate
   name: pingfederate
@@ -144,5 +141,3 @@ spec:
     targetPort: 9999
   selector:
     io.kompose.service: pingfederate
-status:
-  loadBalancer: {}

@@ -47,7 +47,7 @@ is not recommended as it may interfere with expected server behavior.
         <div class="card card--no-padding">
             <div class="card__content">
                 <form class="form" data-id="form" method="post" action="$resumePath" autocomplete="off">
-                    #if($allowChangeDevice == true)
+                    #if($allowChangeDevice == true && $devices.size() > 1)
                     <div class="step-link step-link--back" style="margin: 0; text-align: left;">
                         <div style="margin: 0; text-align: left;">
                             <button class="button pf-back-button" onclick="unselectDevice()"><span
@@ -78,8 +78,8 @@ is not recommended as it may interfere with expected server behavior.
                     </div>
                     <div class="text-input__icon"></div>
                     <input id="passcode" type="text" class="text-input text-input--primary" data-id="text-input"
-                           name="$otp"
-                           value="" onKeyPress="return checkOtpOnReturn(event)"/>
+                           name="$otp" maxlength="6"
+                           value="" oninput="checkInput()" onkeypress="return checkOtpOnReturn(event)"/>
                     <div class="form-aside">
                         <div class="stack" data-id="stack">
                             <div class="stack stack--small" data-id="stack">
@@ -107,8 +107,8 @@ is not recommended as it may interfere with expected server behavior.
                         <div class="text-block--overflow-wrap">
                             <div class="stack" data-id="stack">
                                 <div>
-                                    <button class="button file-input--button button--primary brand-primary-bg"
-                                            data-id="button" type="button" onclick="checkOtp()">
+                                    <button id="sign-on" class="button file-input--button button--primary brand-primary-bg button--disabled"
+                                            data-id="button" type="button" onclick="checkOtp()" disabled>
                                         $languagePackMessages.getMessage($messageKeyPrefix, "sign.on.button.title")
                                     </button>
                                 </div>
@@ -170,6 +170,26 @@ is not recommended as it may interfere with expected server behavior.
         document.forms[0].submit();
     }
 
+    function isOnlyDigits(value) {
+        return /^\d+$/.test(value);
+    }
+
+    function canSubmit() {
+        var value = document.getElementById("passcode").value;
+        return value.length === 6 && isOnlyDigits(value);
+    }
+
+    function checkInput() {
+        var button = document.getElementById("sign-on");
+        if (canSubmit()) {
+            button.disabled = false;
+            button.className = "button file-input--button button--primary brand-primary-bg";
+        } else {
+            button.disabled = true;
+            button.className = "button file-input--button button--primary brand-primary-bg button--disabled";
+        }
+    }
+
     function checkOtpOnReturn(e) {
         var keycode;
         if (window.event) keycode = window.event.keyCode;
@@ -177,7 +197,9 @@ is not recommended as it may interfere with expected server behavior.
         else return true;
 
         if (keycode == 13) {
-            checkOtp();
+            if (canSubmit()) {
+                checkOtp();
+            }
             return false;
         } else {
             return true;
