@@ -16,7 +16,7 @@ Environment variables are used to configure the solution components.
 The Ping DevOps - Server Profiles use a set of Environment variables to configure the Products:
 
 * Compose - `env_vars`
-* Kubernetes - `env-vars-configmap.yaml`
+* Kubernetes - `environment.yaml`
 
 | Variable | Description | Customer Values |
 | -------- | ----------- | ------- |
@@ -71,13 +71,21 @@ These variables are configured with defaults in the Postman Collection
 | `fbAppID` | Used in PF Facebook CIC | `YourFBAppID` |
 | `fbAppSecret` | Used in PF Facebook CIC | `YourFBAppSecret` |
 | `pingCentralHost` | Used for PF OAuthAS CORS | `https://pingcentral:9022` |
+| `pingOneAuthNURL` | Used for the P1 AuthN URL | `https://auth.pingone.com` |
+| `pingOneMgmtURL` | Used for the P1 Mgmt URL | `https://auth.pingone.com` |
+| `pingOneEnvId` | Your PingOne MFA EnvId | `YourP1EnvId` |
+| `pfWorkerId` | Your PingOne Ping Platform WorkerId | `YourPFWorkerId` |
+| `pfWorkerSecret` | Your PingOne Ping Platform WorkerSecret | `YourPFWorkerSecret` |
+| `mfaPopId` | Your PingOne PopId for MFA Users | `YourMfaPopId` |
+| `mfaAppId` | Your PingOne MFA User AppId | `YourMfaAppId` |
+| `mfaAppSecret` | Your PingOne MFA User AppId | `YourMfaAppSecret` |
 
 ---
 
 Any of the above variables can be overwritten by placing them in the appropriate deployment file:
 
 * Compose - `postman_vars.json`
-* Kubernetes - `pingconfig-cm0-configmap.yaml`
+* Kubernetes - `environment.yaml`
 
 These variables need to be set with specific values for your environment:
 

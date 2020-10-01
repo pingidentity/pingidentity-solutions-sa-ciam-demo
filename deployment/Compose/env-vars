@@ -1,5 +1,6 @@
 PING_IDENTITY_ACCEPT_EULA="YES"
 PING_IDENTITY_PASSWORD="2FederateM0re"
+
 #
 # PingFederate
 #
@@ -8,16 +9,20 @@ PD_LDAP_SERVICE=pingdirectory:389
 ##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
 PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
+
 # Used in OIDC `redirect_uri`
 PF_ADMIN_HOSTNAME={{Your PF Admin Hostname}}
-# PF_ADMIN_PORT="443"
+# PF_ADMIN_PORT="443" ## This is if you can only get to PF Admin via 443
+
 # Used by PD DelAdmin Template
 PF_BASE_URL={{your PF BaseURL}}
+
 #
 # PD User Base DN
 #
 USER_BASE_DN=dc=customer360.com
 MAX_HEAP_SIZE=768m
+
 #
 # PingCentral
 #
@@ -28,6 +33,7 @@ PING_CENTRAL_BLIND_TRUST="true"
 PING_CENTRAL_OIDC_ENABLED="true"
 PING_CENTRAL_VERIFY_HOSTNAME="false"
 PING_CENTRAL_LOG_LEVEL=DEBUG
+
 #
 # Admin Console OIDC
 #
