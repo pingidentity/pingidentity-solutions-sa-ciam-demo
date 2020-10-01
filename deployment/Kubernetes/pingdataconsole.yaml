@@ -52,5 +52,3 @@ spec:
     targetPort: 8443
   selector:
     io.kompose.service: pingdataconsole
-status:
-  loadBalancer: {}

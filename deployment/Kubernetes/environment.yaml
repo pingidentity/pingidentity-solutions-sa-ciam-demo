@@ -11,7 +11,7 @@ data:
   PF_ADMIN_PORT: "443"
   PF_ADMIN_MODE: "OIDC"
   # Used by PD DelAdmin Template
-  PF_BASE_URL: {{your PF BaseURL}}
+  PF_BASE_URL: "{{your PF BaseURL}}"
   #
   # PD User Base DN
   #
@@ -23,6 +23,9 @@ data:
   MYSQL_PASSWORD: 2Federate
   MYSQL_ROOT_PASSWORD: 2Federate
   MYSQL_USER: root
+  MYSQL_SERVICE_HOST: pingcentral-db
+  MYSQL_SERVICE_PORT: "3306"
+  MYSQL_DATABASE: pingcentral
   PING_CENTRAL_BLIND_TRUST: "true"
   PING_CENTRAL_OIDC_ENABLED: "true"
   PING_CENTRAL_VERIFY_HOSTNAME: "false"
@@ -31,19 +34,18 @@ data:
   # Admin Console OIDC
   #
   # P14C \ Compass
-  ADMIN_CLIENT_ID: {{your OIDC Client ID}}
-  ADMIN_CLIENT_SECRET: {{your OIDC Client Secret}}
-  ADMIN_CLIENT_ISSUER: {{your OIDC Client Issuer}}
+  ADMIN_CLIENT_ID: "{{your OIDC Client ID}}"
+  ADMIN_CLIENT_SECRET: "{{your OIDC Client Secret}}"
+  ADMIN_CLIENT_ISSUER: "{{your OIDC Client Issuer}}"
   #
   # PF OIDC doesn't use .well-known to configure...
   #
-  ADMIN_CLIENT_AUTHZ: {{your OIDC AuthZ Endpoint}}
-  ADMIN_CLIENT_TOKEN: {{your OIDC Token Endpoint}}
-  ADMIN_CLIENT_USERINFO: {{your OIDC UserInfo Endpoint}}
-  ADMIN_CLIENT_LOGOFF: {{your OIDC Logoff Endpoint}}
+  ADMIN_CLIENT_AUTHZ: "{{your OIDC AuthZ Endpoint}}"
+  ADMIN_CLIENT_TOKEN: "{{your OIDC Token Endpoint}}"
+  ADMIN_CLIENT_USERINFO: "{{your OIDC UserInfo Endpoint}}"
+  ADMIN_CLIENT_LOGOFF: "{{your OIDC Logoff Endpoint}}"
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
   labels:
     io.kompose.service: pingaccess-env-vars
   name: env-vars
@@ -70,11 +72,11 @@ data:
                 "value": "{{your PID SDK AppID}}",
                 "enabled": true
             },
-    	    {
-    	        "key": "paVirtualHost",
-    	        "value": "{{your PA Virtual Host}}",
-    	        "enabled": true
-    	    },
+            {
+                "key": "paVirtualHost",
+                "value": "{{your PA Virtual Host}}",
+                "enabled": true
+            },
             {
     	        "key": "pingCentralHost",
     	        "value": "pingcentral-{{your eks namespace}}.ping-devops.com",
@@ -87,7 +89,6 @@ kind: ConfigMap
 metadata:
   annotations:
     use-subpath: "true"
-  creationTimestamp: null
   labels:
     io.kompose.service: pingconfig
   name: pingconfig-cm0

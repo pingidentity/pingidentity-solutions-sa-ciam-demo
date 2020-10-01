@@ -4,6 +4,6 @@
 # shellcheck source=pingcommon.lib.sh
 . "${HOOKS_DIR}/pingcommon.lib.sh"
 
-echo "Delaying Start"
-sleep 60
+echo "Delaying Start - 1 mins"
+sleep 1m
 echo "Starting Install"

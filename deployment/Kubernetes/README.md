@@ -44,11 +44,11 @@ A standard Ingress Controller is used to grant access to the Ping Admin consoles
 
 | Ping Product | Admin Console URL |
 | ----- | ----- |
-| PingFederate | `https://pingfederate-{{your eks namespace}}.ping-devops.com` |
+| PingFederate | `https://pingfederate-{{your eks namespace}}.ping-devops.com/pingfederate` |
 | PingAccess | `https://pingaccess-{{your eks namespace}}.ping-devops.com` |
 | PingCentral | `https://pingcentral-{{your eks namespace}}.ping-devops.com` |
-| PingDirectory | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com` |
-| PingDataSync | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com` |
+| PingDirectory | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com/console` |
+| PingDataSync | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com/console` |
 | PingDataGov | `https://pingdataconsole-{{your eks namespace}}.ping-devops.com` |
 | PingDataGov-PAP | `https://pingdatagov-pap-{{your eks namespace}}.ping-devops.com` |
 

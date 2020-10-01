@@ -1,6 +1,6 @@
 # Solution - Customer360
 
-The Ping **Customer360** Solution provides a sample CIAM configuration for PingDirectory \ PingFederate \ PingDataSync
+The Ping Identity - **Customer360** Solution provides a sample CIAM configuration for PingDirectory \ PingFederate \ PingDataSync \ PingOne MFA
 
 ![Solution - Customer360](Customer360.png)
 
@@ -12,18 +12,22 @@ Prior Versions:
 
 ## Pre-Requisites
 
-* PingID SDK Tenant / SDK Application
-  * Logon to [PingOne Admin](https://admin.pingone.com)
-  * Download PingID SDK Properties file (Setup --> PingID --> Client Integrations --> Integrate with PingID SDK)
-  * Create SDK Application (Applications --> PingID SDK Applications)
-    * Enable Email / SMS (Application --> Configuration)
+The Customer360 stack will stand up without any pre-requisites, but will require manual configuration for MFA to work.
+
+The Solution can be pre-configured for Admin SSO and PingOne MFA with details for the below injected into the configuration:
+
+* My Ping Console:
+  * [Configure](/docs/sso-myping.md)
+* PingOne Ping Platform App
+* PingOne MFA Native App
 
 ## Deployment
 
-This repo contains 2 configuration sets for deployment:
+This repo contains configuration sets for deployment:
 
 * [Docker Compose](deployment/Compose)
 * [Kubernetes](deployment/Kubernetes)
+  * [Helm](deployment/Kubernetes/Helm)
 
 ### Deployment Configuration
 
@@ -36,8 +40,9 @@ The bulk of the configuration is performed by a Postman API Collection:
 
 | Product | Console URL |
 | ----- | ----- |
+| My Ping Console | `https://console.pingone.com/index.html?env={{myPingEnvId}}`
 | [PingCentral](docs/solution-pc.md) | `https://{{PC_HOSTNAME}}:9022` |
 | [PingDataSync](docs/solution-pd.md) | `https://{{PD_HOSTNAME}}:8443/console` |
 | [PingDirectory](docs/solution-pd.md) | `https://{{PD_HOSTNAME}}:8443/console` |
 | [PingFederate](docs/solution-pf.md) | `https://{{PF_HOSTNAME}}:9999/pingfederate` |
-| PingID SDK | `https://admin.pingone.com` |
+| PingOne MFA | Access from My Ping Console |
