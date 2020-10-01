@@ -6,21 +6,6 @@
 			"key": "pfBaseURL",
 			"value": "{{your PF BaseURL}}",
 			"enabled": true
-		},
-		{
-			"key": "pingIdSdk",
-			"value": "#Auto-Generated from PingOne, downloaded by id=[000000] email=[bogus@pingidentity.com]\n#Thu Jan 09 11:17:59 MST 2020\napi_key=YourAPIKey\ntoken=YourToken\npingidsdk_url=https://sdk.pingid.com/pingid\naccount_id=YourAccountID",
-			"enabled": true
-		},
-		{
-			"key": "sdkAppId",
-			"value": "{{your PID SDK AppID}}",
-			"enabled": true
-		},
-		{
-			"key": "paVirtualHost",
-			"value": "{{your PA Virtual Host}}",
-			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment"

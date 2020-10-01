@@ -27,7 +27,7 @@ This repo contains configuration sets for deployment:
 
 * [Docker Compose](deployment/Compose)
 * [Kubernetes](deployment/Kubernetes)
-  * [Helm](deployment/Kubernetes/Helm)
+  * [Helm](deployment/Kubernetes/helm)
 
 ### Deployment Configuration
 
