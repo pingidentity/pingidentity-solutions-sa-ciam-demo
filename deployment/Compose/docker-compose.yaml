@@ -9,7 +9,7 @@ services:
     secrets:
       - devops-secret
     environment:
-    - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
+    - SERVER_PROFILE_URL=https://github.com/Morganls23/Customer360-1.git
     - SERVER_PROFILE_PATH=pingfederate
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
@@ -17,18 +17,22 @@ services:
     ports:
       - 9031:9031
       - 9999:9999
-      
   pingaccess:
     image: pingidentity/pingaccess:latest
-    secrets:
-      - devops-secret
-    environment:
-      - PING_IDENTITY_ACCEPT_EULA=YES
-#    volumes:
-#      - ./pingaccess:/opt/out/instance
+    env_file:
+     - ~/.pingidentity/devops
+     - ./env_vars
     ports:
-      - 443:3000
-      - 9000:9000
+     - 80:8080
+     - 443:3000
+     - 9000:9000
+
+  pingdelegator:
+    image: pricecs/pingdelegator:4.0
+    env_file:
+      - ./env_vars
+    ports:
+      - 8088:80
 
   pingdirectory:
     image: pingidentity/pingdirectory:latest
@@ -37,7 +41,7 @@ services:
     secrets:
       - devops-secret
     environment:
-    - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
+    - SERVER_PROFILE_URL=https://github.com/Morganls23/Customer360-1.git
     - SERVER_PROFILE_PATH=pingdirectory
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingdirectory:/opt/out
@@ -50,7 +54,7 @@ services:
   pingdatasync:
     image: pingidentity/pingdatasync:latest
     environment:
-      - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
+      - SERVER_PROFILE_URL=https://github.com/Morganls23/Customer360-1.git
       - SERVER_PROFILE_PATH=pingdatasync
     env_file:
       - ./env-vars
@@ -79,7 +83,17 @@ services:
     image: pricecs/pingconfigurator
     environment:
       # Collections: Solution - Customer360 v2.0.0
-      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/4f27daff62383fd3f4ed,https://www.getpostman.com/collections/eb7dc32b6d429fd7bcd2
+      # Base 360 profile postman: https://www.getpostman.com/collections/f1f5ffff5ddd891e720d
+      #consent management: https://www.getpostman.com/collections/4f27daff62383fd3f4ed
+      #PA add proxy postman: https://www.getpostman.com/collections/eaa397bd3a35ef3095c1
+      #delagated amdin https://www.getpostman.com/collections/eb7dc32b6d429fd7bcd2
+
+
+      #delagated admin advanced: Use Case: Delegated Admin - Advanced
+
+
+
+      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/4f27daff62383fd3f4ed,https://www.getpostman.com/collections/eaa397bd3a35ef3095c1,https://www.getpostman.com/collections/eb7dc32b6d429fd7bcd2
     volumes:
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
       - ./postman_vars.json:/usr/src/app/postman_vars.json
@@ -88,7 +102,7 @@ services:
     image: pingidentity/pingcentral:latest
     command: wait-for pingfederate:9031 -t 7200 -- entrypoint.sh start-server
     environment:
-      - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
+      - SERVER_PROFILE_URL=https://github.com/Morganls23/Customer360-1.git
       - SERVER_PROFILE_PATH=pingcentral/external-mysql-db
     env_file:
       - ./env-vars
