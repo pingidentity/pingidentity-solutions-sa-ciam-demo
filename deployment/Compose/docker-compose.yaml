@@ -24,8 +24,8 @@ services:
       - devops-secret
     environment:
       - PING_IDENTITY_ACCEPT_EULA=YES
-    volumes:
-      - ./pingaccess:/opt/out/instance
+#    volumes:
+#      - ./pingaccess:/opt/out/instance
     ports:
       - 443:3000
       - 3000:3001
