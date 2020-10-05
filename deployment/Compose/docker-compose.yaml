@@ -41,7 +41,7 @@ services:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/Customer360.git
       - SERVER_PROFILE_PATH=pingdatasync
     env_file:
-      - ./env-vars   
+      - ./env-vars
     secrets:
       - devops-secret
     #volumes:
@@ -56,7 +56,7 @@ services:
     ports:
       - 3636:636
       - 3443:443
-  
+
   pingdataconsole:
     image: pingidentity/pingdataconsole:latest
     ports:
@@ -67,10 +67,10 @@ services:
     image: pricecs/pingconfigurator
     environment:
       # Collections: Solution - Customer360 v2.0.0
-      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d
-    volumes: 
+      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/4f27daff62383fd3f4ed,https://www.getpostman.com/collections/eb7dc32b6d429fd7bcd2
+    volumes:
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
-      - ./postman_vars.json:/usr/src/app/postman_vars.json  
+      - ./postman_vars.json:/usr/src/app/postman_vars.json
 
   pingcentral:
     image: pingidentity/pingcentral:latest

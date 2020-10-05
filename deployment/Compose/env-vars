@@ -11,11 +11,11 @@ PD_LDAP_SERVICE=pingdirectory:389
 PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
 
 # Used in OIDC `redirect_uri`
-PF_ADMIN_HOSTNAME={{Your PF Admin Hostname}}
+PF_ADMIN_HOSTNAME=cusmorg.ping-eng.com
 # PF_ADMIN_PORT="443" ## This is if you can only get to PF Admin via 443
 
 # Used by PD DelAdmin Template
-PF_BASE_URL={{your PF BaseURL}}
+PF_BASE_URL=https://cusmorg.ping-eng.com
 
 #
 # PD User Base DN
@@ -38,13 +38,13 @@ PING_CENTRAL_LOG_LEVEL=DEBUG
 # Admin Console OIDC
 #
 # P14C \ Compass
-ADMIN_CLIENT_ID={{your OIDC Client ID}}
-ADMIN_CLIENT_SECRET={{your OIDC Client Secret}}
-ADMIN_CLIENT_ISSUER={{your OIDC Client Issuer}}
+ADMIN_CLIENT_ID=7b948a45-820c-48fc-a4a3-d03f8e26b260
+ADMIN_CLIENT_SECRET=2UHacy4iGJbxdEBaHxpHMFWaxoImDQV5EFMG2.1MQb21A7kKKJF8FuUuZTZNtmzq
+ADMIN_CLIENT_ISSUER=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as
 #
 # PF OIDC doesn't use .well-known to configure...
 #
-ADMIN_CLIENT_AUTHZ={{your OIDC AuthZ Endpoint}}
-ADMIN_CLIENT_TOKEN={{your OIDC Token Endpoint}}
-ADMIN_CLIENT_USERINFO={{your OIDC UserInfo Endpoint}}
-ADMIN_CLIENT_LOGOFF={{your OIDC Logoff Endpoint}}
+ADMIN_CLIENT_AUTHZ=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/authorize
+ADMIN_CLIENT_TOKEN=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/token
+ADMIN_CLIENT_USERINFO=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/userinfo
+ADMIN_CLIENT_LOGOFF=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/signoff
