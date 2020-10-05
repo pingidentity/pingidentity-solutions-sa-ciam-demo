@@ -20,8 +20,8 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
 
     | Attribute Name | Display Name |
     | --- | --- |
-    | `pf_admin_roles`| PingFed Admin Roles |
-    | `pc_admin_roles` | PingCentral Admin Roles |
+    | `pf-admin-roles`| PingFed Admin Roles |
+    | `pc-admin-roles` | PingCentral Admin Roles |
 
 * Create new Connection:
   * Select **Add Application**
