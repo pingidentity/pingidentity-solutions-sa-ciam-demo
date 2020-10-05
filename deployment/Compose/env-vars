@@ -4,7 +4,7 @@ PING_IDENTITY_PASSWORD="2FederateM0re"
 #
 # PingFederate
 #
-PF_LOG_LEVEL=INFO
+PF_LOG_LEVEL=DEBUG
 PD_LDAP_SERVICE=pingdirectory:389
 ##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
