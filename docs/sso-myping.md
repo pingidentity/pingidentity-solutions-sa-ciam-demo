@@ -12,8 +12,11 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
 4. Map the extended attributes to the Attribute Mapping in the Connection
 5. Add Administrator Users - add the values (see below) to the Users
 
+---
+
 * Directory (Settings --> Directory --> Attributes)
-  * Add new Declared variables to Directory - to hold the values of the claims that authorize access
+  * Select **Add Attribute**
+  * Choose **Declared** - to hold the values of the claims that authorize access to Products
 
     | Attribute Name | Display Name |
     | --- | --- |
@@ -21,32 +24,37 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
     | `pc_admin_roles` | PingCentral Admin Roles |
 
 * Create new Connection:
-  * `redirect_uri` - See table below
-  * Token Authentication: `client_secret_basic` (PingCentral requirement)
-  * Attribute Mapping
+  * Select **Add Application**
+  * Choose **Web App**, then **OIDC**
+  * Configure `redirect_uri` as shown in the table below
+    * Note: Each Product has a different format for the `redirect_uri` - PingFed and PingCentral use their `.properties` file to create it.
 
-  | P1 User Attribute | Application Attribute |
-  | --- | --- |
-  | Formatted | Name |
-  | PingFed Admin Roles | `pf_admin_roles` |
-  | PingCentral Admin Roles | `pc_admin_roles` |
-  | User ID | `sub` |
+    | Product | Redirect_URI |
+    | --- | --- |
+    | PingCentral | {{PingCentralHost}}/login/oauth2/code/pingcentral |
+    | PingFederate | {{PFAdminURL}}/pingfederate/app?service=finishsso |
+    | PingAccess (6.2 Beta) | {{PAAdminURL}}/pa/oidc/cb |
 
-* Redirect URIs
-  * Note: Each Product has a different format for the `redirect_uri` - PingFed and PingCentral use their `.properties` file to create it.
+  * In **Attribute Mapping** add the following attributes
 
-  | Product | Redirect_URI |
-  | --- | --- |
-  | PingCentral | {{PingCentralHost}}/login/oauth2/code/pingcentral |
-  | PingFederate | {{PFAdminURL}}/pingfederate/app?service=finishsso |
-  | PingAccess (6.2 Beta) | {{PAAdminURL}}/pa/oidc/cb |
+    | P1 User Attribute | Application Attribute |
+    | --- | --- |
+    | Formatted | Name |
+    | PingFed Admin Roles | `pf_admin_roles` |
+    | PingCentral Admin Roles | `pc_admin_roles` |
+    | User ID | `sub` |
+
+  * Select your new application in the overview page and click **Edit** (the pencil icon)
+  * Select **Configuration**
+  * Configure **Token Endpoint Authentication Method**: `Client Secret Basic` (PingCentral requirement)
 
 * Administrator Identities (Identities)
   * Create Administrator account
   * Populate the Roles on the Administrator Identities with the value mapped in the Product properties (See below)
+    * look for **Other** and find the attribute Display Names that you have created earlier
 
-  | Product | Claim Name | Value |
-  | --- | --- | --- |
-  | PingFederate | `name` | `formatted.name` | Name of Administrator |
-  | | `pf_admin_roles` | `fullAdmin` | Roles for Admin (defined in `oidc.properties`) |
-  | PingCentral | `pc_admin_roles` | `IAM-Admin` or `AppOwner`(defined in `application.properties)
+    | Product | Claim Name | Value |
+    | --- | --- | --- |
+    | PingFederate | `name` | `formatted.name` | Name of Administrator |
+    | | `pf_admin_roles` | `fullAdmin` | Roles for Admin (defined in `oidc.properties`) |
+    | PingCentral | `pc_admin_roles` | `IAM-Admin` or `AppOwner`(defined in `application.properties)
