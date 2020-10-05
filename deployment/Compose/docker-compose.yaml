@@ -17,7 +17,8 @@ services:
     ports:
       - 9031:9031
       - 9999:9999
-
+      
+  pingaccess:
     image: pingidentity/pingaccess:latest
     secrets:
       - devops-secret
