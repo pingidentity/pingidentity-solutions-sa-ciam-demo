@@ -18,7 +18,6 @@ services:
       - 9031:9031
       - 9999:9999
 
-  pingaccess:
     image: pingidentity/pingaccess:latest
     secrets:
       - devops-secret
@@ -28,7 +27,6 @@ services:
 #      - ./pingaccess:/opt/out/instance
     ports:
       - 443:3000
-      - 3000:3001
       - 9000:9000
 
   pingdirectory:
