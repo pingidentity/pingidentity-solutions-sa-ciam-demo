@@ -18,6 +18,18 @@ services:
       - 9031:9031
       - 9999:9999
 
+  pingaccess:
+    image: pingidentity/pingaccess:latest
+    secrets:
+      - devops-secret
+    environment:
+      - PING_IDENTITY_ACCEPT_EULA=YES
+#    volumes:
+#      - ./pingaccess:/opt/out/instance
+    ports:
+      - 443:3000
+      - 9000:9000
+
   pingdirectory:
     image: pingidentity/pingdirectory:latest
     env_file:
@@ -33,7 +45,7 @@ services:
     ports:
       - 389:389
       - 1636:636
-      - 2443:2443
+      - 1443:1443
 
   pingdatasync:
     image: pingidentity/pingdatasync:latest

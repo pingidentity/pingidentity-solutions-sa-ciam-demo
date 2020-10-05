@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "pfBaseURL",
-			"value": "{{your PF BaseURL}}",
+			"value": "https://cusmorg.ping-eng.com:9031",
 			"enabled": true
 		}
 	],
