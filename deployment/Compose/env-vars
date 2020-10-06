@@ -9,6 +9,7 @@ PD_LDAP_SERVICE=pingdirectory:389
 ##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
 PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
+PF_ADMIN_TITLE=MainDemoPingFed
 
 # Used in OIDC `redirect_uri`
 PF_ADMIN_HOSTNAME=cusmorg.ping-eng.com
@@ -48,3 +49,9 @@ ADMIN_CLIENT_AUTHZ=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982
 ADMIN_CLIENT_TOKEN=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/token
 ADMIN_CLIENT_USERINFO=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/userinfo
 ADMIN_CLIENT_LOGOFF=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c982/as/signoff
+
+
+#Added for Delegator
+PF_CLIENT_ID=Delegator
+PD_HOST=https://cusmorg.ping-eng.com
+PD_PORT=443
