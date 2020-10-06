@@ -27,7 +27,7 @@ services:
      - 443:3000
      - 9000:9000
 
-pingdelegator:
+  pingdelegator:
     image: pingidentity/pingdelegator:edge
     environment:
       - PING_CONTAINER_PRIVILEGED=true
