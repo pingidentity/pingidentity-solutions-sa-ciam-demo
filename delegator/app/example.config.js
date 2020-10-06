@@ -16,7 +16,7 @@ window.PF_PORT = '443';
 
 // The client id that was set up with Ping Federate and intended to be used by this app.
 // DEFAULT: window.DADMIN_CLIENT_ID = 'dadmin';
-window.DADMIN_CLIENT_ID = 'dadmin';
+window.DADMIN_CLIENT_ID = 'Delegator';
 
 // The hostname for the DS instance the app will be interfacing with. By default, the app assumes it
 // is hosted alongside your DS instance, in which case it does not need to be specified. Only change
