@@ -31,6 +31,8 @@ services:
     image: pingidentity/pingdelegator:edge
     environment:
       - PING_CONTAINER_PRIVILEGED=true
+      - SERVER_PROFILE_URL=https://github.com/Morganls23/Customer360-1.git
+      - SERVER_PROFILE_PATH=delegator
     env_file:
       - ./env-vars
     ports:
