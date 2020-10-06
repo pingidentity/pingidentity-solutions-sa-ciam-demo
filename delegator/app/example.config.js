@@ -6,13 +6,13 @@
 
 // The hostname for the public Ping Federate instance used with this app.
 // DEFAULT: window.PF_HOST = 'localhost';
-window.PF_HOST = 'localhost';
+window.PF_HOST = 'cusmorg.ping-eng.com';
 
 // The port for the public Ping Federate instance used with this app.
 // NOTE: If using port 443 along with a base URL with no specified port, comment this out or set to
 // an empty string.
 // DEFAULT: window.PF_PORT = '9031';
-window.PF_PORT = '9031';
+//window.PF_PORT = '9031';
 
 // The client id that was set up with Ping Federate and intended to be used by this app.
 // DEFAULT: window.DADMIN_CLIENT_ID = 'dadmin';
