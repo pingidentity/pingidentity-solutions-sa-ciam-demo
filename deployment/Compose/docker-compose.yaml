@@ -32,7 +32,7 @@ services:
     environment:
       - PING_CONTAINER_PRIVILEGED=true
     env_file:
-      - ./env_vars
+      - ./env-vars
     ports:
       - 6080:6080
 
