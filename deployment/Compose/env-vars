@@ -52,6 +52,8 @@ ADMIN_CLIENT_LOGOFF=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c98
 
 
 #Added for Delegator
+PF_PORT=443
+PF_HOST=https://cusmorg.ping-eng.com
 PF_CLIENT_ID=Delegator
 PD_HOST=https://cusmorg.ping-eng.com
 PD_PORT=443
