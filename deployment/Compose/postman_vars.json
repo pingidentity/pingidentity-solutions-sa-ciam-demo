@@ -6,6 +6,16 @@
 			"key": "pfBaseURL",
 			"value": "https://cusmorg.ping-eng.com:9031",
 			"enabled": true
+		},
+		{
+			"key": "delegatorHost",
+			"value": "cusmorg.ping-eng.com",
+			"enabled": true
+		},
+		{
+			"key": "paVirtualHost",
+			"value": "cusmorg.ping-eng.com",
+			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment"
