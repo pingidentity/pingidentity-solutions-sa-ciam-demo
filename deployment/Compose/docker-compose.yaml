@@ -28,7 +28,7 @@ services:
      - 9000:9000
 
   pingdelegator:
-    image: pingidentity/delegator:latest
+    image: pingidentity/pingdelegator:latest
     env_file:
       - ./env-vars
     ports:
