@@ -52,17 +52,6 @@ ADMIN_CLIENT_LOGOFF=https://auth.pingone.com/4a4901a1-e872-40c4-a03a-0cc70be0c98
 
 
 #Added for Delegator
-# Delegated Admin app CORS 
-# DELEGATOR_CORS_URL=http://ext-docker.cpricelab.com
-# PF details for the Delegated Admin OIDC app
-# PF_HOST && PF_PORT are used to construct the allowed `Issuer` of the id_token
-# Delegator will prepend "https://", you only need the port if if it's not `:443`
-#PF_HOST=ext-docker.cpricelab.com
-# PF_PORT=9031
-#PF_CLIENT_ID=Delegator
-# PD details for Delegator API calls
-#PD_HOST=ext-docker.cpricelab.com
-#PD_PORT=443
 #
 # Delegator App (PD DelAdmin)
 #
@@ -73,4 +62,6 @@ PF_ENGINE_PUBLIC_HOSTNAME=cusmorg.ping-eng.com
 # Comment out PF_ENGINE_PUBLIC_PORT if PF is proxied and using 443
 #PF_ENGINE_PUBLIC_PORT=
 PF_DELEGATOR_CLIENTID=Delegator
-PD_ENGINE_PUBLIC_HOSTNAME=cusmorg
+PD_ENGINE_PUBLIC_HOSTNAME=cusmorg.ping-eng.com
+PD_ENGINE_PUBLIC_PORT=443
+PF_USER_PWD=2FederateM0re
