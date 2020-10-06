@@ -27,12 +27,14 @@ services:
      - 443:3000
      - 9000:9000
 
-  pingdelegator:
-    image: pingidentity/pingdelegator:latest
+pingdelegator:
+    image: pingidentity/pingdelegator:edge
+    environment:
+      - PING_CONTAINER_PRIVILEGED=true
     env_file:
-      - ./env-vars
+      - ./env_vars
     ports:
-      - 8088:80
+      - 6080:6080
 
   pingdirectory:
     image: pingidentity/pingdirectory:latest
@@ -50,6 +52,7 @@ services:
       - 389:389
       - 1636:636
       - 1443:1443
+      - 2443:2443
 
   pingdatasync:
     image: pingidentity/pingdatasync:latest
