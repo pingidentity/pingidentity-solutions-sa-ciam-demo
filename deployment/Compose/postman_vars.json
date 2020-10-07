@@ -16,7 +16,39 @@
 			"key": "paVirtualHost",
 			"value": "cusmorg.ping-eng.com",
 			"enabled": true
+		},
+		{
+			"key": "pingOneEnvId",
+			"value": "4a4901a1-e872-40c4-a03a-0cc70be0c982",
+			"enabled": true
+		},
+		{
+			"key": "mfaAppId",
+			"value": "4035f7e9-8da6-448a-8deb-4b61a7c0a939",
+			"enabled": true
+		},
+		{
+			"key": "mfaAppSecret",
+			"value": "v1f62T.WmpEeQP8uO_-WEnG7CAuxZgP3g4tPNzx6GFb~-ffGsest46UgV4FjP2ie",
+			"enabled": true
+		},
+		{
+			"key": "pfWorkerId",
+			"value": "c45c7ffd-4769-4458-8d92-4c65dfc8338d",
+			"enabled": true
+		},
+		{
+			"key": "pfWorkerSecret",
+			"value": "TvHjEEMbKIccTBEkMWf~eJki_c4jZ0jH.4u6FMZm41mrIGtqp7Riy5GbR9_VjJki",
+			"enabled": true
+		},
+		{
+			"key": "mfaPopId",
+			"value": "4361af3d-ca6d-4065-aefe-8f1d81d20662",
+			"enabled": true
 		}
+
+
 	],
 	"_postman_variable_scope": "environment"
 }
