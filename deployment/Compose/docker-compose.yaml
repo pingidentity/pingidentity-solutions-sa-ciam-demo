@@ -90,10 +90,12 @@ services:
       #consent management: https://www.getpostman.com/collections/4f27daff62383fd3f4ed
       #PA add proxy postman: https://www.getpostman.com/collections/eaa397bd3a35ef3095c1
       #delagated amdin https://www.getpostman.com/collections/67c0839677fa2b0fad81
+      #PA w/ PF OICD: https://www.getpostman.com/collections/6c6b5c63f342a7d017af
+      #my bits: https://www.getpostman.com/collections/ba7ee3e48ee0b1471742
 
       #delagated admin advanced: Use Case: Delegated Admin - Advanced
 
-      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/4f27daff62383fd3f4ed,https://www.getpostman.com/collections/eaa397bd3a35ef3095c1,https://www.getpostman.com/collections/67c0839677fa2b0fad81
+      - COLLECTIONS=https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/4f27daff62383fd3f4ed,https://www.getpostman.com/collections/eaa397bd3a35ef3095c1,https://www.getpostman.com/collections/67c0839677fa2b0fad81,https://www.getpostman.com/collections/6c6b5c63f342a7d017af,https://www.getpostman.com/collections/ba7ee3e48ee0b1471742
 
     volumes:
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
