@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+#
+# Ping Identity DevOps - Docker Build Hooks
+# shellcheck source=pingcommon.lib.sh
+. "${HOOKS_DIR}/pingcommon.lib.sh"
+
+echo "Delaying Start for SQL to stand - 1 mins"
+sleep 1m
+echo "Starting Install"
