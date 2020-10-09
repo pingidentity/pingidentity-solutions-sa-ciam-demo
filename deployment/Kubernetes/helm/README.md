@@ -2,31 +2,37 @@
 
 Helm is a package deployment tool for Kubernetes. It can be used with [Customer360](../Kubernetes) to deploy all the components of the Solution with a simple command.
 
-1. Install Helm
+1. Inject your Ping Devops information into your k8s namespace
+
+    ```shell
+    ping-devops generate devops-secret | kubectl -apply -f -
+    ```
+
+2. Install Helm
 
     ```shell
     brew install helm
     ```
 
-2. Add Helm Repo
+3. Add Helm Repo
 
     ```shell
     helm repo add pingidentity-solutions https://cprice-ping.github.io/pingidentity-solutions-helm/
     ```
 
-3. List Ping Solutions Charts
+4. List Ping Solutions Charts
 
     ```shell
     helm search repo pingidentity-solutions
     ```
 
-4. Update local machine with latest charts
+5. Update local machine with latest charts
 
     ```shell
     helm repo update
     ```
 
-5. Create a `values.yaml` file
+6. Create a `values.yaml` file
     * Simple (Vanilla config - No Admin SSO \ No P1 Services)
 
         ```yaml
@@ -34,15 +40,12 @@ Helm is a package deployment tool for Kubernetes. It can be used with [Customer3
         global:
         license:
             useDevOpsKey: true
-            devOpsKey:
-            user: "YourDevOpsUser"
-            key: "YourDevOpsKey"
             acceptEULA: "YES"
         ```
 
     * Full Customer360 environment (My Ping | Admin SSO \ PingOne MFA) -  sample [values.yaml](./values.yaml)
 
-6. Install Customer360
+7. Install Customer360
 
     ```shell
     helm install {{Release Name}} pingidentity-solutions/customer360 -f values.yaml
