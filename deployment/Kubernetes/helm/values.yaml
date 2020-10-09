@@ -6,20 +6,21 @@ global:
   license:
     # If set to false, licenses must be mounted as secrets for each Product
     useDevOpsKey: true
-    ## If set to true - supply your Ping DevOps information
-    devOpsKey:
-      user: "YourDevOpsUser"
-      key: "YourDevOpsKey"
     ## Accept the Ping EULA -- "YES" (default) | "NO" (Note: this will not allow Products to launch)
     acceptEULA: "YES"
   
   # Client Connection settings 
   clientConnection:
-    ## Set TRUSTED_CERT to `true` if you want a Let's Encrypt Cert
-    ## (Leave to `false` while testing - so you don't trip LE rate limits)
-    useTrustedCert: false
-    # Deployment External Hostname (Used by Ingress-Client and PA)
-    externalHostname: "your.deployment.com"
+    externalDNS: 
+      # Set to `true` if you want a Vanity DNS domain - otherwise it will be set to `{{release-name}}.ping-devops.com`
+      enabled: false
+      externalHostname: "demo.cpricelab.com"
+    # For the externalHostname to have a self-signed cert with it's name, create a `tls-secret` in your namespace
+    # ping-devops generate tls-secret {domain}
+    # Paste in the generated values 
+    certificate:
+      crt: YourCertificateCrt
+      key: YourCertificateKey
 
   # PingOne Service Details
   pingOne:
@@ -46,11 +47,11 @@ global:
   # Your specific environment variables - values are injected into Server Profiles
   envs:
     # Ping Global Values
-    # PING_IDENTITY_PASSWORD: "YourGlobalPingPassword"
+    PING_IDENTITY_PASSWORD: "YourGlobalPingPassword"
 
     # PD Variables
     ## BaseDN of the datastore
-    # USER_BASE_DN: "dc=customer360.com"
+    USER_BASE_DN: "dc=customer360.com"
 
   api:
     # Set to `DEBUG` if you want the `pingconfig` job to output all the API responses
