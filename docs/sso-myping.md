@@ -20,8 +20,8 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
 
     | Attribute Name | Display Name |
     | --- | --- |
-    | `pf_admin_roles`| PingFed Admin Roles |
-    | `pc_admin_roles` | PingCentral Admin Roles |
+    | `pf-admin-roles`| PingFed Admin Roles |
+    | `pc-admin-roles` | PingCentral Admin Roles |
 
 * Create new Connection:
   * Select **Add Application**
@@ -40,8 +40,8 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
     | P1 User Attribute | Application Attribute |
     | --- | --- |
     | Formatted | Name |
-    | PingFed Admin Roles | `pf_admin_roles` |
-    | PingCentral Admin Roles | `pc_admin_roles` |
+    | PingFed Admin Roles | `pf-admin-roles` |
+    | PingCentral Admin Roles | `pc-admin-roles` |
     | User ID | `sub` |
 
   * Select your new application in the overview page and click **Edit** (the pencil icon)
@@ -56,5 +56,5 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
     | Product | Claim Name | Value |
     | --- | --- | --- |
     | PingFederate | `name` | `formatted.name` | Name of Administrator |
-    | | `pf_admin_roles` | `fullAdmin` | Roles for Admin (defined in `oidc.properties`) |
-    | PingCentral | `pc_admin_roles` | `IAM-Admin` or `AppOwner`(defined in `application.properties)
+    | | `pf-admin-roles` | `fullAdmin` | Roles for Admin (defined in `oidc.properties`) |
+    | PingCentral | `pc-admin-roles` | `IAM-Admin` or `AppOwner`(defined in `application.properties)
