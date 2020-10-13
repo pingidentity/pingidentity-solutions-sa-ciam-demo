@@ -38,12 +38,13 @@ Helm is a package deployment tool for Kubernetes. It can be used with [Customer3
         ```yaml
         # Default values for Customer360.
         global:
-        license:
-            useDevOpsKey: true
-            acceptEULA: "YES"
+            license:
+                useDevOpsKey: true
+                acceptEULA: "YES"
         ```
 
-    * Full Customer360 environment (My Ping | Admin SSO \ PingOne MFA) -  sample [values.yaml](./values.yaml)
+    * PingOne integration (My Ping | PingOne Services) - [values.yaml](./values.yaml)
+    * Full Customer360 environment (My Ping | PingOne Services | External DNS | PA as Proxy) -  sample [values-full.yaml](./values-full.yaml)
 
 7. Install Customer360
 

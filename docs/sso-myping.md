@@ -31,9 +31,9 @@ For now, there's a set of manual steps you need to make in your PingOne tenant -
 
     | Product | Redirect_URI |
     | --- | --- |
-    | PingCentral | {{PingCentralHost}}/login/oauth2/code/pingcentral |
-    | PingFederate | {{PFAdminURL}}/pingfederate/app?service=finishsso |
-    | PingAccess (6.2 Beta) | {{PAAdminURL}}/pa/oidc/cb |
+    | PingCentral | `{{PingCentralHost}}/login/oauth2/code/pingcentral` |
+    | PingFederate | `{{PFAdminURL}}/pingfederate/app?service=finishsso` |
+    | PingAccess (6.2 Beta) | `{{PAAdminURL}}/pa/oidc/cb` |
 
   * In **Attribute Mapping** add the following attributes
 

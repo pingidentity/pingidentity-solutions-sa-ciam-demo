@@ -5,54 +5,33 @@ global:
   # Variables used to determine licensing for the stack
   license:
     # If set to false, licenses must be mounted as secrets for each Product
-    useDevOpsKey: true
-    ## Accept the Ping EULA -- "YES" (default) | "NO" (Note: this will not allow Products to launch)
-    acceptEULA: "YES"
-  
-  # Client Connection settings 
-  clientConnection:
-    externalDNS: 
-      # Set to `true` if you want a Vanity DNS domain - otherwise it will be set to `{{release-name}}.ping-devops.com`
-      enabled: false
-      externalHostname: "demo.cpricelab.com"
-    # For the externalHostname to have a self-signed cert with it's name, create a `tls-secret` in your namespace
-    # ping-devops generate tls-secret {domain}
-    # Paste in the generated values 
-    certificate:
-      crt: YourCertificateCrt
-      key: YourCertificateKey
+    useDevOpsKey: false
+    ## Accept the Ping EULA -- "YES" | (default) "NO" (Note: this will not allow Products to launch)
+    acceptEULA: "NO"
 
   # PingOne Service Details
   pingOne:
     # Set to `true` if you are supplying your PingOne details 
     usePingOneServices: true
+    # This configures the proper endpoints for My Ping and PingOne Service IKs
+    # PingOne Regions - "NA" | "EU" | "AP"
     envRegion: "NA"
+    # If using My Ping - enter the details for the Admin SSO Connection here
+    # https://github.com/cprice-ping/Customer360/blob/main/docs/sso-myping.md
     adminConsole:
-      # If `false` Admin SSO will not be configured - local Product authentication will be enabled
-      useCompass: false
+      # Set to `true` to enable My Ping - if `false`, Admin consoles will use LDAP (PF \ PD) or Native (PC \ PA)
+      useMyPing: false
       envId: "YourAdminAuthNEnvId"
       adminAppId: "YourAdminAuthNApp"
       adminAppSecret: "YourAdminAuthNSecret"
+    # This section if for the PingOne Service(s) details
     environment:
-      # PingOne Environment that PF will be connected to
-      envId: "YourP1EnvId"
+      # PingOne EnvID that PF will be connected to
+      envId: "YourP1EnvID"
       # PF Worker App (Configured in Connections --> Ping Platform)
       pfWorkerId: "YourPFWorkerAppID"
       pfWorkerSecret: "YourPFWorkerAppSecret"
-      # Native App used by MFA IK to do User MFA flows
+      # Native App used by the PingOne MFA IK to do User MFA flows
       mfaAppId: "YourMfaAppID"
       mfaAppSecret: "YourMfaAppSecret"
-      mfaPopId: "YourMFAUserPopulationID"
-
-  # Your specific environment variables - values are injected into Server Profiles
-  envs:
-    # Ping Global Values
-    PING_IDENTITY_PASSWORD: "YourGlobalPingPassword"
-
-    # PD Variables
-    ## BaseDN of the datastore
-    USER_BASE_DN: "dc=customer360.com"
-
-  api:
-    # Set to `DEBUG` if you want the `pingconfig` job to output all the API responses
-    logLevel: "INFO"
+      mfaPopId: "YourMfaUserPopulationID"
