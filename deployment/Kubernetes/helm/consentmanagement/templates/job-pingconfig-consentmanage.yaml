@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "consentManage.name" . }}
+    helm.sh/chart: {{ include "consentManage.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ .Release.Name }}-pingconfig
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: COLLECTIONS
+          # Use Case: Consent Management
+          value: https://www.getpostman.com/collections/4f27daff62383fd3f4ed
+        image: pricecs/pingconfigurator:1.1
+        imagePullPolicy: "IfNotPresent"
+        name: pingconfig
+        resources: {}
+        volumeMounts:
+        - mountPath: /usr/src/app/postman_vars.json
+          name: {{ .Release.Name }}-postman-configmap
+          subPath: postman_vars.json
+      restartPolicy: Never
+      volumes:
+      - configMap:
+          items:
+          - key: postman_vars.json
+            path: postman_vars.json
+          name: {{ .Release.Name }}-postman-configmap
+        name: {{ .Release.Name }}-postman-configmap

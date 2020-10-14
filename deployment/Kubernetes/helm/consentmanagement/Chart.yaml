@@ -1,0 +1,12 @@
+apiVersion: v2
+name: consentmanagement
+description: A Helm chart to inject Consent Management into Customer360
+
+type: application
+
+# 0.0.2 - moving to separate release, so existing not replaced
+# 0.0.3 - updating to reflect new values in C360 chart
+version: 0.0.3
+
+# This is the version number of the application being deployed.
+appVersion: 1.0.0

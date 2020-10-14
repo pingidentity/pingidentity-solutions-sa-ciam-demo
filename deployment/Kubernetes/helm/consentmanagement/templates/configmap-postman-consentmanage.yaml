@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "consentManage.name" . }}
+    helm.sh/chart: {{ include "consentManage.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ .Release.Name }}-postman-configmap
+data:
+  postman_vars.json: |
+    {
+        "id": "40199d03-d15c-47e4-b502-8b62f98479d1",
+        "name": "Solution-Customer360",
+        "values": [
+            {
+                "key": "pdAdminUrl",
+                "value": "https://{{ .Values.releaseName }}-pingdirectory:{{ .Values.pingdirectory.service.https.port }}",
+                "enabled": true
+            },
+            {
+                "key": "pfAdminURL",
+                "value": "https://{{ .Values.releaseName }}-pingfederate:{{ .Values.pingfederate.service.admin.port }}",
+                "enabled": true
+            },
+            {
+                "key": "pfRuntime",
+                "value": "https://{{ .Values.releaseName }}-pingfederate:{{ .Values.pingfederate.service.engine.port }}",
+                "enabled": true
+            },
+            {
+                "key": "paAdminURL",
+                "value": "https://{{ .Values.releaseName }}-pingaccess:{{ .Values.pingaccess.service.admin.port }}",
+                "enabled": true
+            },
+            {
+                "key": "paVirtualHost",
+                "value": {{ .Values.global.clientConnection.externalHostname | quote }},
+                "enabled": true
+            }
+        ],
+        "_postman_variable_scope": "environment"
+    }
