@@ -1,0 +1,70 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "customer360.name" . }}
+    helm.sh/chart: {{ include "customer360.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    # kubernetes.io/ingress.class: nginx-public-passthrough
+    kubernetes.io/ingress.class: nginx-public
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  name: {{ .Release.Name }}-consoles-ingress
+spec:
+  # Use the AWS Route53 FQDNs to access the Admin Consoles
+  rules:
+  # This rule gives external access to the PingAccess Admin Console
+  - host: pingaccess-{{ .Release.Name }}.ping-devops.com
+    http:
+      paths:
+       - backend:
+           serviceName: {{ .Release.Name }}-pingaccess
+           servicePort: 9000
+  # This rule gives external access to the PingFederate Admin Console
+  - host: pingfederate-{{ .Release.Name }}.ping-devops.com
+    http:
+      paths:
+       - backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.admin.port }}
+  # This rule gives external access to the PingData Admin Console
+  - host: pingdataconsole-{{ .Release.Name }}.ping-devops.com
+    http:
+      paths:
+       - backend:
+          serviceName: {{ .Release.Name }}-pingdataconsole
+          servicePort: {{ .Values.pingdataconsole.service.http.port }}
+  # This rule gives external access to the PingDirectory APIs
+  - host: pingdirectory-{{ .Release.Name }}.ping-devops.com
+    http:
+      paths:
+       #- path: /config/
+       - backend:
+           serviceName: {{ .Release.Name }}-pingdirectory
+           servicePort: {{ .Values.pingdirectory.service.https.port }}
+       #- path: /directory/
+       #  backend:
+       #    serviceName: {{ .Release.Name }}-pingdirectory
+       #    servicePort: {{ .Values.pingdirectory.service.apis.port }}
+       #- path: /consent/
+       #  backend:
+       #    serviceName: {{ .Release.Name }}-pingdirectory
+       #    servicePort: {{ .Values.pingdirectory.service.apis.port }}
+  # This rule gives external access to the PingCentral Admin Console
+  - host: pingcentral-{{ .Release.Name }}.ping-devops.com
+    http:
+      paths:
+       - backend:
+          serviceName: {{ .Release.Name }}-pingcentral
+          servicePort: 9022
+  tls:
+    - hosts:
+      - pingaccess-{{ .Release.Name }}.ping-devops.com
+      - pingfederate-{{ .Release.Name }}.ping-devops.com
+      - pingdataconsole-{{ .Release.Name }}.ping-devops.com
+      - pingdirectory-{{ .Release.Name }}.ping-devops.com
+      - pingcentral-{{ .Release.Name }}.ping-devops.com

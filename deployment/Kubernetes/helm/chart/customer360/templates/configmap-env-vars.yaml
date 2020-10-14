@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "customer360.name" . }}
+    helm.sh/chart: {{ include "customer360.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ .Release.Name }}-env-vars
+data:
+  {{- if .Values.global.pingOne.adminConsole.useMyPing }}
+  ADMIN_CLIENT_ID: {{ .Values.global.pingOne.adminConsole.adminAppId | quote }}
+  ADMIN_CLIENT_SECRET: {{ .Values.global.pingOne.adminConsole.adminAppSecret | quote }}
+  ADMIN_CLIENT_ISSUER: {{ include "customer360.pingOneAdminUrl" . | quote }}
+  ADMIN_CLIENT_AUTHZ: "{{ include "customer360.pingOneAdminUrl" . }}/authorize"
+  ADMIN_CLIENT_TOKEN: "{{ include "customer360.pingOneAdminUrl" . }}/token"
+  ADMIN_CLIENT_USERINFO: "{{ include "customer360.pingOneAdminUrl" . }}/userinfo"
+  ADMIN_CLIENT_LOGOFF: "{{ include "customer360.pingOneAdminUrl" . }}/signoff"
+  {{- end }}
+  {{- if .Values.global.pingOne.adminConsole.useMyPing }}
+  PF_ADMIN_MODE: "OIDC"
+  {{- else }}
+  PF_ADMIN_MODE: "LDAP"
+  PD_LDAP_SERVICE: "{{ .Release.Name }}-pingdirectory:{{ .Values.pingdirectory.service.ldap.port }}"
+  {{- end }}
+  PING_IDENTITY_PASSWORD: {{ default "2FederateM0re" .Values.global.envs.PING_IDENTITY_PASSWORD | quote }}
+  PF_ADMIN_PORT: {{ .Values.pingfederate.service.admin.port | quote }}
+  PF_ADMIN_HOSTNAME: "pingfederate-{{ .Release.Name }}.ping-devops.com"
+  PF_ADMIN_TITLE: {{ .Release.Name }}
+  PF_BASE_URL: {{ include "customer360.hostname" .  | quote }}
+  {{- if .Values.global.useCases.delegatedAdministration.enabled }}
+  PD_DELEGATOR_PUBLIC_HOSTNAME: {{ include "customer360.hostname" .  | quote }}
+  PF_ENGINE_PUBLIC_HOSTNAME: {{ include "customer360.hostname" .  | quote }}
+  PF_ENGINE_PUBLIC_PORT: ""
+  PF_DELEGATOR_CLIENTID: "Delegator"
+  PD_ENGINE_PUBLIC_HOSTNAME: {{ include "customer360.hostname" .  | quote }}
+  PD_ENGINE_PUBLIC_PORT: "443"
+  {{- end }}
