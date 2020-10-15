@@ -14,10 +14,10 @@ spec:
       - path: /.well-known/acme-challenge/
         backend:
           serviceName: pingaccess
-          servicePort: 80
+          servicePort: 8080
       - backend:
           serviceName: pingaccess
-          servicePort: 443
+          servicePort: 3000
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress

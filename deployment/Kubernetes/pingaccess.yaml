@@ -61,11 +61,11 @@ metadata:
   name: pingaccess
 spec:
   ports:
-  - name: "80"
-    port: 80
+  - name: "8080"
+    port: 8080
     targetPort: 8080
-  - name: "443"
-    port: 443
+  - name: "3000"
+    port: 3000
     targetPort: 3000
   - name: "9000"
     port: 9000

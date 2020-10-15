@@ -24,7 +24,8 @@ type: application
 # 0.2.5 - moving tls-secret generation to pre-created secret
 # 0.2.6 - switching `useCompass` to `useMyPing`
 # 0.2.7 - switching repo to Ping official
-version: 0.2.7
+# 0.2.8 - refining logic and instructions for "PA as Proxy"
+version: 0.2.8
 
 # This is the version number of the application being deployed.
 appVersion: 2.1.0
