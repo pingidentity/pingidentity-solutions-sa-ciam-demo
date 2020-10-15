@@ -91,3 +91,123 @@ global:
     # Set to "DEBUG" if you want to see the output of the API calls being made by pingconfig
     # kubectl logs -f job/{{release name}}-pingconfig
     logLevel: "INFO"
+
+# Product variables
+pingdirectory:
+  image:
+    tag: latest
+  pingdirectory:
+    logging: INFO
+    envs:
+      SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+      SERVER_PROFILE_PATH: pingdirectory
+      MAX_HEAP_SIZE: 768m
+  persistentvolume:
+    enabled: false
+  license:
+    # Used if `useDevOpsKey` set to false
+    licenseSecretName: pingdirectory-license
+  service:
+    apis:
+      port: 2443
+
+pingfederate:
+  image:
+    tag: latest
+  pingfederate:
+    envs:
+      SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+      SERVER_PROFILE_PATH: pingfederate
+      # PingFed Chart uses a PARENT - these lines remove it
+      SERVER_PROFILE_PARENT: ""
+  logging: INFO
+  persistentvolume:
+    enabled: false
+  license:
+    # Used if `useDevOpsKey` set to false
+    licenseSecretName: pingdirectory-license
+  service:
+    type: ClusterIP
+    admin:
+      port: 443
+      name: pf-admin
+    engine:
+      port: 9031
+      name: pf-engine
+
+pingdatasync:
+  image:
+    tag: latest
+  pingdatasync:
+    logging: INFO
+    envs:
+      SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+      SERVER_PROFILE_PATH: pingdatasync
+  license:
+    # Used if `useDevOpsKey` set to false
+    licenseSecretName: pingdatasync-license
+
+pingdataconsole:
+  image:
+    tag: latest
+  service:
+    http:
+      port: 8443
+
+pingcentral:
+  image:
+    tag: latest
+#    readinessDelay: 120
+  pingcentral:
+    logging: INFO
+    tlsBlindTrust: true
+    tlsVerifyHostnames: false
+    envs:
+      SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git 
+      SERVER_PROFILE_PATH: pingcentral/logging
+      SERVER_PROFILE_PARENT: DATA
+      SERVER_PROFILE_DATA_URL: https://github.com/pingidentity/Customer360.git
+      SERVER_PROFILE_DATA_PATH: pingcentral/external-mysql-db
+
+pingaccess:
+  image:
+    tag: latest
+
+pingdelegator:
+  replicaCount: 1
+  image:
+    repository: pingidentity
+    name: pingdelegator
+    tag: latest
+    pullPolicy: IfNotPresent
+    readinessCommand: /opt/liveness.sh
+    livenessCommand: /opt/liveness.sh
+  nameOverride: "pingdelegator"
+  fullnameOverride: ""
+  service:
+    type: ClusterIP
+    runtime:
+      port: 6443
+      name: https
+
+collections:
+  solutions:
+    customer360:
+      name: "Customer 360" 
+      url: https://www.getpostman.com/collections/f1f5ffff5ddd891e720d
+  useCases:
+    paAsProxy:
+      name: "PA as Proxy"
+      url: https://www.getpostman.com/collections/eaa397bd3a35ef3095c1
+    consentManagement:
+      name: "Consent Management"
+      url: https://www.getpostman.com/collections/4f27daff62383fd3f4ed
+    consentEnforcement:
+      name: "Consent Enforcement" 
+      url: https://www.getpostman.com/collections/a1378e567df17ff15f10
+    delegatedAdministration: 
+      name: "Delegated Administration"
+      url: https://www.getpostman.com/collections/67c0839677fa2b0fad81
+    paAsWAM:
+      name: "PA as WAM (PF)"
+      url: https://www.getpostman.com/collections/6573a75f6042999e5c9f

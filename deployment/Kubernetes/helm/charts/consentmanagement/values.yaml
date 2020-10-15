@@ -1,0 +1,21 @@
+# helm upgrade --install {{release-name}} -f ./values.yaml
+
+# Product variables
+pingdirectory:
+  service:
+    https:
+      port: 443
+    apis:
+      port: 2443
+
+pingfederate:
+  service:
+    admin:
+      port: 443
+    engine:
+      port: 9031
+
+pingaccess:
+  service:
+    admin:
+      port: 9000

@@ -1,0 +1,52 @@
+apiVersion: v2
+name: customer360
+description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
+
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# 0.1.0 - Initial release to repo
+# 0.1.1 - Adding default PingDataConsole settings (values)
+# 0.1.2 - Testing useCase injections (values / job-pingconfig)
+# 0.1.3 - Added Use Case processing (_helpers)
+# 0.1.4 - Adding Conditional Delegator (`useCases.delegatedAdministrator.enabled: true`)
+# 0.1.5 - Adding Regional PingOne URL config
+# 0.1.6 - Setting ADMIN for PF \ PC according to `.pingOne.adminConsole.useCompass`
+# 0.1.7 - Allowing Ingress to pass `X-Forwarded-For` for Client traffic
+# 0.1.8 - Testing Values to enabled C360 to stand without a supplied values.yaml
+# 0.1.9 - Adding PA 6.2 Admin SSO vars into `configmap-postman`
+# 0.1.10 - Adding mfaPopID for P1 Provisioner, API Logging option
+# 0.2.0 - Released with Customer360 v 2.1.0
+# 0.2.1 - Make PA optional, replace with Ingress config
+# 0.2.2 - PingCentral SQL update
+# 0.2.3 - refreshing dependancies - single DevOps secret
+# 0.2.4 - fixing "ASIA" option for PingOne - switched to "AP". Updating values.yaml with comments
+# 0.2.5 - moving tls-secret generation to pre-created secret
+# 0.2.6 - switching `useCompass` to `useMyPing`
+# 0.2.7 - switching repo to Ping official
+# 0.2.8 - refining logic and instructions for "PA as Proxy"
+version: 0.2.8
+
+# This is the version number of the application being deployed.
+appVersion: 2.1.0
+
+# Use PingIdentity Repo to deploy Product Services \ Deployments
+dependencies:
+- name: pingdirectory
+  version: ~0.0.5
+  repository: "https://helm.pingidentity.com/devops"
+- name: pingdatasync
+  version: ~0.0.1
+  repository: "https://helm.pingidentity.com/devops"
+- name: pingfederate
+  version: ~0.0.1
+  repository: "https://helm.pingidentity.com/devops"
+- name: pingaccess
+  version: ~0.0.5
+  repository: "https://helm.pingidentity.com/devops"
+- name: pingcentral
+  version: ~0.0.7
+  repository: "https://helm.pingidentity.com/devops"
+- name: pingdataconsole
+  version: ~0.1.0
+  repository: "https://helm.pingidentity.com/devops"

@@ -1,0 +1,21 @@
+{{- if .Values.global.useCases.delegatedAdministration.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ include "pingdelegator.name" .}}
+  labels:
+    app.kubernetes.io/name: {{ include "pingdelegator.name" . }}
+    helm.sh/chart: {{ include "customer360.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.pingdelegator.service.type }}
+  ports:
+    - port: {{ .Values.pingdelegator.service.runtime.port }}
+      targetPort: {{ .Values.pingdelegator.service.runtime.port }}
+      protocol: TCP
+      name: {{ .Values.pingdelegator.service.runtime.name }}
+  selector:
+    app.kubernetes.io/name: {{ include "pingdelegator.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}

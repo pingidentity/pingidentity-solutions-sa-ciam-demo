@@ -1,0 +1,61 @@
+{{- if .Values.global.useCases.delegatedAdministration.enabled }}
+  apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "pingdelegator.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "pingdelegator.name" . }}
+    helm.sh/chart: {{ include "customer360.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.pingdelegator.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "pingdelegator.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "pingdelegator.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.pingdelegator.image.repository }}/{{ .Values.pingdelegator.image.name }}:{{ .Values.pingdelegator.image.tag }}"
+        imagePullPolicy: {{ .Values.pingdelegator.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.pingdelegator.service.runtime.port }}
+          name: {{ .Values.pingdelegator.service.runtime.name }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
+        - secretRef:
+            name: {{ .Release.Name }}-git-secret
+            optional: true
+        - secretRef:
+            name: {{ .Release.Name }}-devops-secret
+            optional: true
+        readinessProbe:
+          exec:
+            command: [ {{ .Values.pingdelegator.image.readinessCommand }} ]
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        livenessProbe:
+          exec:
+            command: [ {{ .Values.pingdelegator.image.livenessCommand }} ]
+          initialDelaySeconds: 30
+          periodSeconds: 30
+    {{- if .Values.pingdelegator.resources }}
+        resources:
+{{ toYaml .Values.pingdelegator.resources | indent 12 }}
+    {{- end }}
+    {{- if .Values.pingdelegator.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.pingdelegator.nodeSelector | indent 8 }}
+    {{- end }}
+    {{- if .Values.pingdelegator.tolerations }}
+      tolerations:
+{{ toYaml .Values.pingdelegator.tolerations | indent 8 }}
+    {{- end }}
+{{- end }}

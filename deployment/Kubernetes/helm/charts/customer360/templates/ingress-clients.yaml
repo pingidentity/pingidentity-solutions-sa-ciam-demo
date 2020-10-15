@@ -1,0 +1,107 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "customer360.name" . }}
+    helm.sh/chart: {{ include "customer360.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    {{- if .Values.global.useCases.paAsProxy.enabled }}
+    kubernetes.io/ingress.class: nginx-public-passthrough
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    {{- else }}
+    kubernetes.io/ingress.class: nginx-public
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    {{- end }}
+    nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  name: {{ .Release.Name }}-client-ingress
+spec:
+  {{- if and ( .Values.global.clientConnection.externalDNS.enabled ) (not .Values.global.useCases.paAsProxy.enabled) }}
+  tls:
+  - hosts:
+      - {{ include "customer360.hostname" . }}
+    secretName: {{ .Values.global.clientConnection.externalDNS.certificate.tlsSecretName }}
+  {{- end }}
+  rules:
+  - host: {{ include "customer360.hostname" . }}
+    http:
+      paths:
+      {{- if .Values.global.useCases.paAsProxy.enabled }}
+      # Used by ACME to collect Challenge
+      - path: /.well-known/acme-challenge/
+        #pathType: Exact
+        backend:
+          serviceName: {{ .Release.Name }}-pingaccess
+          servicePort: {{ .Values.pingaccess.service.acme.port }}
+      # All other traffic coming into PA
+      - backend:
+          serviceName: {{ .Release.Name }}-pingaccess
+          servicePort: {{ .Values.pingaccess.service.runtime.port }}
+      {{- else }}
+      # PingFederate Client Endpoints
+      # SAML \ Identity Provider
+      - path: /idp
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # SAML \ Service Provider
+      - path: /sp
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # OAuth \ Authorization Server
+      - path: /as
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # OIDC \ Discovery Endpoint
+      - path: /.well-known/openid-configuration
+        #pathType: Exact
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # OIDC JWKS
+      - path: /pf/
+        #pathType: Exact
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # Web Service Endpoint
+      - path: /ext
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: {{ .Values.pingfederate.service.engine.port }}
+      # PingDirectory
+      # Directory API
+      - path: /directory/
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingdirectory
+          servicePort: {{ .Values.pingdirectory.service.apis.port }}
+      # Consent API
+      - path: /consent/
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingdirectory
+          servicePort: {{ .Values.pingdirectory.service.apis.port }}
+      {{- if .Values.global.useCases.delegatedAdministration.enabled }}
+      # Delegated Admin paths
+      - path: /dadmin/
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-pingdirectory
+          servicePort: {{ .Values.pingdirectory.service.apis.port }}
+      - path: /delegator/
+        #pathType: Prefix
+        backend:
+          serviceName: {{ .Release.Name }}-{{ include "pingdelegator.name" .}}
+          servicePort: {{ .Values.pingdelegator.service.runtime.port }}
+      {{- end }}
+      {{- end }}
