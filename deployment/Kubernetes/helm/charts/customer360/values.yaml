@@ -68,6 +68,8 @@ global:
   useCases:
     # Add PingAccess proxy deployment for all Client traffic, instead of Ingress 
     paAsProxy:
+      # If enabled, create your `externalHostname` DNS record as a CNAME to `pa.ping-demos.com`
+      # This will send traffic through the `nginx-public-passthrough` Ingress IP
       enabled: false
       ## Set TRUSTED_CERT to `true` if you want a Let's Encrypt Cert
       ## (Leave to `false` while testing - so you don't trip LE rate limits)

@@ -17,13 +17,13 @@ Helm is a package deployment tool for Kubernetes. It can be used with [Customer3
 3. Add Helm Repo
 
     ```shell
-    helm repo add pingidentity-solutions https://cprice-ping.github.io/pingidentity-solutions-helm/
+    helm repo add ping-solutions https://helm.pingidentity.com/solutions
     ```
 
 4. List Ping Solutions Charts
 
     ```shell
-    helm search repo pingidentity-solutions
+    helm search repo ping-solutions
     ```
 
 5. Update local machine with latest charts
@@ -49,7 +49,7 @@ Helm is a package deployment tool for Kubernetes. It can be used with [Customer3
 7. Install Customer360
 
     ```shell
-    helm install {{Release Name}} pingidentity-solutions/customer360 -f values.yaml
+    helm install {{Release Name}} ping-solutions/customer360 -f values.yaml
     ```
 
 ## Accessing Deployments
