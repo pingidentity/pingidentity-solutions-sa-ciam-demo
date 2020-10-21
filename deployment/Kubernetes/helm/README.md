@@ -5,7 +5,7 @@ Helm is a package deployment tool for Kubernetes. It can be used with [Customer3
 1. Inject your Ping Devops information into your k8s namespace
 
     ```shell
-    ping-devops generate devops-secret | kubectl -apply -f -
+    ping-devops generate devops-secret | kubectl apply -f -
     ```
 
 2. Install Helm
