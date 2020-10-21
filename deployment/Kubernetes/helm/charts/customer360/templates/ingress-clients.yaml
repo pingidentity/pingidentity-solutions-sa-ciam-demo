@@ -19,10 +19,10 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
   name: {{ .Release.Name }}-client-ingress
 spec:
-  {{- if and ( .Values.global.clientConnection.externalDNS.enabled ) (not .Values.global.useCases.paAsProxy.enabled) }}
   tls:
   - hosts:
       - {{ include "customer360.hostname" . }}
+  {{- if and ( .Values.global.clientConnection.externalDNS.enabled ) (not .Values.global.useCases.paAsProxy.enabled) }}
     secretName: {{ .Values.global.clientConnection.externalDNS.certificate.tlsSecretName }}
   {{- end }}
   rules:
