@@ -1,34 +1,3 @@
-# helm upgrade --install {{release-name}} -f ./values.yaml
-
-# Default values for Customer360.
-global:
-  # PingOne Service Details
-  pingOne:
-    # Set to `true` if you are supplying your PingOne details 
-    usePingOneServices: true
-    # This configures the proper endpoints for My Ping and PingOne Service IKs
-    # PingOne Regions - "NA" | "EU" | "AP"
-    envRegion: "NA"
-    # If using My Ping - enter the details for the Admin SSO Connection here
-    # https://github.com/cprice-ping/Customer360/blob/main/docs/sso-myping.md
-    adminConsole:
-      # Set to `true` to enable My Ping - if `false`, Admin consoles will use LDAP (PF \ PD) or Native (PC \ PA)
-      useMyPing: false
-      envId: "YourAdminAuthNEnvId"
-      adminAppId: "YourAdminAuthNApp"
-      adminAppSecret: "YourAdminAuthNSecret"
-    # This section if for the PingOne Service(s) details
-    environment:
-      # PingOne EnvID that PF will be connected to
-      envId: "YourP1EnvID"
-      # PF Worker App (Configured in Connections --> Ping Platform)
-      pfWorkerId: "YourPFWorkerAppID"
-      pfWorkerSecret: "YourPFWorkerAppSecret"
-      # Native App used by the PingOne MFA IK to do User MFA flows
-      mfaAppId: "YourMfaAppID"
-      mfaAppSecret: "YourMfaAppSecret"
-      mfaPopId: "YourMfaUserPopulationID"
-
 ## Product Specific values
 # DevOps Keys and \ or License files can be applied to the container
 # License files should be injected into your kubernetes namespace as secrets:

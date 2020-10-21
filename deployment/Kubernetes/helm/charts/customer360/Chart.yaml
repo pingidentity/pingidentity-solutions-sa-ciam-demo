@@ -25,7 +25,8 @@ type: application
 # 0.2.6 - switching `useCompass` to `useMyPing`
 # 0.2.7 - switching repo to Ping official
 # 0.2.8 - refining logic and instructions for "PA as Proxy"
-version: 0.2.8
+# 0.3.0 - refreshing dependancies to Ping official charts 
+version: 0.3.0
 
 # This is the version number of the application being deployed.
 appVersion: 2.1.0
@@ -33,20 +34,20 @@ appVersion: 2.1.0
 # Use PingIdentity Repo to deploy Product Services \ Deployments
 dependencies:
 - name: pingdirectory
-  version: ~0.0.5
+  version: ~0.1.0
   repository: "https://helm.pingidentity.com/devops"
-- name: pingdatasync
-  version: ~0.0.1
-  repository: "https://helm.pingidentity.com/devops"
-- name: pingfederate
-  version: ~0.0.1
-  repository: "https://helm.pingidentity.com/devops"
-- name: pingaccess
-  version: ~0.0.5
-  repository: "https://helm.pingidentity.com/devops"
-- name: pingcentral
-  version: ~0.0.7
-  repository: "https://helm.pingidentity.com/devops"
+#- name: pingdatasync
+#  version: ~0.1.0
+#  repository: "https://helm.pingidentity.com/devops"
+#- name: pingfederate
+#  version: ~0.1.0
+#  repository: "https://helm.pingidentity.com/devops"
+#- name: pingaccess
+#  version: ~0.1.0
+#  repository: "https://helm.pingidentity.com/devops"
+#- name: pingcentral
+#  version: ~0.1.0
+#  repository: "https://helm.pingidentity.com/devops"
 - name: pingdataconsole
   version: ~0.1.0
   repository: "https://helm.pingidentity.com/devops"

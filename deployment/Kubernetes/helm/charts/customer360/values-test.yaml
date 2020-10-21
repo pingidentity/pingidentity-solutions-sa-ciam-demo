@@ -1,0 +1,29 @@
+## Product Specific values
+# DevOps Keys and \ or License files can be applied to the container
+# License files should be injected into your kubernetes namespace as secrets:
+  # (Eval)   ping-devops generate license {product} | kubectl apply -f -
+  # (Real)   ping-devops generate license-secret {license file} | kubectl apply -f -
+pingfederate:
+  pingdevops:
+    license:
+      ## Accept the Ping EULA -- "YES" | (default) "NO" (Note: this will not allow Products to launch)
+      acceptEULA: "YES"
+
+pingdirectory:
+  pingdevops:
+    license:
+      acceptEULA: "YES"
+
+pingdatasync:
+  pingdevops:
+    # Variables used to determine licensing for the stack
+    license:
+      ## Accept the Ping EULA -- "YES" | (default) "NO" (Note: this will not allow Products to launch)
+      acceptEULA: "YES"
+
+pingcentral:
+  pingdevops:
+    # Variables used to determine licensing for the stack
+    license:
+      ## Accept the Ping EULA -- "YES" | (default) "NO" (Note: this will not allow Products to launch)
+      acceptEULA: "YES"

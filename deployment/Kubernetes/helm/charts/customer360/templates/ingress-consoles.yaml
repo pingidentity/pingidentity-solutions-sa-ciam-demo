@@ -36,22 +36,13 @@ spec:
        - backend:
           serviceName: {{ .Release.Name }}-pingdataconsole
           servicePort: {{ .Values.pingdataconsole.service.http.port }}
-  # This rule gives external access to the PingDirectory APIs
+  # This rule gives external access to the PingDirectory Config API
   - host: pingdirectory-{{ .Release.Name }}.ping-devops.com
     http:
       paths:
-       #- path: /config/
        - backend:
            serviceName: {{ .Release.Name }}-pingdirectory
            servicePort: {{ .Values.pingdirectory.service.https.port }}
-       #- path: /directory/
-       #  backend:
-       #    serviceName: {{ .Release.Name }}-pingdirectory
-       #    servicePort: {{ .Values.pingdirectory.service.apis.port }}
-       #- path: /consent/
-       #  backend:
-       #    serviceName: {{ .Release.Name }}-pingdirectory
-       #    servicePort: {{ .Values.pingdirectory.service.apis.port }}
   # This rule gives external access to the PingCentral Admin Console
   - host: pingcentral-{{ .Release.Name }}.ping-devops.com
     http:
