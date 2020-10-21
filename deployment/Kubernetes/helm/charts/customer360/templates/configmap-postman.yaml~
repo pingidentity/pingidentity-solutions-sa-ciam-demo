@@ -131,7 +131,7 @@ data:
             }{{ end }}{{ if .Values.global.useCases.delegatedAdministration.enabled }},
             {
                 "key": "delegatorApp",
-                "value": "{{ .Release.Name }}-delegator:{{ .Values.pingdelegator.service.runtime.port }}",
+                "value": "{{ .Release.Name }}-pingdelegator:{{ .Values.pingdelegator.service.runtime.port }}",
                 "enabled": true
             },
             {

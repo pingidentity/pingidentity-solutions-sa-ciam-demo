@@ -1,21 +1,9 @@
 dependencies:
 - name: pingdirectory
   repository: https://helm.pingidentity.com/devops
-  version: 0.0.9
-- name: pingdatasync
-  repository: https://helm.pingidentity.com/devops
-  version: 0.0.3
-- name: pingfederate
-  repository: https://helm.pingidentity.com/devops
-  version: 0.0.4
-- name: pingaccess
-  repository: https://helm.pingidentity.com/devops
-  version: 0.0.6
-- name: pingcentral
-  repository: https://helm.pingidentity.com/devops
-  version: 0.0.19
+  version: 0.1.0
 - name: pingdataconsole
   repository: https://helm.pingidentity.com/devops
-  version: 0.1.2
-digest: sha256:bd5b865ef0288d5f438265cc3798a91e811ce41ff5cd2d9e7253f155abbbff22
-generated: "2020-10-14T08:37:27.76751-07:00"
+  version: 0.1.0
+digest: sha256:91fab335b202bac58efc1e616b4e35595227480392642131e351eeb62afa7066
+generated: "2020-10-19T10:22:11.057561-07:00"
