@@ -1,59 +1,57 @@
 {
-	"id": "40199d03-d15c-47e4-b502-8b62f98479d1",
-	"name": "Solution-Customer360",
-	"values": [
-		{
-			"key": "pfBaseURL",
-			"value": "https://symplr.ping-eng.com",
-			"enabled": true
-		},
-		{
-			"key": "delegatorHost",
-			"value": "symplr.ping-eng.com",
-			"enabled": true
-		},
-		{
-			"key": "paVirtualHost",
-			"value": "symplr.ping-eng.com",
-			"enabled": true
-		},
-		{
-			"key": "pingOneEnvId",
-			"value": "230d257f-c803-4436-a852-760729a902a3",
-			"enabled": true
-		},
-		{
-			"key": "mfaAppId",
-			"value": "cab48f66-10c3-44f8-8193-e0d58f143183",
-			"enabled": true
-		},
-		{
-			"key": "mfaAppSecret",
-			"value": "-.VJmx_GuAJNqyMLqdSZcuPnObDHvGXIFSegjSPwdThxB5UapX5Mobq9cu_jZccB",
-			"enabled": true
-		},
-		{
-			"key": "pfWorkerId",
-			"value": "5b8b1d5b-6830-4e91-b375-743378fc6635",
-			"enabled": true
-		},
-		{
-			"key": "pfWorkerSecret",
-			"value": "0ImJBzNjvHHL1M_FsthHoI2dLwOWaX-oruOUk4YNFDNACC7QqZfJ9t_ObbPoJ8tm",
-			"enabled": true
-		},
-		{
-			"key": "pingOneAuthNURL",
-			"value": "https://auth.pingone.com/",
-			"enabled": true
-		},
-		{
-			"key": "pingOneMgmtURL",
-			"value": "https://api.pingone.com/v1/",
-			"enabled": true
-		},
-
-
-	]
-	"_postman_variable_scope": "environment"
+   "id":"40199d03-d15c-47e4-b502-8b62f98479d1",
+   "name":"Solution-Customer360",
+   "values":[
+      {
+         "key":"pfBaseURL",
+         "value":"https://symplr.ping-eng.com",
+         "enabled":true
+      },
+      {
+         "key":"delegatorHost",
+         "value":"symplr.ping-eng.com",
+         "enabled":true
+      },
+      {
+         "key":"paVirtualHost",
+         "value":"symplr.ping-eng.com",
+         "enabled":true
+      },
+      {
+         "key":"pingOneEnvId",
+         "value":"230d257f-c803-4436-a852-760729a902a3",
+         "enabled":true
+      },
+      {
+         "key":"mfaAppId",
+         "value":"cab48f66-10c3-44f8-8193-e0d58f143183",
+         "enabled":true
+      },
+      {
+         "key":"mfaAppSecret",
+         "value":"-.VJmx_GuAJNqyMLqdSZcuPnObDHvGXIFSegjSPwdThxB5UapX5Mobq9cu_jZccB",
+         "enabled":true
+      },
+      {
+         "key":"pfWorkerId",
+         "value":"5b8b1d5b-6830-4e91-b375-743378fc6635",
+         "enabled":true
+      },
+      {
+         "key":"pfWorkerSecret",
+         "value":"0ImJBzNjvHHL1M_FsthHoI2dLwOWaX-oruOUk4YNFDNACC7QqZfJ9t_ObbPoJ8tm",
+         "enabled":true
+      },
+      {
+         "key":"pingOneAuthNURL",
+         "value":"https://auth.pingone.com/",
+         "enabled":true
+      },
+      {
+         "key":"pingOneMgmtURL",
+         "value":"https://api.pingone.com/v1/",
+         "enabled":true
+      }
+   ],
+   "_postman_variable_scope":"environment"
 }
