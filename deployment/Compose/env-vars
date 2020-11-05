@@ -8,7 +8,7 @@ PF_LOG_LEVEL=DEBUG
 PD_LDAP_SERVICE=pingdirectory:389
 ##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
-PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
+PF_ADMIN_MODE=OIDC
 PF_ADMIN_TITLE=SymplrPF
 
 # Used in OIDC `redirect_uri`
@@ -39,8 +39,8 @@ PING_CENTRAL_LOG_LEVEL=DEBUG
 # Admin Console OIDC
 #
 # P14C \ Compass
-ADMIN_CLIENT_ID=5b8b1d5b-6830-4e91-b375-743378fc6635
-ADMIN_CLIENT_SECRET=0ImJBzNjvHHL1M_FsthHoI2dLwOWaX-oruOUk4YNFDNACC7QqZfJ9t_ObbPoJ8tm
+ADMIN_CLIENT_ID=4b6b7af5-26b5-41c2-bb7c-bba77fc83151
+ADMIN_CLIENT_SECRET=F.9OiGYulWtdUsCer5A.JYv5WtZM5kSqyseOdCK20m.5kcnPOuM-xoFr_VZwzTwp
 ADMIN_CLIENT_ISSUER=https://auth.pingone.com/230d257f-c803-4436-a852-760729a902a3/as
 #
 # PF OIDC doesn't use .well-known to configure...
