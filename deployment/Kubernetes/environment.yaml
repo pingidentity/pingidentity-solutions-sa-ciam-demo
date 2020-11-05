@@ -7,7 +7,7 @@ data:
   #
   PF_LOG_LEVEL: DEBUG
   PF_USER_PWD: 2FederateM0re
-  PF_ADMIN_HOSTNAME: pingfederate-cusmorg.ping-devops.com
+  PF_ADMIN_HOSTNAME: pingfederate-symplr.ping-devops.com
   PF_ADMIN_PORT: "443"
   PF_ADMIN_MODE: "OIDC"
   # Used by PD DelAdmin Template

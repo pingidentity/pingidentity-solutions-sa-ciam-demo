@@ -6,7 +6,7 @@
 
 // The hostname for the public Ping Federate instance used with this app.
 // DEFAULT: window.PF_HOST = 'localhost';
-window.PF_HOST = 'cusmorg.ping-eng.com';
+window.PF_HOST = 'symplr.ping-eng.com';
 
 // The port for the public Ping Federate instance used with this app.
 // NOTE: If using port 443 along with a base URL with no specified port, comment this out or set to

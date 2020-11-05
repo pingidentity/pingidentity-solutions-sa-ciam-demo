@@ -4,49 +4,54 @@
 	"values": [
 		{
 			"key": "pfBaseURL",
-			"value": "https://cusmorg.ping-eng.com",
+			"value": "https://symplr.ping-eng.com",
 			"enabled": true
 		},
 		{
 			"key": "delegatorHost",
-			"value": "cusmorg.ping-eng.com",
+			"value": "symplr.ping-eng.com",
 			"enabled": true
 		},
 		{
 			"key": "paVirtualHost",
-			"value": "cusmorg.ping-eng.com",
+			"value": "symplr.ping-eng.com",
 			"enabled": true
 		},
 		{
 			"key": "pingOneEnvId",
-			"value": "4a4901a1-e872-40c4-a03a-0cc70be0c982",
+			"value": "230d257f-c803-4436-a852-760729a902a3",
 			"enabled": true
 		},
 		{
 			"key": "mfaAppId",
-			"value": "4035f7e9-8da6-448a-8deb-4b61a7c0a939",
+			"value": "cab48f66-10c3-44f8-8193-e0d58f143183",
 			"enabled": true
 		},
 		{
 			"key": "mfaAppSecret",
-			"value": "v1f62T.WmpEeQP8uO_-WEnG7CAuxZgP3g4tPNzx6GFb~-ffGsest46UgV4FjP2ie",
+			"value": "Q~l3I-BST9n.K_jQWPc1xyt5d5tgz8TbbY3QRTajGOptLg51KqqeJpz-D-3.6XHc",
 			"enabled": true
 		},
 		{
 			"key": "pfWorkerId",
-			"value": "c45c7ffd-4769-4458-8d92-4c65dfc8338d",
+			"value": "5b8b1d5b-6830-4e91-b375-743378fc6635",
 			"enabled": true
 		},
 		{
 			"key": "pfWorkerSecret",
-			"value": "TvHjEEMbKIccTBEkMWf~eJki_c4jZ0jH.4u6FMZm41mrIGtqp7Riy5GbR9_VjJki",
+			"value": "0ImJBzNjvHHL1M_FsthHoI2dLwOWaX-oruOUk4YNFDNACC7QqZfJ9t_ObbPoJ8tm",
 			"enabled": true
 		},
 		{
-			"key": "mfaPopId",
-			"value": "4361af3d-ca6d-4065-aefe-8f1d81d20662",
+			"key": "pingOneAuthNURL",
+			"value": "https://auth.pingone.com/",
 			"enabled": true
-		}
+		},
+		{
+			"key": "pingOneMgmtURL",
+			"value": "https://api.pingone.com/v1/",
+			"enabled": true
+		},
 
 
 	],
