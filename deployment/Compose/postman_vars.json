@@ -29,7 +29,7 @@
 		},
 		{
 			"key": "mfaAppSecret",
-			"value": "DrBOg4qZf4JTnhZ9hzwLhI4cht..kHu2wgTnwkMTCJaSzeGRGpdsRV_w.sSj1B92",
+			"value": "-.VJmx_GuAJNqyMLqdSZcuPnObDHvGXIFSegjSPwdThxB5UapX5Mobq9cu_jZccB",
 			"enabled": true
 		},
 		{
@@ -54,6 +54,6 @@
 		},
 
 
-	],
+	]
 	"_postman_variable_scope": "environment"
 }
