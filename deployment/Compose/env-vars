@@ -9,7 +9,7 @@ PD_LDAP_SERVICE=pingdirectory:389
 ##PF_USER_PWD=2FederateM0re
 # Configure PF for OIDC Admin SSO
 PF_ADMIN_MODE="OIDC" ## "LDAP" or "native"
-PF_ADMIN_TITLE=MainDemoPingFed
+PF_ADMIN_TITLE=SymplrPF
 
 # Used in OIDC `redirect_uri`
 PF_ADMIN_HOSTNAME=symplr.ping-eng.com
