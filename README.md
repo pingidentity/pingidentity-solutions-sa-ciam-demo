@@ -1,8 +1,8 @@
-# Solution - Customer360
+# Solution - SA CIAM Demo
 
-The Ping Identity - **Customer360** Solution provides a sample CIAM configuration for PingDirectory \ PingFederate \ PingDataSync \ PingOne MFA
+The Ping Identity - **SA CIAM Demo** Solution provides a sample CIAM configuration for PingDirectory \ PingFederate \ PingDataSync \ PingOne MFA
 
-![Solution - Customer360](Customer360.png)
+![Solution - SA CIAM Demo](Customer360.png)
 
 Prior Versions:
 
@@ -12,7 +12,7 @@ Prior Versions:
 
 ## Pre-Requisites
 
-The Customer360 stack will stand up without any pre-requisites, but will require manual configuration for MFA to work.
+The SA CIAM Demo stack will stand up without any pre-requisites, but will require manual configuration for MFA to work.
 
 The Solution can be pre-configured for Admin SSO and PingOne MFA with details for the below injected into the configuration:
 
@@ -31,8 +31,8 @@ This repo contains configuration sets for deployment:
 
 ### Deployment Configuration
 
-The bulk of the configuration is performed by a Postman API Collection:  
-[Customer360 - Postman Collection](https://documenter.getpostman.com/view/1239082/T1LQhmBu)
+The bulk of the configuration is performed by a Postman API Collection:
+[SA CIAM Demo - Postman Collection](https://documenter.getpostman.com/view/1239082/T1LQhmBu)
 
 [Post Deployment Considerations](docs/post-deployment.md)
 

@@ -18,7 +18,7 @@ spec:
       annotations:
         kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
         kompose.version: 1.21.0 ()
-  
+
       labels:
         io.kompose.service: pingdirectory
     spec:
@@ -37,7 +37,7 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingdirectory
         - name: SERVER_PROFILE_URL
-          value: https://github.com/pingidentity/Customer360.git
+          value: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
         - name: PF_BASE_URL
           valueFrom:
             configMapKeyRef:

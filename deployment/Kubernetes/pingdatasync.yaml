@@ -18,7 +18,7 @@ spec:
       annotations:
         kompose.cmd: kompose convert -f Compose/docker-compose.yaml --volumes configMap
         kompose.version: 1.21.0 ()
-  
+
       labels:
         io.kompose.service: pingdatasync
     spec:
@@ -32,7 +32,7 @@ spec:
         - name: SERVER_PROFILE_PATH
           value: pingdatasync
         - name: SERVER_PROFILE_URL
-          value: https://github.com/pingidentity/Customer360.git
+          value: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
         - name: USER_BASE_DN
           valueFrom:
             configMapKeyRef:

@@ -13,23 +13,23 @@ global:
       secretName: devops-secret
     ## Accept the Ping EULA -- "YES" | (default) "NO" (Note: this will not allow Products to launch)
     acceptEULA: "NO"
-  
+
   # Client Connection settings - by default, Ingress, DNS, Certificates are handled by k8s
   # PingAccess can be used instead by setting `useCases.paAsProxy: true` below
   clientConnection:
-    externalDNS: 
+    externalDNS:
       # Set to `true` if you want a Vanity DNS domain - otherwise it will be set to `{{release-name}}.ping-devops.com`
       enabled: false
       # Change `externalHostame` if above set to `true`
       externalHostname: "your.externalHostname.com"
-      # If you want a self-signed certificate for your `externalHostname` 
+      # If you want a self-signed certificate for your `externalHostname`
       # ping-devops generate tls-secret {{externalHostname}} | kubectl apply -f -
       certificate:
         tlsSecretName: tls-secret
 
   # PingOne Service Details
   pingOne:
-    # Set to `true` if you are supplying your PingOne details 
+    # Set to `true` if you are supplying your PingOne details
     usePingOneServices: true
     # This configures the proper endpoints for My Ping and PingOne Service IKs
     # PingOne Regions - "NA" | "EU" | "AP"
@@ -66,7 +66,7 @@ global:
 
   # Enable these to include with the base Customer360 configuration
   useCases:
-    # Add PingAccess proxy deployment for all Client traffic, instead of Ingress 
+    # Add PingAccess proxy deployment for all Client traffic, instead of Ingress
     paAsProxy:
       # If enabled, create your `externalHostname` DNS record as a CNAME to `pa.ping-demos.com`
       # This will send traffic through the `nginx-public-passthrough` Ingress IP
@@ -80,13 +80,13 @@ global:
     paAsWAM:
       enabled: false
     # Configure PD Consent API and prep PF \ PA for Privacy Dashboard
-    consentManagement: 
+    consentManagement:
       enabled: false
     # Configure PD for DelAdmin (Config and Users) and install Delegator
     # Server Profile: https://github.com/cprice-ping/Profile-DelAdmin
-    delegatedAdministration: 
+    delegatedAdministration:
       enabled: false
- 
+
   api:
     # Set to "DEBUG" if you want to see the output of the API calls being made by pingconfig
     # kubectl logs -f job/{{release name}}-pingconfig
@@ -105,7 +105,7 @@ pingdirectory:
       tag: latest
   logging: INFO
   envs:
-    SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+    SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
     SERVER_PROFILE_PATH: pingdirectory
     MAX_HEAP_SIZE: 768m
   persistentvolume:
@@ -121,7 +121,7 @@ pingfederate:
   image:
     tag: latest
   envs:
-    SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+    SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
     SERVER_PROFILE_PATH: pingfederate
   logging: INFO
   persistentvolume:
@@ -146,7 +146,7 @@ pingdatasync:
     tag: latest
   logging: INFO
   envs:
-    SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git
+    SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
     SERVER_PROFILE_PATH: pingdatasync
   #license:
     # Used if `useDevOpsKey` set to false
@@ -169,10 +169,10 @@ pingcentral:
   #tlsBlindTrust: true
   #tlsVerifyHostnames: false
   envs:
-    SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git 
+    SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
     SERVER_PROFILE_PATH: pingcentral/logging
     SERVER_PROFILE_PARENT: DATA
-    SERVER_PROFILE_DATA_URL: https://github.com/pingidentity/Customer360.git
+    SERVER_PROFILE_DATA_URL: https://github.com/pingidentity/pingidentity-solutions-sa-ciam-demo.git
     SERVER_PROFILE_DATA_PATH: pingcentral/external-mysql-db
 
 pingaccess:
@@ -199,7 +199,7 @@ pingdelegator:
 collections:
   solutions:
     customer360:
-      name: "Customer 360" 
+      name: "Customer 360"
       url: https://www.getpostman.com/collections/f1f5ffff5ddd891e720d
   useCases:
     paAsProxy:
@@ -209,9 +209,9 @@ collections:
       name: "Consent Management"
       url: https://www.getpostman.com/collections/4f27daff62383fd3f4ed
     consentEnforcement:
-      name: "Consent Enforcement" 
+      name: "Consent Enforcement"
       url: https://www.getpostman.com/collections/a1378e567df17ff15f10
-    delegatedAdministration: 
+    delegatedAdministration:
       name: "Delegated Administration"
       url: https://www.getpostman.com/collections/67c0839677fa2b0fad81
     paAsWAM:
